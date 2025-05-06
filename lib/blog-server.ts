@@ -84,6 +84,7 @@ export async function getPostData(slug: string): Promise<BlogPost> {
       slug,
       title: matterResult.data.title || '',
       date: matterResult.data.date || '',
+      lastUpdated: matterResult.data.lastUpdated || '',
       excerpt: matterResult.data.excerpt || '',
       content: contentHtml,
       category: matterResult.data.category || '',
@@ -96,6 +97,7 @@ export async function getPostData(slug: string): Promise<BlogPost> {
       slug,
       title: 'Post Not Found',
       date: '',
+      lastUpdated: '',
       excerpt: '',
       content: '<p>This post could not be found.</p>',
       category: '',
@@ -123,12 +125,12 @@ export async function getPostsByCategoryServer(category: string): Promise<BlogPo
 export async function getAllCategoriesServer(): Promise<string[]> {
   const allPosts = await getSortedPostsData();
   const categories = new Set<string>();
-  
+
   allPosts.forEach(post => {
     if (post.category) {
       categories.add(post.category);
     }
   });
-  
+
   return Array.from(categories);
 }

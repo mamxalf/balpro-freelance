@@ -2,7 +2,11 @@ import { getPostData, getAllPostSlugs } from '@/lib/blog-server';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, Calendar, Tag } from 'lucide-react';
+import { ArrowLeft, Calendar, Tag, Clock, RefreshCw } from 'lucide-react';
+import '@/app/blog/blog.css';
+import TableOfContents from '@/components/blog/table-of-contents';
+import BackToTop from '@/components/blog/back-to-top';
+import { calculateReadingTime, formatReadingTime } from '@/lib/reading-time';
 
 // Mark this as a server component
 export const dynamic = 'force-dynamic';
@@ -43,8 +47,22 @@ export default async function BlogPost({ params }: { params: { slug: string } })
     day: 'numeric',
   });
 
+  // Format last updated date if available
+  const formattedLastUpdated = post.lastUpdated
+    ? new Date(post.lastUpdated).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      })
+    : null;
+
+  // Calculate reading time
+  const readingTime = calculateReadingTime(post.content);
+  const readingTimeText = formatReadingTime(readingTime);
+
   return (
     <div className="flex min-h-screen flex-col bg-white pt-16">
+      <BackToTop />
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative">
@@ -91,18 +109,58 @@ export default async function BlogPost({ params }: { params: { slug: string } })
                     {post.category}
                   </Link>
                 </div>
+
+                <div className="flex items-center">
+                  <Clock className="mr-2 h-4 w-4" />
+                  <span>{readingTimeText}</span>
+                </div>
+
+                {formattedLastUpdated && (
+                  <div className="flex items-center">
+                    <RefreshCw className="mr-2 h-4 w-4" />
+                    <span>Updated: {formattedLastUpdated}</span>
+                  </div>
+                )}
               </div>
             </div>
           </div>
         </section>
 
         {/* Content Section */}
-        <section className="py-12 md:py-16">
+        <section className="py-12 md:py-16 bg-white">
           <div className="container mx-auto px-4 md:px-6">
-            <div className="max-w-3xl mx-auto">
-              <article className="prose prose-lg max-w-none prose-headings:text-slate-800 prose-p:text-slate-600 prose-a:text-primary prose-a:no-underline hover:prose-a:text-primary/80 prose-blockquote:border-primary/50 prose-blockquote:bg-slate-50 prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:rounded-r-md">
-                <div dangerouslySetInnerHTML={{ __html: post.content }} />
-              </article>
+            <div className="lg:grid lg:grid-cols-4 lg:gap-8">
+              {/* Table of Contents - Only visible on large screens */}
+              <div className="hidden lg:block lg:col-span-1">
+                <TableOfContents />
+              </div>
+
+              {/* Main Content */}
+              <div className="lg:col-span-3">
+                <div className="bg-white rounded-lg shadow-sm p-6 md:p-8">
+                  <article className="prose prose-lg max-w-none
+                    prose-headings:text-slate-800 prose-headings:font-bold prose-headings:mb-4 prose-headings:mt-8
+                    prose-h1:text-3xl prose-h1:mt-10 prose-h1:mb-6
+                    prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4
+                    prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3
+                    prose-p:text-slate-600 prose-p:leading-relaxed prose-p:mb-6
+                    prose-a:text-primary prose-a:font-medium prose-a:no-underline hover:prose-a:text-primary/80 hover:prose-a:underline
+                    prose-blockquote:border-l-4 prose-blockquote:border-primary/50 prose-blockquote:bg-slate-50 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:rounded-r-md prose-blockquote:italic prose-blockquote:my-6
+                    prose-ul:list-disc prose-ul:pl-6 prose-ul:my-6
+                    prose-ol:list-decimal prose-ol:pl-6 prose-ol:my-6
+                    prose-li:mb-2 prose-li:text-slate-600
+                    prose-img:rounded-lg prose-img:shadow-md prose-img:my-8
+                    prose-hr:my-10 prose-hr:border-slate-200
+                    prose-code:bg-slate-100 prose-code:text-slate-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
+                    prose-pre:bg-slate-800 prose-pre:text-slate-100 prose-pre:p-4 prose-pre:rounded-lg prose-pre:overflow-x-auto prose-pre:my-6
+                    prose-table:border-collapse prose-table:w-full prose-table:my-8
+                    prose-th:border prose-th:border-slate-300 prose-th:bg-slate-100 prose-th:p-2 prose-th:text-left
+                    prose-td:border prose-td:border-slate-300 prose-td:p-2
+                    ">
+                    <div dangerouslySetInnerHTML={{ __html: post.content }} />
+                  </article>
+                </div>
+              </div>
             </div>
           </div>
         </section>
