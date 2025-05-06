@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -10,62 +10,79 @@ import {
   PhoneIcon,
   Mail,
   MapPin,
-  Instagram,
-  Facebook,
-  Twitter,
   Menu,
   X,
   ChevronRight,
   Search,
   ArrowRight,
 } from "lucide-react";
+import {
+  fetchAllCategories,
+  fetchFeaturedPosts,
+  fetchRecentPosts
+} from "@/lib/blog-client";
+import { BlogPost } from "@/lib/blog-types";
 
 export default function BlogPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [categories, setCategories] = useState<string[]>([]);
+  const [featuredPosts, setFeaturedPosts] = useState<BlogPost[]>([]);
+  const [recentPosts, setRecentPosts] = useState<BlogPost[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 6; // Reduced to 3 to ensure multiple pages with our sample content
 
-  const categories = [
-    "Wedding Planning",
-    "Venues",
-    "Decor & Styling",
-    "Photography",
-    "Wedding Fashion",
-    "Food & Catering",
-    "Real Weddings",
-  ];
+  useEffect(() => {
+    // Fetch data from API
+    const fetchData = async () => {
+      try {
+        const [categoriesData, featuredData, recentData] = await Promise.all([
+          fetchAllCategories(),
+          fetchFeaturedPosts(),
+          fetchRecentPosts()
+        ]);
 
-  const featuredPosts = [
-    {
-      title:
-        "The Ultimate Wedding Planning Timeline: 12 Months to Your Big Day",
-      excerpt:
-        "Planning a wedding can be overwhelming, but with the right timeline, you can stay organized and stress-free. Here's our month-by-month guide to help you plan your perfect wedding day.",
-      category: "Wedding Planning",
-      date: "May 4, 2025",
-      image: "/placeholder.svg?height=500&width=800&text=Featured+Post",
-      slug: "wedding-planning-timeline",
-    },
-    {
-      title: "2025 Wedding Trends: What's Hot and What's Not",
-      excerpt:
-        "From sustainable celebrations to personalized experiences, discover the top wedding trends for 2025 that will make your special day unforgettable and uniquely yours.",
-      category: "Wedding Trends",
-      date: "April 28, 2025",
-      image: "/placeholder.svg?height=500&width=800&text=Featured+Post",
-      slug: "wedding-trends-2025",
-    },
-  ];
+        setCategories(categoriesData);
+        setFeaturedPosts(featuredData);
+        setRecentPosts(recentData);
+      } catch (error) {
+        console.error('Error fetching blog data:', error);
+        // Set empty arrays as fallback
+        setCategories([]);
+        setFeaturedPosts([]);
+        setRecentPosts([]);
+      }
+    };
 
-  const recentPosts = Array(6)
-    .fill(null)
-    .map((_, i) => ({
-      title: "How to Choose the Perfect Wedding Flowers for Your Season",
-      excerpt:
-        "Selecting the right flowers for your wedding can enhance your theme and create a magical atmosphere. Learn how to choose seasonal blooms that will make your wedding truly special.",
-      category: "Wedding Tips",
-      date: `May ${i + 1}, 2025`,
-      image: `/placeholder.svg?height=300&width=500&text=Blog+${i + 1}`,
-      slug: `post-${i + 1}`,
-    }));
+    fetchData();
+  }, []);
+
+  // Filter posts based on search query
+  const filteredRecentPosts = searchQuery
+    ? recentPosts.filter(post =>
+        post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        post.category.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    : recentPosts;
+
+  // Calculate pagination
+  const totalPages = Math.ceil(filteredRecentPosts.length / postsPerPage);
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = filteredRecentPosts.slice(indexOfFirstPost, indexOfLastPost);
+
+  // Reset to page 1 when search query changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery]);
+
+  // Log when current page changes
+  useEffect(() => {
+    console.log("Current page changed to:", currentPage);
+    console.log("Showing posts:", indexOfFirstPost, "to", indexOfLastPost);
+    console.log("Current posts:", currentPosts.length);
+  }, [currentPage, indexOfFirstPost, indexOfLastPost, currentPosts.length]);
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
@@ -259,12 +276,21 @@ export default function BlogPage() {
               </p>
 
               <div className="relative max-w-md mx-auto">
-                <Input
-                  type="search"
-                  placeholder="Search articles..."
-                  className="pl-12 pr-4 py-3 rounded-full"
-                />
-                <Search className="absolute left-4 top-3 h-5 w-5 text-muted-foreground" />
+                <div className="relative">
+                  <Input
+                    type="search"
+                    placeholder="Search articles..."
+                    className="pl-12 pr-4 py-3 rounded-full border-primary/20 focus-visible:ring-primary/30"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                  />
+                  <Search className="absolute left-4 top-3 h-5 w-5 text-primary/60" />
+                </div>
+                {searchQuery && (
+                  <div className="mt-2 text-sm text-muted-foreground">
+                    Showing results for: <span className="font-medium text-primary">{searchQuery}</span>
+                  </div>
+                )}
               </div>
             </motion.div>
           </div>
@@ -362,7 +388,7 @@ export default function BlogPage() {
                       href={`/blog/category/${category
                         .toLowerCase()
                         .replace(/\s+/g, "-")}`}
-                      className="px-5 py-2 bg-white rounded-full border text-sm hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
+                      className="px-5 py-2 bg-white rounded-full border border-primary/20 text-sm hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 shadow-sm hover:shadow"
                     >
                       {category}
                     </Link>
@@ -388,7 +414,7 @@ export default function BlogPage() {
             </motion.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {recentPosts.map((post, index) => (
+              {currentPosts.map((post, index) => (
                 <motion.div
                   key={index}
                   className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
@@ -434,60 +460,89 @@ export default function BlogPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <nav className="flex items-center gap-2">
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="rounded-full"
-                  disabled
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-4 w-4"
+
+              {filteredRecentPosts.length > 0 && (
+                <nav className="flex items-center gap-2">
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="rounded-full"
+                    onClick={() => {
+                      if (currentPage > 1) {
+                        console.log("Moving to previous page:", currentPage - 1);
+                        setCurrentPage(currentPage - 1);
+                      }
+                    }}
+                    disabled={currentPage === 1}
+                    aria-label="Previous page"
                   >
-                    <path d="m15 18-6-6 6-6" />
-                  </svg>
-                  <span className="sr-only">Previous page</span>
-                </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="rounded-full bg-primary text-white hover:bg-primary/90 border-primary"
-                >
-                  1
-                </Button>
-                <Button variant="outline" size="sm" className="rounded-full">
-                  2
-                </Button>
-                <Button variant="outline" size="sm" className="rounded-full">
-                  3
-                </Button>
-                <Button variant="outline" size="icon" className="rounded-full">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-4 w-4"
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="h-4 w-4"
+                    >
+                      <path d="m15 18-6-6 6-6" />
+                    </svg>
+                    <span className="sr-only">Previous page</span>
+                  </Button>
+
+                  {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                    <Button
+                      key={page}
+                      variant="outline"
+                      size="sm"
+                      className={`rounded-full ${
+                        currentPage === page
+                          ? "bg-primary text-white hover:bg-primary/90 border-primary"
+                          : ""
+                      }`}
+                      onClick={() => {
+                        console.log("Moving to page:", page);
+                        setCurrentPage(page);
+                      }}
+                    >
+                      {page}
+                    </Button>
+                  ))}
+
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="rounded-full"
+                    onClick={() => {
+                      if (currentPage < totalPages) {
+                        console.log("Moving to next page:", currentPage + 1);
+                        setCurrentPage(currentPage + 1);
+                      }
+                    }}
+                    disabled={currentPage === totalPages}
+                    aria-label="Next page"
                   >
-                    <path d="m9 18 6-6-6-6" />
-                  </svg>
-                  <span className="sr-only">Next page</span>
-                </Button>
-              </nav>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="h-4 w-4"
+                    >
+                      <path d="m9 18 6-6-6-6" />
+                    </svg>
+                    <span className="sr-only">Next page</span>
+                  </Button>
+                </nav>
+              )}
             </motion.div>
           </div>
         </section>
@@ -559,21 +614,29 @@ export default function BlogPage() {
                   aria-label="Instagram"
                   className="bg-white/10 hover:bg-primary/20 p-2.5 rounded-full transition-all duration-300 hover:scale-110"
                 >
-                  <Instagram className="h-5 w-5 text-white" />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-white">
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                  </svg>
                 </Link>
                 <Link
                   href="#"
                   aria-label="Facebook"
                   className="bg-white/10 hover:bg-primary/20 p-2.5 rounded-full transition-all duration-300 hover:scale-110"
                 >
-                  <Facebook className="h-5 w-5 text-white" />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-white">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                  </svg>
                 </Link>
                 <Link
                   href="#"
                   aria-label="Twitter"
                   className="bg-white/10 hover:bg-primary/20 p-2.5 rounded-full transition-all duration-300 hover:scale-110"
                 >
-                  <Twitter className="h-5 w-5 text-white" />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-white">
+                    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+                  </svg>
                 </Link>
               </div>
             </div>
