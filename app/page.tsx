@@ -26,10 +26,17 @@ import {
   ArrowRight,
   MessageCircle,
 } from "lucide-react";
+import { portfolioItems } from "./portfolio/page";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
+  
+  // Select only 8 specific images for the slideshow
+  const slideshowImages = portfolioItems.slice(0, 8);
+  const [activePortfolioItems, setActivePortfolioItems] = useState(
+    slideshowImages.slice(0, 4)
+  );
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -62,10 +69,29 @@ export default function Home() {
   ];
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    // Testimonial rotation
+    const testimonialInterval = setInterval(() => {
       setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
     }, 5000);
-    return () => clearInterval(interval);
+
+    // Portfolio image rotation - every 5 seconds
+    const portfolioInterval = setInterval(() => {
+      setActivePortfolioItems((prevItems) => {
+        // Create a new array with shuffled items from our limited set
+        const allItems = [...slideshowImages];
+        // Fisher-Yates shuffle algorithm
+        for (let i = allItems.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [allItems[i], allItems[j]] = [allItems[j], allItems[i]];
+        }
+        return allItems.slice(0, 4);
+      });
+    }, 5000);
+
+    return () => {
+      clearInterval(testimonialInterval);
+      clearInterval(portfolioInterval);
+    };
   }, [testimonials.length]);
 
   return (
@@ -640,34 +666,36 @@ export default function Home() {
             </motion.div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {[...Array(8)].map((_, index) => (
+              {activePortfolioItems.map((item, index) => (
                 <motion.div
-                  key={index}
+                  key={`${item.src}-${index}`}
                   className={`relative ${
                     index === 0 || index === 3
                       ? "md:col-span-2 md:row-span-2"
                       : ""
                   } rounded-xl overflow-hidden`}
                   initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6 }}
                 >
-                  <div className="aspect-square md:aspect-auto md:h-full w-full">
+                  <div
+                    className={`${
+                      index === 0 || index === 3
+                        ? "aspect-[4/3]"
+                        : "aspect-square"
+                    } w-full relative`}
+                  >
                     <Image
-                      src={`/placeholder.svg?height=600&width=600&text=Wedding+${
-                        index + 1
-                      }`}
-                      alt={`Wedding portfolio ${index + 1}`}
+                      src={item.src}
+                      alt={item.title}
                       fill
-                      className="object-cover"
+                      className="object-cover w-full h-full"
+                      sizes="(max-width: 768px) 50vw, 25vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                      <h3 className="text-white font-medium">
-                        Wedding in Bali
-                      </h3>
+                      <h3 className="text-white font-medium">{item.title}</h3>
                       <p className="text-white/80 text-sm">
-                        A beautiful celebration of love
+                        {item.description}
                       </p>
                     </div>
                   </div>
