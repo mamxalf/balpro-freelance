@@ -1,12 +1,17 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  AnimatePresence,
+} from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import {
   PhoneIcon,
   Mail,
@@ -20,20 +25,20 @@ import {
   ChevronRight,
   ArrowRight,
   MessageCircle,
-} from "lucide-react"
+} from "lucide-react";
 
 export default function Home() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [activeTestimonial, setActiveTestimonial] = useState(0)
-  const heroRef = useRef(null)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"],
-  })
+  });
 
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0])
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1])
-  const y = useTransform(scrollYProgress, [0, 1], [0, 100])
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
   const testimonials = [
     {
@@ -43,7 +48,8 @@ export default function Home() {
       location: "Bali, June 2024",
     },
     {
-      quote: "Working with Balpro was the best decision we made. They created an atmosphere of pure elegance and joy.",
+      quote:
+        "Working with Balpro was the best decision we made. They created an atmosphere of pure elegance and joy.",
       couple: "Emma & James",
       location: "Santorini, May 2024",
     },
@@ -53,14 +59,14 @@ export default function Home() {
       couple: "Olivia & William",
       location: "Lake Como, April 2024",
     },
-  ]
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveTestimonial((prev) => (prev + 1) % testimonials.length)
-    }, 5000)
-    return () => clearInterval(interval)
-  }, [testimonials.length])
+      setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [testimonials.length]);
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
@@ -72,21 +78,37 @@ export default function Home() {
             <div className="flex items-center space-x-6">
               <div className="flex items-center space-x-1">
                 <PhoneIcon className="h-3 w-3 text-primary/70" />
-                <span className="hover:text-primary transition-colors">+1 (555) 123-4567</span>
+                <span className="hover:text-primary transition-colors">
+                  +1 (555) 123-4567
+                </span>
               </div>
               <div className="flex items-center space-x-1">
                 <Mail className="h-3 w-3 text-primary/70" />
-                <span className="hover:text-primary transition-colors">info@balpro.com</span>
+                <span className="hover:text-primary transition-colors">
+                  info@balpro.id
+                </span>
               </div>
             </div>
             <div className="flex items-center space-x-4">
-              <a href="#" className="hover:text-primary transition-colors" aria-label="Instagram">
+              <a
+                href="#"
+                className="hover:text-primary transition-colors"
+                aria-label="Instagram"
+              >
                 <Instagram className="h-3.5 w-3.5" />
               </a>
-              <a href="#" className="hover:text-primary transition-colors" aria-label="Facebook">
+              <a
+                href="#"
+                className="hover:text-primary transition-colors"
+                aria-label="Facebook"
+              >
                 <Facebook className="h-3.5 w-3.5" />
               </a>
-              <a href="#" className="hover:text-primary transition-colors" aria-label="Twitter">
+              <a
+                href="#"
+                className="hover:text-primary transition-colors"
+                aria-label="Twitter"
+              >
                 <Twitter className="h-3.5 w-3.5" />
               </a>
             </div>
@@ -107,9 +129,13 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <span className="text-2xl font-serif tracking-wider text-primary group-hover:text-primary/80 transition-colors duration-300">Balpro</span>
+              <span className="text-2xl font-serif tracking-wider text-primary group-hover:text-primary/80 transition-colors duration-300">
+                Balpro
+              </span>
               <div className="h-px w-0 bg-primary absolute -bottom-1 left-0 group-hover:w-full transition-all duration-500"></div>
-              <span className="text-[10px] tracking-widest text-gray-500 absolute -bottom-4 left-1/2 transform -translate-x-1/2 whitespace-nowrap">WEDDING ORGANIZER</span>
+              <span className="text-[10px] tracking-widest text-gray-500 absolute -bottom-4 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
+                WEDDING ORGANIZER
+              </span>
             </motion.div>
           </Link>
 
@@ -157,10 +183,10 @@ export default function Home() {
             </motion.div>
 
             {/* Mobile menu button with elegant styling */}
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              className="relative md:hidden hover:bg-primary/5 transition-colors duration-300" 
+            <Button
+              variant="ghost"
+              size="icon"
+              className="relative md:hidden hover:bg-primary/5 transition-colors duration-300"
               onClick={() => setIsMenuOpen(true)}
             >
               <Menu className="h-5 w-5 text-gray-700" />
@@ -183,23 +209,31 @@ export default function Home() {
             {/* Mobile nav header with decorative elements */}
             <div className="relative flex justify-between items-center mb-10 pb-4 border-b border-primary/10">
               <div className="absolute top-0 left-0 h-px w-20 bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
-              
-              <Link href="/" className="flex items-center group" onClick={() => setIsMenuOpen(false)}>
-                <span className="text-2xl font-serif tracking-wider text-primary">Balpro</span>
-                <span className="text-[10px] tracking-widest text-gray-500 absolute top-8 left-2 whitespace-nowrap">WEDDING ORGANIZER</span>
+
+              <Link
+                href="/"
+                className="flex items-center group"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <span className="text-2xl font-serif tracking-wider text-primary">
+                  Balpro
+                </span>
+                <span className="text-[10px] tracking-widest text-gray-500 absolute top-8 left-2 whitespace-nowrap">
+                  WEDDING ORGANIZER
+                </span>
               </Link>
-              
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className="hover:bg-primary/5 transition-colors duration-300 rounded-full" 
+
+              <Button
+                variant="ghost"
+                size="icon"
+                className="hover:bg-primary/5 transition-colors duration-300 rounded-full"
                 onClick={() => setIsMenuOpen(false)}
               >
                 <X className="h-5 w-5 text-gray-700" />
                 <span className="sr-only">Close menu</span>
               </Button>
             </div>
-            
+
             {/* Mobile nav links with animations */}
             <nav className="flex flex-col space-y-5">
               {[
@@ -222,7 +256,9 @@ export default function Home() {
                     onClick={() => setIsMenuOpen(false)}
                   >
                     <span className="flex items-center">
-                      <span className="mr-3 text-base opacity-70">{item.icon}</span>
+                      <span className="mr-3 text-base opacity-70">
+                        {item.icon}
+                      </span>
                       {item.name}
                     </span>
                     <motion.span
@@ -235,7 +271,7 @@ export default function Home() {
                 </motion.div>
               ))}
             </nav>
-            
+
             {/* Contact info section in mobile menu */}
             <div className="mt-auto pt-8">
               <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 mb-6 shadow-sm border border-primary/5">
@@ -250,11 +286,11 @@ export default function Home() {
                   </div>
                   <div className="flex items-center">
                     <Mail className="h-3.5 w-3.5 text-primary/70 mr-2" />
-                    <span>info@balpro.com</span>
+                    <span>info@balpro.id</span>
                   </div>
                 </div>
               </div>
-              
+
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -281,12 +317,14 @@ export default function Home() {
         {/* Hero Section */}
         <section ref={heroRef} className="relative h-[100vh] overflow-hidden">
           <motion.div className="absolute inset-0" style={{ scale, opacity }}>
-            <Image
-              src="/placeholder.svg?height=1080&width=1920"
-              alt="Elegant wedding scene"
-              fill
-              className="object-cover"
-              priority
+            <video
+              src="/wedding_video.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="object-cover w-full h-full absolute inset-0"
+              style={{ objectFit: "cover" }}
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
           </motion.div>
@@ -310,7 +348,8 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.8 }}
               >
-                Where dreams transform into unforgettable moments, designed with elegance and executed with precision.
+                Where dreams transform into unforgettable moments, designed with
+                elegance and executed with precision.
               </motion.p>
               <motion.div
                 className="flex flex-col sm:flex-row gap-4 pt-4"
@@ -341,7 +380,9 @@ export default function Home() {
               animate={{ opacity: 1 }}
               transition={{ delay: 1, duration: 1 }}
             >
-              <span className="text-white text-sm mb-2">Scroll to discover</span>
+              <span className="text-white text-sm mb-2">
+                Scroll to discover
+              </span>
               <motion.div
                 className="w-6 h-10 border-2 border-white rounded-full flex justify-center pt-2"
                 animate={{ y: [0, 10, 0] }}
@@ -366,7 +407,9 @@ export default function Home() {
               >
                 <div className="space-y-4">
                   <div className="inline-block">
-                    <span className="text-xs uppercase tracking-widest text-primary font-medium">Our Story</span>
+                    <span className="text-xs uppercase tracking-widest text-primary font-medium">
+                      Our Story
+                    </span>
                     <div className="h-px w-20 bg-primary mt-1"></div>
                   </div>
                   <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
@@ -374,16 +417,21 @@ export default function Home() {
                   </h2>
                 </div>
                 <p className="text-lg text-muted-foreground">
-                  With over a decade of experience in wedding planning, Balpro has established itself as a premier
-                  wedding organizer, known for creating elegant, personalized celebrations that reflect each couple's
-                  unique love story.
+                  With over a decade of experience in wedding planning, Balpro
+                  has established itself as a premier wedding organizer, known
+                  for creating elegant, personalized celebrations that reflect
+                  each couple's unique love story.
                 </p>
                 <p className="text-lg text-muted-foreground">
-                  We believe that your wedding day should be as unique as your love story, which is why we work closely
-                  with you to create a celebration that truly reflects your personality and vision.
+                  We believe that your wedding day should be as unique as your
+                  love story, which is why we work closely with you to create a
+                  celebration that truly reflects your personality and vision.
                 </p>
                 <div className="pt-4">
-                  <Link href="#services" className="group inline-flex items-center text-primary font-medium">
+                  <Link
+                    href="#services"
+                    className="group inline-flex items-center text-primary font-medium"
+                  >
                     <span>Discover Our Approach</span>
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </Link>
@@ -399,7 +447,7 @@ export default function Home() {
               >
                 <div className="relative h-[600px] rounded-2xl overflow-hidden">
                   <Image
-                    src="/placeholder.svg?height=1200&width=800"
+                    src="/wedding_ring.jpg"
                     alt="Wedding couple"
                     fill
                     className="object-cover"
@@ -408,12 +456,15 @@ export default function Home() {
                 <div className="absolute -bottom-8 -left-8 bg-white p-6 rounded-xl shadow-lg max-w-xs">
                   <div className="flex items-center space-x-4 mb-3">
                     <div className="bg-primary/10 rounded-full p-2">
-                      <span className="text-primary text-xl font-bold">10+</span>
+                      <span className="text-primary text-xl font-bold">
+                        10+
+                      </span>
                     </div>
                     <h3 className="text-lg font-medium">Years of Excellence</h3>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    Creating magical moments and unforgettable experiences for hundreds of couples.
+                    Creating magical moments and unforgettable experiences for
+                    hundreds of couples.
                   </p>
                 </div>
               </motion.div>
@@ -422,7 +473,10 @@ export default function Home() {
         </section>
 
         {/* Services Section */}
-        <section id="services" className="py-24 md:py-32 bg-slate-50 overflow-hidden">
+        <section
+          id="services"
+          className="py-24 md:py-32 bg-slate-50 overflow-hidden"
+        >
           <div className="container mx-auto px-4 md:px-6">
             <motion.div
               className="text-center max-w-3xl mx-auto mb-16"
@@ -432,13 +486,18 @@ export default function Home() {
               transition={{ duration: 0.8 }}
             >
               <div className="inline-block mb-4">
-                <span className="text-xs uppercase tracking-widest text-primary font-medium">Our Services</span>
+                <span className="text-xs uppercase tracking-widest text-primary font-medium">
+                  Our Services
+                </span>
                 <div className="h-px w-20 bg-primary mt-1 mx-auto"></div>
               </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Tailored Wedding Experiences</h2>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                Tailored Wedding Experiences
+              </h2>
               <p className="text-lg text-muted-foreground">
-                We offer comprehensive wedding planning services tailored to your unique vision and requirements,
-                ensuring every detail is meticulously planned and flawlessly executed.
+                We offer comprehensive wedding planning services tailored to
+                your unique vision and requirements, ensuring every detail is
+                meticulously planned and flawlessly executed.
               </p>
             </motion.div>
 
@@ -494,11 +553,17 @@ export default function Home() {
                 >
                   <div className="h-12 flex items-center">
                     <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                      <span className="text-primary font-bold">{index + 1}</span>
+                      <span className="text-primary font-bold">
+                        {index + 1}
+                      </span>
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold mt-6 mb-4">{service.title}</h3>
-                  <p className="text-muted-foreground mb-6">{service.description}</p>
+                  <h3 className="text-xl font-bold mt-6 mb-4">
+                    {service.title}
+                  </h3>
+                  <p className="text-muted-foreground mb-6">
+                    {service.description}
+                  </p>
                   <ul className="space-y-3">
                     {service.features.map((feature, i) => (
                       <li key={i} className="flex items-start">
@@ -508,7 +573,12 @@ export default function Home() {
                           viewBox="0 0 24 24"
                           stroke="currentColor"
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M5 13l4 4L19 7"
+                          />
                         </svg>
                         <span className="text-sm">{feature}</span>
                       </li>
@@ -555,12 +625,17 @@ export default function Home() {
               transition={{ duration: 0.8 }}
             >
               <div className="inline-block mb-4">
-                <span className="text-xs uppercase tracking-widest text-primary font-medium">Our Portfolio</span>
+                <span className="text-xs uppercase tracking-widest text-primary font-medium">
+                  Our Portfolio
+                </span>
                 <div className="h-px w-20 bg-primary mt-1 mx-auto"></div>
               </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Moments We've Crafted</h2>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                Moments We've Crafted
+              </h2>
               <p className="text-lg text-muted-foreground">
-                Explore some of our most memorable weddings and the beautiful stories behind them.
+                Explore some of our most memorable weddings and the beautiful
+                stories behind them.
               </p>
             </motion.div>
 
@@ -568,7 +643,11 @@ export default function Home() {
               {[...Array(8)].map((_, index) => (
                 <motion.div
                   key={index}
-                  className={`relative ${index === 0 || index === 3 ? "md:col-span-2 md:row-span-2" : ""} rounded-xl overflow-hidden`}
+                  className={`relative ${
+                    index === 0 || index === 3
+                      ? "md:col-span-2 md:row-span-2"
+                      : ""
+                  } rounded-xl overflow-hidden`}
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
@@ -576,14 +655,20 @@ export default function Home() {
                 >
                   <div className="aspect-square md:aspect-auto md:h-full w-full">
                     <Image
-                      src={`/placeholder.svg?height=600&width=600&text=Wedding+${index + 1}`}
+                      src={`/placeholder.svg?height=600&width=600&text=Wedding+${
+                        index + 1
+                      }`}
                       alt={`Wedding portfolio ${index + 1}`}
                       fill
                       className="object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                      <h3 className="text-white font-medium">Wedding in Bali</h3>
-                      <p className="text-white/80 text-sm">A beautiful celebration of love</p>
+                      <h3 className="text-white font-medium">
+                        Wedding in Bali
+                      </h3>
+                      <p className="text-white/80 text-sm">
+                        A beautiful celebration of love
+                      </p>
                     </div>
                   </div>
                 </motion.div>
@@ -597,7 +682,10 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <Link href="/portfolio" className="inline-flex items-center text-primary font-medium">
+              <Link
+                href="/portfolio"
+                className="inline-flex items-center text-primary font-medium"
+              >
                 <span>View Full Portfolio</span>
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
@@ -606,7 +694,10 @@ export default function Home() {
         </section>
 
         {/* Testimonials Section */}
-        <section id="testimonials" className="py-24 md:py-32 bg-slate-50 overflow-hidden">
+        <section
+          id="testimonials"
+          className="py-24 md:py-32 bg-slate-50 overflow-hidden"
+        >
           <div className="container mx-auto px-4 md:px-6">
             <motion.div
               className="text-center max-w-3xl mx-auto mb-16"
@@ -616,12 +707,17 @@ export default function Home() {
               transition={{ duration: 0.8 }}
             >
               <div className="inline-block mb-4">
-                <span className="text-xs uppercase tracking-widest text-primary font-medium">Testimonials</span>
+                <span className="text-xs uppercase tracking-widest text-primary font-medium">
+                  Testimonials
+                </span>
                 <div className="h-px w-20 bg-primary mt-1 mx-auto"></div>
               </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">What Our Couples Say</h2>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                What Our Couples Say
+              </h2>
               <p className="text-lg text-muted-foreground">
-                Hear from couples who trusted us to bring their wedding dreams to life.
+                Hear from couples who trusted us to bring their wedding dreams
+                to life.
               </p>
             </motion.div>
 
@@ -645,15 +741,23 @@ export default function Home() {
                       exit={{ opacity: 0, y: -20 }}
                       transition={{ duration: 0.5 }}
                     >
-                      <svg className="w-12 h-12 text-primary/20 mx-auto mb-6" fill="currentColor" viewBox="0 0 32 32">
+                      <svg
+                        className="w-12 h-12 text-primary/20 mx-auto mb-6"
+                        fill="currentColor"
+                        viewBox="0 0 32 32"
+                      >
                         <path d="M10 8c-3.3 0-6 2.7-6 6v10h10V14H8c0-1.1.9-2 2-2V8zm18 0c-3.3 0-6 2.7-6 6v10h10V14h-6c0-1.1.9-2 2-2V8z" />
                       </svg>
                       <p className="text-xl md:text-2xl font-light mb-6 italic">
                         "{testimonials[activeTestimonial].quote}"
                       </p>
                       <div>
-                        <p className="font-medium">{testimonials[activeTestimonial].couple}</p>
-                        <p className="text-sm text-muted-foreground">{testimonials[activeTestimonial].location}</p>
+                        <p className="font-medium">
+                          {testimonials[activeTestimonial].couple}
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                          {testimonials[activeTestimonial].location}
+                        </p>
                       </div>
                     </motion.div>
                   </AnimatePresence>
@@ -664,7 +768,11 @@ export default function Home() {
                 {testimonials.map((_, index) => (
                   <button
                     key={index}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${index === activeTestimonial ? "bg-primary w-6" : "bg-gray-300"}`}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      index === activeTestimonial
+                        ? "bg-primary w-6"
+                        : "bg-gray-300"
+                    }`}
                     onClick={() => setActiveTestimonial(index)}
                     aria-label={`Go to testimonial ${index + 1}`}
                   />
@@ -675,7 +783,10 @@ export default function Home() {
         </section>
 
         {/* Partners Section */}
-        <section id="partners" className="py-24 md:py-32 bg-white overflow-hidden">
+        <section
+          id="partners"
+          className="py-24 md:py-32 bg-white overflow-hidden"
+        >
           <div className="container mx-auto px-4 md:px-6">
             <motion.div
               className="text-center max-w-3xl mx-auto mb-16"
@@ -685,12 +796,17 @@ export default function Home() {
               transition={{ duration: 0.8 }}
             >
               <div className="inline-block mb-4">
-                <span className="text-xs uppercase tracking-widest text-primary font-medium">Our Partners</span>
+                <span className="text-xs uppercase tracking-widest text-primary font-medium">
+                  Our Partners
+                </span>
                 <div className="h-px w-20 bg-primary mt-1 mx-auto"></div>
               </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Trusted Collaborators</h2>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                Trusted Collaborators
+              </h2>
               <p className="text-lg text-muted-foreground">
-                We collaborate with the best vendors in the industry to ensure your special day is perfect.
+                We collaborate with the best vendors in the industry to ensure
+                your special day is perfect.
               </p>
             </motion.div>
 
@@ -732,12 +848,17 @@ export default function Home() {
               transition={{ duration: 0.8 }}
             >
               <div className="inline-block mb-4">
-                <span className="text-xs uppercase tracking-widest text-primary font-medium">Our Blog</span>
+                <span className="text-xs uppercase tracking-widest text-primary font-medium">
+                  Our Blog
+                </span>
                 <div className="h-px w-20 bg-primary mt-1 mx-auto"></div>
               </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Wedding Inspiration</h2>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                Wedding Inspiration
+              </h2>
               <p className="text-lg text-muted-foreground">
-                Discover wedding tips, inspiration, and real wedding stories on our blog.
+                Discover wedding tips, inspiration, and real wedding stories on
+                our blog.
               </p>
             </motion.div>
 
@@ -765,10 +886,13 @@ export default function Home() {
                       <span className="mx-2">•</span>
                       <span>Wedding Tips</span>
                     </div>
-                    <h3 className="text-xl font-medium mb-2">10 Tips for Choosing the Perfect Wedding Venue</h3>
+                    <h3 className="text-xl font-medium mb-2">
+                      10 Tips for Choosing the Perfect Wedding Venue
+                    </h3>
                     <p className="text-muted-foreground text-sm line-clamp-3 mb-4">
-                      Finding the right venue is one of the most important decisions you'll make when planning your
-                      wedding. Here are our top tips to help you choose the perfect location.
+                      Finding the right venue is one of the most important
+                      decisions you'll make when planning your wedding. Here are
+                      our top tips to help you choose the perfect location.
                     </p>
                     <Link
                       href="/blog/wedding-venue-tips"
@@ -800,7 +924,10 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-24 md:py-32 bg-white relative overflow-hidden">
+        <section
+          id="contact"
+          className="py-24 md:py-32 bg-white relative overflow-hidden"
+        >
           {/* Decorative elements */}
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
           <div className="absolute top-20 right-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
@@ -815,12 +942,17 @@ export default function Home() {
               transition={{ duration: 0.8 }}
             >
               <div className="inline-block mb-4">
-                <span className="text-xs uppercase tracking-widest text-primary font-medium">Get In Touch</span>
+                <span className="text-xs uppercase tracking-widest text-primary font-medium">
+                  Get In Touch
+                </span>
                 <div className="h-px w-20 bg-primary mt-1 mx-auto"></div>
               </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Let's Create Your Dream Wedding</h2>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                Let's Create Your Dream Wedding
+              </h2>
               <p className="text-lg text-muted-foreground">
-                Ready to start planning your perfect day? We'd love to hear about your vision and help bring it to life.
+                Ready to start planning your perfect day? We'd love to hear
+                about your vision and help bring it to life.
               </p>
             </motion.div>
 
@@ -898,7 +1030,10 @@ export default function Home() {
                     viewport={{ once: true }}
                     transition={{ delay: 0.4 }}
                   >
-                    <label htmlFor="wedding-date" className="text-sm font-medium">
+                    <label
+                      htmlFor="wedding-date"
+                      className="text-sm font-medium"
+                    >
                       Wedding Date (if known)
                     </label>
                     <Input
@@ -916,7 +1051,8 @@ export default function Home() {
                     transition={{ delay: 0.5 }}
                   >
                     <label htmlFor="message" className="text-sm font-medium">
-                      Tell Us About Your Wedding <span className="text-primary">*</span>
+                      Tell Us About Your Wedding{" "}
+                      <span className="text-primary">*</span>
                     </label>
                     <Textarea
                       id="message"
@@ -955,42 +1091,62 @@ export default function Home() {
                 transition={{ duration: 0.8 }}
               >
                 <div>
-                  <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
+                  <h3 className="text-2xl font-bold mb-6">
+                    Contact Information
+                  </h3>
                   <ul className="space-y-6">
                     <motion.li
                       className="flex items-start group"
                       whileHover={{ x: 5 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 10,
+                      }}
                     >
                       <div className="bg-primary/10 rounded-full p-3 mr-4 group-hover:bg-primary/20 transition-colors">
                         <PhoneIcon className="h-6 w-6 text-primary" />
                       </div>
                       <div>
                         <h4 className="font-medium text-lg">Phone</h4>
-                        <p className="text-muted-foreground">+1 (555) 123-4567</p>
-                        <p className="text-sm text-muted-foreground mt-1">Available Mon-Fri, 9am-6pm</p>
+                        <p className="text-muted-foreground">
+                          +1 (555) 123-4567
+                        </p>
+                        <p className="text-sm text-muted-foreground mt-1">
+                          Available Mon-Fri, 9am-6pm
+                        </p>
                       </div>
                     </motion.li>
 
                     <motion.li
                       className="flex items-start group"
                       whileHover={{ x: 5 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 10,
+                      }}
                     >
                       <div className="bg-primary/10 rounded-full p-3 mr-4 group-hover:bg-primary/20 transition-colors">
                         <Mail className="h-6 w-6 text-primary" />
                       </div>
                       <div>
                         <h4 className="font-medium text-lg">Email</h4>
-                        <p className="text-muted-foreground">info@balpro.com</p>
-                        <p className="text-sm text-muted-foreground mt-1">We'll respond within 24 hours</p>
+                        <p className="text-muted-foreground">info@balpro.id</p>
+                        <p className="text-sm text-muted-foreground mt-1">
+                          We'll respond within 24 hours
+                        </p>
                       </div>
                     </motion.li>
 
                     <motion.li
                       className="flex items-start group"
                       whileHover={{ x: 5 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 10,
+                      }}
                     >
                       <div className="bg-primary/10 rounded-full p-3 mr-4 group-hover:bg-primary/20 transition-colors">
                         <MapPin className="h-6 w-6 text-primary" />
@@ -1018,7 +1174,10 @@ export default function Home() {
                 <div className="pt-6">
                   <h4 className="font-medium text-lg mb-4">Connect With Us</h4>
                   <div className="flex space-x-4">
-                    <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
                       <Link
                         href="#"
                         aria-label="Instagram"
@@ -1027,7 +1186,10 @@ export default function Home() {
                         <Instagram className="h-5 w-5" />
                       </Link>
                     </motion.div>
-                    <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
                       <Link
                         href="#"
                         aria-label="Facebook"
@@ -1036,7 +1198,10 @@ export default function Home() {
                         <Facebook className="h-5 w-5" />
                       </Link>
                     </motion.div>
-                    <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
                       <Link
                         href="#"
                         aria-label="Twitter"
@@ -1045,7 +1210,10 @@ export default function Home() {
                         <Twitter className="h-5 w-5" />
                       </Link>
                     </motion.div>
-                    <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
                       <Link
                         href="https://wa.me/15551234567"
                         target="_blank"
@@ -1065,7 +1233,9 @@ export default function Home() {
                     </div>
                     <ul className="space-y-1 text-sm">
                       <li className="flex justify-between">
-                        <span className="text-muted-foreground">Monday - Friday</span>
+                        <span className="text-muted-foreground">
+                          Monday - Friday
+                        </span>
                         <span>9:00 AM - 6:00 PM</span>
                       </li>
                       <li className="flex justify-between">
@@ -1089,8 +1259,15 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <p className="text-lg">Prefer immediate assistance? Reach out via WhatsApp for a quick response.</p>
-              <motion.div className="mt-6 inline-block" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <p className="text-lg">
+                Prefer immediate assistance? Reach out via WhatsApp for a quick
+                response.
+              </p>
+              <motion.div
+                className="mt-6 inline-block"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <Link
                   href="https://wa.me/15551234567"
                   target="_blank"
@@ -1149,12 +1326,16 @@ export default function Home() {
             {/* Brand and social */}
             <div className="md:max-w-xs">
               <Link href="/" className="inline-block mb-6">
-                <span className="text-2xl font-semibold tracking-wider text-white">Balpro</span>
-                <span className="block text-sm text-primary/80 mt-1">Wedding Organizer</span>
+                <span className="text-2xl font-semibold tracking-wider text-white">
+                  Balpro
+                </span>
+                <span className="block text-sm text-primary/80 mt-1">
+                  Wedding Organizer
+                </span>
               </Link>
               <p className="text-slate-300 mb-6">
-                Creating magical moments and unforgettable wedding experiences with creativity, elegance, and attention
-                to detail.
+                Creating magical moments and unforgettable wedding experiences
+                with creativity, elegance, and attention to detail.
               </p>
               <div className="flex space-x-4">
                 <Link
@@ -1184,7 +1365,9 @@ export default function Home() {
             {/* Quick links and services in one column */}
             <div className="grid grid-cols-2 gap-8 md:gap-16">
               <div>
-                <h3 className="font-medium text-lg mb-4 text-primary/80">Explore</h3>
+                <h3 className="font-medium text-lg mb-4 text-primary/80">
+                  Explore
+                </h3>
                 <ul className="space-y-3">
                   <li>
                     <Link
@@ -1226,7 +1409,9 @@ export default function Home() {
               </div>
 
               <div>
-                <h3 className="font-medium text-lg mb-4 text-primary/80">Services</h3>
+                <h3 className="font-medium text-lg mb-4 text-primary/80">
+                  Services
+                </h3>
                 <ul className="space-y-3">
                   <li>
                     <Link
@@ -1270,7 +1455,9 @@ export default function Home() {
 
             {/* Contact info */}
             <div className="md:max-w-xs">
-              <h3 className="font-medium text-lg mb-4 text-primary/80">Say Hello</h3>
+              <h3 className="font-medium text-lg mb-4 text-primary/80">
+                Say Hello
+              </h3>
               <ul className="space-y-4">
                 <li className="flex items-start group">
                   <PhoneIcon className="h-5 w-5 text-primary/80 mr-3 mt-0.5 group-hover:text-primary transition-colors" />
@@ -1278,20 +1465,28 @@ export default function Home() {
                     <span className="block text-slate-300 group-hover:text-white transition-colors">
                       Give us a call
                     </span>
-                    <span className="text-white font-medium">+1 (555) 123-4567</span>
+                    <span className="text-white font-medium">
+                      +1 (555) 123-4567
+                    </span>
                   </div>
                 </li>
                 <li className="flex items-start group">
                   <Mail className="h-5 w-5 text-primary/80 mr-3 mt-0.5 group-hover:text-primary transition-colors" />
                   <div>
-                    <span className="block text-slate-300 group-hover:text-white transition-colors">Email us</span>
-                    <span className="text-white font-medium">info@balpro.com</span>
+                    <span className="block text-slate-300 group-hover:text-white transition-colors">
+                      Email us
+                    </span>
+                    <span className="text-white font-medium">
+                      info@balpro.id
+                    </span>
                   </div>
                 </li>
                 <li className="flex items-start group">
                   <MapPin className="h-5 w-5 text-primary/80 mr-3 mt-0.5 group-hover:text-primary transition-colors" />
                   <div>
-                    <span className="block text-slate-300 group-hover:text-white transition-colors">Find us</span>
+                    <span className="block text-slate-300 group-hover:text-white transition-colors">
+                      Find us
+                    </span>
                     <span className="text-white font-medium">
                       123 Wedding Lane
                       <br />
@@ -1305,18 +1500,31 @@ export default function Home() {
 
           <div className="pt-8 flex flex-col md:flex-row justify-between items-center">
             <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6">
-              <p className="text-slate-400 text-sm">&copy; {new Date().getFullYear()} Balpro. All rights reserved.</p>
+              <p className="text-slate-400 text-sm">
+                &copy; {new Date().getFullYear()} Balpro. All rights reserved.
+              </p>
               <span className="hidden md:inline text-slate-600">•</span>
-              <p className="text-slate-400 text-sm text-center md:text-left">Crafting dream weddings since 2014</p>
+              <p className="text-slate-400 text-sm text-center md:text-left">
+                Crafting dream weddings since 2014
+              </p>
             </div>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="#" className="text-slate-400 hover:text-white transition-colors text-sm">
+              <Link
+                href="#"
+                className="text-slate-400 hover:text-white transition-colors text-sm"
+              >
                 Privacy
               </Link>
-              <Link href="#" className="text-slate-400 hover:text-white transition-colors text-sm">
+              <Link
+                href="#"
+                className="text-slate-400 hover:text-white transition-colors text-sm"
+              >
                 Terms
               </Link>
-              <Link href="#" className="text-slate-400 hover:text-white transition-colors text-sm">
+              <Link
+                href="#"
+                className="text-slate-400 hover:text-white transition-colors text-sm"
+              >
                 Cookies
               </Link>
             </div>
@@ -1324,5 +1532,5 @@ export default function Home() {
         </div>
       </footer>
     </div>
-  )
+  );
 }

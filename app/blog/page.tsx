@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   PhoneIcon,
   Mail,
@@ -18,10 +18,10 @@ import {
   ChevronRight,
   Search,
   ArrowRight,
-} from "lucide-react"
+} from "lucide-react";
 
 export default function BlogPage() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const categories = [
     "Wedding Planning",
@@ -31,11 +31,12 @@ export default function BlogPage() {
     "Wedding Fashion",
     "Food & Catering",
     "Real Weddings",
-  ]
+  ];
 
   const featuredPosts = [
     {
-      title: "The Ultimate Wedding Planning Timeline: 12 Months to Your Big Day",
+      title:
+        "The Ultimate Wedding Planning Timeline: 12 Months to Your Big Day",
       excerpt:
         "Planning a wedding can be overwhelming, but with the right timeline, you can stay organized and stress-free. Here's our month-by-month guide to help you plan your perfect wedding day.",
       category: "Wedding Planning",
@@ -52,7 +53,7 @@ export default function BlogPage() {
       image: "/placeholder.svg?height=500&width=800&text=Featured+Post",
       slug: "wedding-trends-2025",
     },
-  ]
+  ];
 
   const recentPosts = Array(6)
     .fill(null)
@@ -64,7 +65,7 @@ export default function BlogPage() {
       date: `May ${i + 1}, 2025`,
       image: `/placeholder.svg?height=300&width=500&text=Blog+${i + 1}`,
       slug: `post-${i + 1}`,
-    }))
+    }));
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
@@ -72,7 +73,9 @@ export default function BlogPage() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-black/5">
         <div className="container mx-auto px-4 md:px-6 flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center">
-            <span className="text-xl font-semibold tracking-wider text-primary">Balpro</span>
+            <span className="text-xl font-semibold tracking-wider text-primary">
+              Balpro
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -105,7 +108,10 @@ export default function BlogPage() {
               Partners
               <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full"></span>
             </Link>
-            <Link href="/blog" className="text-sm font-medium text-primary transition-all duration-300 relative group">
+            <Link
+              href="/blog"
+              className="text-sm font-medium text-primary transition-all duration-300 relative group"
+            >
               Blog
               <span className="absolute -bottom-1 left-0 w-full h-px bg-primary"></span>
             </Link>
@@ -125,7 +131,12 @@ export default function BlogPage() {
             >
               Get in Touch
             </Link>
-            <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsMenuOpen(true)}>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden"
+              onClick={() => setIsMenuOpen(true)}
+            >
               <Menu className="h-6 w-6" />
               <span className="sr-only">Toggle menu</span>
             </Button>
@@ -143,10 +154,20 @@ export default function BlogPage() {
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
           <div className="flex justify-between items-center mb-10">
-            <Link href="/" className="flex items-center" onClick={() => setIsMenuOpen(false)}>
-              <span className="text-xl font-semibold tracking-wider text-primary">Balpro</span>
+            <Link
+              href="/"
+              className="flex items-center"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <span className="text-xl font-semibold tracking-wider text-primary">
+                Balpro
+              </span>
             </Link>
-            <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(false)}>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsMenuOpen(false)}
+            >
               <X className="h-6 w-6" />
               <span className="sr-only">Close menu</span>
             </Button>
@@ -224,16 +245,25 @@ export default function BlogPage() {
               transition={{ duration: 0.8 }}
             >
               <div className="inline-block mb-4">
-                <span className="text-xs uppercase tracking-widest text-primary font-medium">Our Blog</span>
+                <span className="text-xs uppercase tracking-widest text-primary font-medium">
+                  Our Blog
+                </span>
                 <div className="h-px w-20 bg-primary mt-1 mx-auto"></div>
               </div>
-              <h1 className="text-3xl md:text-5xl font-bold mb-6">Wedding Inspiration & Ideas</h1>
+              <h1 className="text-3xl md:text-5xl font-bold mb-6">
+                Wedding Inspiration & Ideas
+              </h1>
               <p className="text-lg text-muted-foreground mb-8">
-                Discover wedding tips, inspiration, and real wedding stories to help you plan your perfect day.
+                Discover wedding tips, inspiration, and real wedding stories to
+                help you plan your perfect day.
               </p>
 
               <div className="relative max-w-md mx-auto">
-                <Input type="search" placeholder="Search articles..." className="pl-12 pr-4 py-3 rounded-full" />
+                <Input
+                  type="search"
+                  placeholder="Search articles..."
+                  className="pl-12 pr-4 py-3 rounded-full"
+                />
                 <Search className="absolute left-4 top-3 h-5 w-5 text-muted-foreground" />
               </div>
             </motion.div>
@@ -265,7 +295,12 @@ export default function BlogPage() {
                   transition={{ duration: 0.6, delay: index * 0.2 }}
                 >
                   <div className="relative h-64 md:h-72">
-                    <Image src={post.image || "/placeholder.svg"} alt={post.title} fill className="object-cover" />
+                    <Image
+                      src={post.image || "/placeholder.svg"}
+                      alt={post.title}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
                   <div className="p-6 md:p-8">
                     <div className="flex items-center text-xs text-muted-foreground mb-3">
@@ -273,9 +308,16 @@ export default function BlogPage() {
                       <span className="mx-2">•</span>
                       <span>{post.category}</span>
                     </div>
-                    <h3 className="text-xl md:text-2xl font-bold mb-3">{post.title}</h3>
-                    <p className="text-muted-foreground text-sm md:text-base mb-6">{post.excerpt}</p>
-                    <Link href={`/blog/${post.slug}`} className="inline-flex items-center text-primary font-medium">
+                    <h3 className="text-xl md:text-2xl font-bold mb-3">
+                      {post.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm md:text-base mb-6">
+                      {post.excerpt}
+                    </p>
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      className="inline-flex items-center text-primary font-medium"
+                    >
                       <span>Read Article</span>
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                     </Link>
@@ -317,7 +359,9 @@ export default function BlogPage() {
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                   >
                     <Link
-                      href={`/blog/category/${category.toLowerCase().replace(/\s+/g, "-")}`}
+                      href={`/blog/category/${category
+                        .toLowerCase()
+                        .replace(/\s+/g, "-")}`}
                       className="px-5 py-2 bg-white rounded-full border text-sm hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
                     >
                       {category}
@@ -354,7 +398,12 @@ export default function BlogPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
                   <div className="relative h-48">
-                    <Image src={post.image || "/placeholder.svg"} alt={post.title} fill className="object-cover" />
+                    <Image
+                      src={post.image || "/placeholder.svg"}
+                      alt={post.title}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
                   <div className="p-6">
                     <div className="flex items-center text-xs text-muted-foreground mb-2">
@@ -363,7 +412,9 @@ export default function BlogPage() {
                       <span>{post.category}</span>
                     </div>
                     <h3 className="text-lg font-bold mb-2">{post.title}</h3>
-                    <p className="text-muted-foreground text-sm line-clamp-3 mb-4">{post.excerpt}</p>
+                    <p className="text-muted-foreground text-sm line-clamp-3 mb-4">
+                      {post.excerpt}
+                    </p>
                     <Link
                       href={`/blog/${post.slug}`}
                       className="inline-flex items-center text-primary text-sm font-medium"
@@ -384,7 +435,12 @@ export default function BlogPage() {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               <nav className="flex items-center gap-2">
-                <Button variant="outline" size="icon" className="rounded-full" disabled>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="rounded-full"
+                  disabled
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -447,16 +503,25 @@ export default function BlogPage() {
               transition={{ duration: 0.8 }}
             >
               <div className="inline-block mb-4">
-                <span className="text-xs uppercase tracking-widest text-primary font-medium">Stay Updated</span>
+                <span className="text-xs uppercase tracking-widest text-primary font-medium">
+                  Stay Updated
+                </span>
                 <div className="h-px w-20 bg-primary mt-1 mx-auto"></div>
               </div>
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">Subscribe to Our Newsletter</h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                Subscribe to Our Newsletter
+              </h2>
               <p className="text-muted-foreground mb-8">
-                Get the latest wedding tips, trends, and inspiration delivered straight to your inbox.
+                Get the latest wedding tips, trends, and inspiration delivered
+                straight to your inbox.
               </p>
 
               <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-                <Input type="email" placeholder="Enter your email" className="flex-1 rounded-full" />
+                <Input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="flex-1 rounded-full"
+                />
                 <Button type="submit" className="rounded-full">
                   Subscribe
                 </Button>
@@ -477,12 +542,16 @@ export default function BlogPage() {
             {/* Brand and social */}
             <div className="md:max-w-xs">
               <Link href="/" className="inline-block mb-6">
-                <span className="text-2xl font-semibold tracking-wider text-white">Balpro</span>
-                <span className="block text-sm text-primary/80 mt-1">Wedding Organizer</span>
+                <span className="text-2xl font-semibold tracking-wider text-white">
+                  Balpro
+                </span>
+                <span className="block text-sm text-primary/80 mt-1">
+                  Wedding Organizer
+                </span>
               </Link>
               <p className="text-slate-300 mb-6">
-                Creating magical moments and unforgettable wedding experiences with creativity, elegance, and attention
-                to detail.
+                Creating magical moments and unforgettable wedding experiences
+                with creativity, elegance, and attention to detail.
               </p>
               <div className="flex space-x-4">
                 <Link
@@ -512,7 +581,9 @@ export default function BlogPage() {
             {/* Quick links and services in one column */}
             <div className="grid grid-cols-2 gap-8 md:gap-16">
               <div>
-                <h3 className="font-medium text-lg mb-4 text-primary/80">Explore</h3>
+                <h3 className="font-medium text-lg mb-4 text-primary/80">
+                  Explore
+                </h3>
                 <ul className="space-y-3">
                   <li>
                     <Link
@@ -554,7 +625,9 @@ export default function BlogPage() {
               </div>
 
               <div>
-                <h3 className="font-medium text-lg mb-4 text-primary/80">Services</h3>
+                <h3 className="font-medium text-lg mb-4 text-primary/80">
+                  Services
+                </h3>
                 <ul className="space-y-3">
                   <li>
                     <Link
@@ -598,7 +671,9 @@ export default function BlogPage() {
 
             {/* Contact info */}
             <div className="md:max-w-xs">
-              <h3 className="font-medium text-lg mb-4 text-primary/80">Say Hello</h3>
+              <h3 className="font-medium text-lg mb-4 text-primary/80">
+                Say Hello
+              </h3>
               <ul className="space-y-4">
                 <li className="flex items-start group">
                   <PhoneIcon className="h-5 w-5 text-primary/80 mr-3 mt-0.5 group-hover:text-primary transition-colors" />
@@ -606,20 +681,28 @@ export default function BlogPage() {
                     <span className="block text-slate-300 group-hover:text-white transition-colors">
                       Give us a call
                     </span>
-                    <span className="text-white font-medium">+1 (555) 123-4567</span>
+                    <span className="text-white font-medium">
+                      +1 (555) 123-4567
+                    </span>
                   </div>
                 </li>
                 <li className="flex items-start group">
                   <Mail className="h-5 w-5 text-primary/80 mr-3 mt-0.5 group-hover:text-primary transition-colors" />
                   <div>
-                    <span className="block text-slate-300 group-hover:text-white transition-colors">Email us</span>
-                    <span className="text-white font-medium">info@balpro.com</span>
+                    <span className="block text-slate-300 group-hover:text-white transition-colors">
+                      Email us
+                    </span>
+                    <span className="text-white font-medium">
+                      info@balpro.id
+                    </span>
                   </div>
                 </li>
                 <li className="flex items-start group">
                   <MapPin className="h-5 w-5 text-primary/80 mr-3 mt-0.5 group-hover:text-primary transition-colors" />
                   <div>
-                    <span className="block text-slate-300 group-hover:text-white transition-colors">Find us</span>
+                    <span className="block text-slate-300 group-hover:text-white transition-colors">
+                      Find us
+                    </span>
                     <span className="text-white font-medium">
                       123 Wedding Lane
                       <br />
@@ -633,18 +716,31 @@ export default function BlogPage() {
 
           <div className="pt-8 flex flex-col md:flex-row justify-between items-center">
             <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6">
-              <p className="text-slate-400 text-sm">&copy; {new Date().getFullYear()} Balpro. All rights reserved.</p>
+              <p className="text-slate-400 text-sm">
+                &copy; {new Date().getFullYear()} Balpro. All rights reserved.
+              </p>
               <span className="hidden md:inline text-slate-600">•</span>
-              <p className="text-slate-400 text-sm text-center md:text-left">Crafting dream weddings since 2014</p>
+              <p className="text-slate-400 text-sm text-center md:text-left">
+                Crafting dream weddings since 2014
+              </p>
             </div>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="#" className="text-slate-400 hover:text-white transition-colors text-sm">
+              <Link
+                href="#"
+                className="text-slate-400 hover:text-white transition-colors text-sm"
+              >
                 Privacy
               </Link>
-              <Link href="#" className="text-slate-400 hover:text-white transition-colors text-sm">
+              <Link
+                href="#"
+                className="text-slate-400 hover:text-white transition-colors text-sm"
+              >
                 Terms
               </Link>
-              <Link href="#" className="text-slate-400 hover:text-white transition-colors text-sm">
+              <Link
+                href="#"
+                className="text-slate-400 hover:text-white transition-colors text-sm"
+              >
                 Cookies
               </Link>
             </div>
@@ -652,5 +748,5 @@ export default function BlogPage() {
         </div>
       </footer>
     </div>
-  )
+  );
 }

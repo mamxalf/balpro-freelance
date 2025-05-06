@@ -22,23 +22,28 @@ Balpro is a modern, elegant landing page and company profile for a professional 
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Node.js (v18+ recommended)
 - pnpm (or npm/yarn)
 
 ### Installation
+
 ```bash
 # Install dependencies
 pnpm install
 ```
 
 ### Development
+
 ```bash
 # Start the development server
 pnpm dev
 ```
+
 Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
 ### Production
+
 ```bash
 # Build for production
 pnpm build
@@ -48,6 +53,7 @@ pnpm start
 ```
 
 ## 📁 Project Structure
+
 ```
 app/              # Next.js app directory (pages, layout, etc.)
 components/       # Reusable UI components
@@ -59,13 +65,16 @@ tailwind.config.ts# Tailwind CSS config
 ```
 
 ## 📝 Customization
+
 - Update company info, images, and content in the respective sections/components.
 - Adjust theme colors in `tailwind.config.ts` for your brand.
 
 ## 🤝 Contributing
+
 Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
 
 ## 📄 License
+
 This project is for demonstration and freelance purposes. Contact the author for commercial use.
 
 ---
