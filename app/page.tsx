@@ -27,11 +27,12 @@ import {
   MessageCircle,
 } from "lucide-react";
 import { portfolioItems } from "./portfolio/page";
+import HomeBlogPosts from "@/components/home-blog-posts";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
-  
+
   // Select only 8 specific images for the slideshow
   const slideshowImages = portfolioItems.slice(0, 8);
   const [activePortfolioItems, setActivePortfolioItems] = useState(
@@ -890,49 +891,7 @@ export default function Home() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              {[1, 2, 3].map((blog) => (
-                <motion.div
-                  key={blog}
-                  className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: blog * 0.2 }}
-                >
-                  <div className="relative h-60">
-                    <Image
-                      src={`/placeholder.svg?height=400&width=600&text=Blog+${blog}`}
-                      alt={`Blog post ${blog}`}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <div className="flex items-center text-xs text-muted-foreground mb-2">
-                      <span>May 4, 2025</span>
-                      <span className="mx-2">•</span>
-                      <span>Wedding Tips</span>
-                    </div>
-                    <h3 className="text-xl font-medium mb-2">
-                      10 Tips for Choosing the Perfect Wedding Venue
-                    </h3>
-                    <p className="text-muted-foreground text-sm line-clamp-3 mb-4">
-                      Finding the right venue is one of the most important
-                      decisions you'll make when planning your wedding. Here are
-                      our top tips to help you choose the perfect location.
-                    </p>
-                    <Link
-                      href="/blog/wedding-venue-tips"
-                      className="inline-flex items-center text-primary text-sm font-medium"
-                    >
-                      <span>Read More</span>
-                      <ArrowRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            <HomeBlogPosts />
 
             <motion.div
               className="text-center mt-12"
@@ -1387,97 +1346,6 @@ export default function Home() {
                 >
                   <Twitter className="h-5 w-5 text-white" />
                 </Link>
-              </div>
-            </div>
-
-            {/* Quick links and services in one column */}
-            <div className="grid grid-cols-2 gap-8 md:gap-16">
-              <div>
-                <h3 className="font-medium text-lg mb-4 text-primary/80">
-                  Explore
-                </h3>
-                <ul className="space-y-3">
-                  <li>
-                    <Link
-                      href="#about"
-                      className="text-slate-300 hover:text-white transition-colors flex items-center group"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary/50 mr-2 group-hover:scale-150 transition-transform duration-300"></span>
-                      About Us
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="#services"
-                      className="text-slate-300 hover:text-white transition-colors flex items-center group"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary/50 mr-2 group-hover:scale-150 transition-transform duration-300"></span>
-                      Services
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/blog"
-                      className="text-slate-300 hover:text-white transition-colors flex items-center group"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary/50 mr-2 group-hover:scale-150 transition-transform duration-300"></span>
-                      Blog
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="#contact"
-                      className="text-slate-300 hover:text-white transition-colors flex items-center group"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary/50 mr-2 group-hover:scale-150 transition-transform duration-300"></span>
-                      Contact
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="font-medium text-lg mb-4 text-primary/80">
-                  Services
-                </h3>
-                <ul className="space-y-3">
-                  <li>
-                    <Link
-                      href="#"
-                      className="text-slate-300 hover:text-white transition-colors flex items-center group"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary/50 mr-2 group-hover:scale-150 transition-transform duration-300"></span>
-                      Full Planning
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="#"
-                      className="text-slate-300 hover:text-white transition-colors flex items-center group"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary/50 mr-2 group-hover:scale-150 transition-transform duration-300"></span>
-                      Partial Planning
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="#"
-                      className="text-slate-300 hover:text-white transition-colors flex items-center group"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary/50 mr-2 group-hover:scale-150 transition-transform duration-300"></span>
-                      Day Coordination
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="#"
-                      className="text-slate-300 hover:text-white transition-colors flex items-center group"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary/50 mr-2 group-hover:scale-150 transition-transform duration-300"></span>
-                      Destination
-                    </Link>
-                  </li>
-                </ul>
               </div>
             </div>
 
