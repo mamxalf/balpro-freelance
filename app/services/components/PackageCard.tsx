@@ -11,6 +11,7 @@ interface PackageCardProps {
     additionalInfo?: string;
   };
   isPopular?: boolean;
+  whatsappTemplate?: string;
 }
 
 export function PackageCard({
@@ -20,6 +21,7 @@ export function PackageCard({
   features,
   paymentTerms,
   isPopular = false,
+  whatsappTemplate = 'Halo, saya tertarik dengan paket ini. Bisa minta info lebih lanjut?',
 }: PackageCardProps) {
   return (
     <div className={`relative rounded-2xl p-8 shadow-lg border ${
@@ -68,6 +70,14 @@ export function PackageCard({
           </p>
         )}
       </div>
+      <a
+        href={`https://wa.me/62895323351511?text=${encodeURIComponent(whatsappTemplate || 'Halo, saya tertarik dengan paket ini. Bisa minta info lebih lanjut?')}`}
+        className="block w-full bg-green-600 hover:bg-green-700 text-white text-center py-3 px-4 rounded-lg font-medium transition-colors"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Konsultasi via WhatsApp
+      </a>
     </div>
   );
 }

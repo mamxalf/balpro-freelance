@@ -8,7 +8,7 @@ export function WeddingPackages() {
       description:
         "Initial consultation to understand your vision and provide expert guidance for your wedding planning journey.",
       features: [
-        "Meeting & Assistency",
+        "Meeting & Consistency",
         "Professional guidance",
         "Wedding concept discussion",
         "Budget recommendations",
@@ -18,44 +18,45 @@ export function WeddingPackages() {
         downPayment: "Down Payment: Rp 500.000",
         fullPayment: "Full payment 7 days before event",
       },
+      whatsappTemplate: "Halo saya dari web, berencana ambil service Wedding Consultation Balpro. Mohon info lebih lanjut."
     },
     {
-      title: "Wedding Organizer (S)",
+      title: "Wedding Organizer (S) Standard",
       price: "Rp 4.500.000",
       description:
-        "Standard wedding planning package with essential services to create a memorable wedding experience.",
+        "Comprehensive wedding planning services to ensure your special day is perfect from start to finish.",
       features: [
-        "Meeting & Assistency",
-        "Plan Deck",
-        "Budget Deck",
-        "Wedding Organizing",
-        "7 Crew for Standard Package",
+        "Everything in Consultation",
+        "Timeline creation",
+        "Vendor coordination",
+        "Day-of coordination",
+        "Troubleshooting",
       ],
       paymentTerms: {
-        fullPayment: "Pay 100% within 7 days before event",
-        additionalInfo: "Additional transport fee may apply",
+        downPayment: "Down Payment: Rp 1.500.000",
+        fullPayment: "Full payment 7 days before event",
       },
       isPopular: true,
+      whatsappTemplate: "Halo saya dari web, berencana ambil service Wedding Organizer Standard Balpro. Mohon info lebih lanjut."
     },
     {
-      title: "Wedding Organizer (C)",
+      title: "Wedding Organizer (C) Complete",
       price: "Rp 6.500.000",
       description:
-        "Complete wedding planning package offering comprehensive services for a stress-free and perfectly executed wedding day.",
+        "All-inclusive wedding planning with premium services and dedicated support for a stress-free experience.",
       features: [
-        "Meeting & Assistency",
-        "Surveyor",
-        "Vendor Pitching",
-        "Plan & Budget Deck",
-        "Manual Book",
-        "One Call Away",
-        "Wedding Organizing",
-        "8 Crew for Complete Package",
+        "Everything in Standard",
+        "Full design concept",
+        "Unlimited revisions",
+        "Full event management",
+        "Post-event follow up",
       ],
       paymentTerms: {
+        downPayment: "Down Payment: Rp 2.500.000",
         fullPayment: "Pay 100% within 7 days before event",
         additionalInfo: "Additional transport fee may apply",
       },
+      whatsappTemplate: "Halo saya dari web, berencana ambil service Wedding Organizer Complete Balpro. Mohon info lebih lanjut."
     },
   ];
 

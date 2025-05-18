@@ -26,17 +26,23 @@ export function VenuePackages() {
             location="Temanggung"
             price="Rp 57,6 juta"
             capacity="300"
-            venueFee="Venue: Rp 3.500.000"
-            decorationFee="Decoration: Rp 7.600.000"
-            cateringFee="Buffet & 4 Stall: Rp 19.000.000"
-            cateringPerPax="@Rp 65.000 per pax"
-            muaFee="MUA Full Package: Rp 7.000.000"
-            photoVideoFee="Photo & Video: Rp 6.500.000"
-            preWeddingFee="Pre-wedding Session: Rp 1.800.000"
-            entertainmentFee="Entertainment: Rp 3.500.000"
-            soundSystemFee="Sound System: Rp 1.750.000"
-            mcFee="MC: Rp 1.400.000"
-            plannerFee="Wedding Planner: Rp 5.050.000"
+            venueFee="Venue Rental (Full Day)"
+            decorationFee="Full Venue Decoration"
+            cateringFee="Food Catering (Buffet & 4 Stall)"
+            cateringPerPax="Makan 2x & Snack 1x"
+            muaFee="MUA Full Package (Modern Wedding)"
+            photoVideoFee="Photo & Video Documentation"
+            preWeddingFee="Free Pre-Wedding Video (Worth Rp 1,5 juta)"
+            entertainmentFee="Entertainment & MC"
+            soundSystemFee="Sound System & Lighting"
+            mcFee="Professional MC"
+            plannerFee="Wedding Planner"
+            hasPreWeddingBonus={true}
+            whatsappTemplate="Saya dari web, berencana ambil paket #semuabisamenikah yang Venue Balakosa. Mohon info detail."
+            additionalFees={[
+              { label: "Venue Capacity", value: "300 pax" },
+              { label: "Additional Decoration", value: "Pergola Akad" },
+            ]}
           />
 
           {/* Gedung Juang Venue Package */}
@@ -45,19 +51,22 @@ export function VenuePackages() {
             location="Temanggung"
             price="Rp 62,1 juta"
             capacity="300"
-            venueFee="Venue: Rp 3.500.000"
-            decorationFee="Decoration + Pergola: Rp 11.100.000"
-            cateringFee="Buffet & 4 Stall: Rp 19.500.000"
-            cateringPerPax="@Rp 65.000 per pax"
-            muaFee="MUA Full Package: Rp 7.000.000"
-            photoVideoFee="Photo & Video: Rp 6.500.000"
-            preWeddingFee="Pre-wedding Session: Rp 1.800.000"
-            entertainmentFee="Entertainment: Rp 3.500.000"
-            soundSystemFee="Sound System: Rp 1.750.000"
-            mcFee="MC: Rp 1.400.000"
-            plannerFee="Wedding Planner: Rp 5.050.000"
+            venueFee="Venue Rental (Full Day)"
+            decorationFee="Full Venue Decoration + Pergola Akad"
+            cateringFee="Food Catering (Buffet & 4 Stall)"
+            cateringPerPax="Makan 2x & Snack 1x"
+            muaFee="MUA Full Package (Modern Wedding)"
+            photoVideoFee="Photo & Video Documentation"
+            preWeddingFee="Free Pre-Wedding Video (Worth Rp 1,5 juta)"
+            entertainmentFee="Entertainment & MC"
+            soundSystemFee="Sound System & Lighting"
+            mcFee="Professional MC"
+            plannerFee="Wedding Planner"
+            hasPreWeddingBonus={true}
+            whatsappTemplate="Saya dari web, berencana ambil paket #semuabisamenikah yang Venue Gd Juang. Mohon info detail."
             additionalFees={[
-              { label: "100 Visitor Seats", value: "Rp 1.000.000" },
+              { label: "Venue Capacity", value: "300 pax" },
+              { label: "Special Feature", value: "100 Visitor Seats" },
             ]}
             imageSrc="/gd_juang.jpg"
           />
