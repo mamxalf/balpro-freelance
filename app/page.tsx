@@ -840,28 +840,44 @@ export default function Home() {
             </motion.div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-              {[1, 2, 3, 4, 5, 6, 7, 8].map((partner) => (
-                <motion.div
-                  key={partner}
-                  className="bg-slate-50 aspect-square relative rounded-xl overflow-hidden hover:shadow-md transition-all duration-300"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: partner * 0.1 }}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <Image
-                    src={`/placeholder.svg?height=300&width=300&text=Partner+${partner}`}
-                    alt={`Partner ${partner}`}
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                    <h3 className="text-white font-medium">Partner Name</h3>
-                    <p className="text-white/80 text-sm">Photography</p>
-                  </div>
-                </motion.div>
-              ))}
+              {[
+                "LOGO_VENDOR_BALPRO_SEMUABISAMENIKAH_AILSA.png",
+                "LOGO_VENDOR_BALPRO_SEMUABISAMENIKAH_FRISMA.png",
+                "LOGO_VENDOR_BALPRO_SEMUABISAMENIKAH_MEREKAMKENANG.png",
+                "LOGO_VENDOR_BALPRO_SEMUABISAMENIKAH_STARGROOVE.png",
+                "LOGO_VENDOR_BALPRO_SEMUABISAMENIKAH_ULTRA.png",
+              ].map((filename, idx) => {
+                // Extract a readable partner name from the filename
+                const name = filename
+                  .replace("LOGO_VENDOR_BALPRO_SEMUABISAMENIKAH_", "")
+                  .replace(".png", "")
+                  .replace(/_/g, " ");
+                return (
+                  <motion.div
+                    key={filename}
+                    className="bg-slate-900 aspect-square relative rounded-xl overflow-hidden hover:shadow-md transition-all duration-300 p-4 flex items-center justify-center"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: idx * 0.1 }}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <div className="relative w-full h-full">
+                      <Image
+                        src={`/vendor/${filename}`}
+                        alt={`Partner ${name}`}
+                        fill
+                        sizes="(max-width: 768px) 50vw, 25vw"
+                        className="object-contain p-2"
+                      />
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                      <h3 className="text-white font-medium">{name}</h3>
+                      <p className="text-white/80 text-sm">Partner</p>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </section>
