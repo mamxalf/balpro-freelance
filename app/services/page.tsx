@@ -5,7 +5,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Services | Balpro Wedding Enterprise",
-  description: "Explore our comprehensive wedding planning services and venue packages.",
+  description:
+    "Explore our comprehensive wedding planning services and venue packages.",
 };
 
 export default function ServicesPage() {
@@ -27,8 +28,8 @@ export default function ServicesPage() {
               Our Services
             </h1>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Discover our comprehensive wedding planning services and venue packages
-              tailored to make your special day perfect.
+              Discover our comprehensive wedding planning services and venue
+              packages tailored to make your special day perfect.
             </p>
           </div>
         </div>
@@ -48,7 +49,8 @@ export default function ServicesPage() {
               Choose Your Perfect Package
             </h2>
             <p className="text-lg text-muted-foreground">
-              We offer a range of wedding planning packages to suit your needs and budget
+              We offer a range of wedding planning packages to suit your needs
+              and budget
             </p>
           </div>
 
@@ -60,10 +62,15 @@ export default function ServicesPage() {
                   <span className="text-primary font-bold">1</span>
                 </div>
               </div>
-              <h3 className="text-xl font-bold mt-6 mb-2">Wedding Consultation</h3>
-              <p className="text-xl font-bold text-primary mb-4">Rp 2.000.000</p>
+              <h3 className="text-xl font-bold mt-6 mb-2">
+                Wedding Consultation
+              </h3>
+              <p className="text-xl font-bold text-primary mb-4">
+                Rp 2.000.000
+              </p>
               <p className="text-muted-foreground mb-6">
-                Initial consultation to understand your vision and provide expert guidance for your wedding planning journey.
+                Initial consultation to understand your vision and provide
+                expert guidance for your wedding planning journey.
               </p>
               <ul className="space-y-3 mb-6">
                 <li className="flex items-start">
@@ -89,8 +96,12 @@ export default function ServicesPage() {
               </ul>
               <div className="bg-slate-50 p-4 rounded-lg text-sm mb-6">
                 <p className="font-medium">Payment Terms</p>
-                <p className="text-muted-foreground">Down Payment: Rp 500.000</p>
-                <p className="text-muted-foreground">Full payment 7 days before event</p>
+                <p className="text-muted-foreground">
+                  Down Payment: Rp 500.000
+                </p>
+                <p className="text-muted-foreground">
+                  Full payment 7 days before event
+                </p>
               </div>
             </div>
 
@@ -104,10 +115,15 @@ export default function ServicesPage() {
                   <span className="text-primary font-bold">2</span>
                 </div>
               </div>
-              <h3 className="text-xl font-bold mt-6 mb-2">Wedding Organizer (S)</h3>
-              <p className="text-xl font-bold text-primary mb-4">Rp 4.500.000</p>
+              <h3 className="text-xl font-bold mt-6 mb-2">
+                Wedding Organizer (S)
+              </h3>
+              <p className="text-xl font-bold text-primary mb-4">
+                Rp 4.500.000
+              </p>
               <p className="text-muted-foreground mb-6">
-                Standard wedding planning package with essential services to create a memorable wedding experience.
+                Standard wedding planning package with essential services to
+                create a memorable wedding experience.
               </p>
               <ul className="space-y-3 mb-6">
                 <li className="flex items-start">
@@ -133,8 +149,12 @@ export default function ServicesPage() {
               </ul>
               <div className="bg-slate-50 p-4 rounded-lg text-sm mb-6">
                 <p className="font-medium">Payment Terms</p>
-                <p className="text-muted-foreground">Pay 100% within 7 days before event</p>
-                <p className="text-muted-foreground">Additional transport fee may apply</p>
+                <p className="text-muted-foreground">
+                  Pay 100% within 7 days before event
+                </p>
+                <p className="text-muted-foreground">
+                  Additional transport fee may apply
+                </p>
               </div>
             </div>
 
@@ -145,10 +165,15 @@ export default function ServicesPage() {
                   <span className="text-primary font-bold">3</span>
                 </div>
               </div>
-              <h3 className="text-xl font-bold mt-6 mb-2">Wedding Organizer (C)</h3>
-              <p className="text-xl font-bold text-primary mb-4">Rp 6.500.000</p>
+              <h3 className="text-xl font-bold mt-6 mb-2">
+                Wedding Organizer (C)
+              </h3>
+              <p className="text-xl font-bold text-primary mb-4">
+                Rp 6.500.000
+              </p>
               <p className="text-muted-foreground mb-6">
-                Complete wedding planning package offering comprehensive services for a stress-free and perfectly executed wedding day.
+                Complete wedding planning package offering comprehensive
+                services for a stress-free and perfectly executed wedding day.
               </p>
               <ul className="space-y-3 mb-6">
                 <li className="flex items-start">
@@ -186,8 +211,12 @@ export default function ServicesPage() {
               </ul>
               <div className="bg-slate-50 p-4 rounded-lg text-sm mb-6">
                 <p className="font-medium">Payment Terms</p>
-                <p className="text-muted-foreground">Pay 100% within 7 days before event</p>
-                <p className="text-muted-foreground">Additional transport fee may apply</p>
+                <p className="text-muted-foreground">
+                  Pay 100% within 7 days before event
+                </p>
+                <p className="text-muted-foreground">
+                  Additional transport fee may apply
+                </p>
               </div>
             </div>
           </div>
@@ -231,7 +260,9 @@ export default function ServicesPage() {
                 <div className="flex justify-between items-center mb-6">
                   <div>
                     <h4 className="text-2xl font-bold">Complete Package</h4>
-                    <p className="text-primary font-bold text-3xl">Rp 57,6 juta</p>
+                    <p className="text-primary font-bold text-3xl">
+                      Rp 57,6 juta
+                    </p>
                   </div>
                   <div className="bg-primary/10 px-4 py-2 rounded-full">
                     <p className="text-primary font-medium">300 pax</p>
@@ -240,7 +271,9 @@ export default function ServicesPage() {
 
                 <div className="grid md:grid-cols-2 gap-6 mb-8">
                   <div>
-                    <h5 className="font-medium text-lg mb-3">Venue & Decoration</h5>
+                    <h5 className="font-medium text-lg mb-3">
+                      Venue & Decoration
+                    </h5>
                     <ul className="space-y-2">
                       <li className="flex items-start">
                         <Check className="h-5 w-5 text-primary mr-2 mt-0.5" />
@@ -253,7 +286,9 @@ export default function ServicesPage() {
                     </ul>
                   </div>
                   <div>
-                    <h5 className="font-medium text-lg mb-3">Food & Catering</h5>
+                    <h5 className="font-medium text-lg mb-3">
+                      Food & Catering
+                    </h5>
                     <ul className="space-y-2">
                       <li className="flex items-start">
                         <Check className="h-5 w-5 text-primary mr-2 mt-0.5" />
@@ -269,7 +304,9 @@ export default function ServicesPage() {
 
                 <div className="grid md:grid-cols-2 gap-6 mb-8">
                   <div>
-                    <h5 className="font-medium text-lg mb-3">Beauty & Photography</h5>
+                    <h5 className="font-medium text-lg mb-3">
+                      Beauty & Photography
+                    </h5>
                     <ul className="space-y-2">
                       <li className="flex items-start">
                         <Check className="h-5 w-5 text-primary mr-2 mt-0.5" />
@@ -286,7 +323,9 @@ export default function ServicesPage() {
                     </ul>
                   </div>
                   <div>
-                    <h5 className="font-medium text-lg mb-3">Entertainment & Services</h5>
+                    <h5 className="font-medium text-lg mb-3">
+                      Entertainment & Services
+                    </h5>
                     <ul className="space-y-2">
                       <li className="flex items-start">
                         <Check className="h-5 w-5 text-primary mr-2 mt-0.5" />
@@ -311,7 +350,9 @@ export default function ServicesPage() {
                 <div className="bg-primary/5 p-4 rounded-lg mb-8">
                   <div className="flex justify-between items-center">
                     <div>
-                      <p className="font-bold text-lg">Free Pre-Wedding Video</p>
+                      <p className="font-bold text-lg">
+                        Free Pre-Wedding Video
+                      </p>
                       <p className="text-muted-foreground">Worth Rp 1,5 juta</p>
                     </div>
                     <div className="bg-white rounded-full px-4 py-2 shadow-sm">
@@ -320,7 +361,12 @@ export default function ServicesPage() {
                   </div>
                 </div>
 
-                <Link href="#contact" className="block w-full bg-primary text-white text-center py-4 rounded-lg hover:bg-primary/90 transition-colors font-medium">
+                <Link
+                  href="https://wa.me/62895323351511"
+                  className="block w-full bg-primary text-white text-center py-4 rounded-lg hover:bg-primary/90 transition-colors font-medium"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Book This Package
                 </Link>
               </div>
@@ -344,7 +390,9 @@ export default function ServicesPage() {
                 <div className="flex justify-between items-center mb-6">
                   <div>
                     <h4 className="text-2xl font-bold">Complete Package</h4>
-                    <p className="text-primary font-bold text-3xl">Rp 62,1 juta</p>
+                    <p className="text-primary font-bold text-3xl">
+                      Rp 62,1 juta
+                    </p>
                   </div>
                   <div className="bg-primary/10 px-4 py-2 rounded-full">
                     <p className="text-primary font-medium">300 pax</p>
@@ -353,7 +401,9 @@ export default function ServicesPage() {
 
                 <div className="grid md:grid-cols-2 gap-6 mb-8">
                   <div>
-                    <h5 className="font-medium text-lg mb-3">Venue & Decoration</h5>
+                    <h5 className="font-medium text-lg mb-3">
+                      Venue & Decoration
+                    </h5>
                     <ul className="space-y-2">
                       <li className="flex items-start">
                         <Check className="h-5 w-5 text-primary mr-2 mt-0.5" />
@@ -370,7 +420,9 @@ export default function ServicesPage() {
                     </ul>
                   </div>
                   <div>
-                    <h5 className="font-medium text-lg mb-3">Food & Catering</h5>
+                    <h5 className="font-medium text-lg mb-3">
+                      Food & Catering
+                    </h5>
                     <ul className="space-y-2">
                       <li className="flex items-start">
                         <Check className="h-5 w-5 text-primary mr-2 mt-0.5" />
@@ -386,7 +438,9 @@ export default function ServicesPage() {
 
                 <div className="grid md:grid-cols-2 gap-6 mb-8">
                   <div>
-                    <h5 className="font-medium text-lg mb-3">Beauty & Photography</h5>
+                    <h5 className="font-medium text-lg mb-3">
+                      Beauty & Photography
+                    </h5>
                     <ul className="space-y-2">
                       <li className="flex items-start">
                         <Check className="h-5 w-5 text-primary mr-2 mt-0.5" />
@@ -403,7 +457,9 @@ export default function ServicesPage() {
                     </ul>
                   </div>
                   <div>
-                    <h5 className="font-medium text-lg mb-3">Entertainment & Services</h5>
+                    <h5 className="font-medium text-lg mb-3">
+                      Entertainment & Services
+                    </h5>
                     <ul className="space-y-2">
                       <li className="flex items-start">
                         <Check className="h-5 w-5 text-primary mr-2 mt-0.5" />
@@ -428,7 +484,9 @@ export default function ServicesPage() {
                 <div className="bg-primary/5 p-4 rounded-lg mb-8">
                   <div className="flex justify-between items-center">
                     <div>
-                      <p className="font-bold text-lg">Free Pre-Wedding Video</p>
+                      <p className="font-bold text-lg">
+                        Free Pre-Wedding Video
+                      </p>
                       <p className="text-muted-foreground">Worth Rp 1,5 juta</p>
                     </div>
                     <div className="bg-white rounded-full px-4 py-2 shadow-sm">
@@ -437,7 +495,12 @@ export default function ServicesPage() {
                   </div>
                 </div>
 
-                <Link href="#contact" className="block w-full bg-primary text-white text-center py-4 rounded-lg hover:bg-primary/90 transition-colors font-medium">
+                <Link
+                  href="https://wa.me/62895323351511"
+                  className="block w-full bg-primary text-white text-center py-4 rounded-lg hover:bg-primary/90 transition-colors font-medium"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Book This Package
                 </Link>
               </div>
@@ -468,15 +531,22 @@ export default function ServicesPage() {
                 <ul className="space-y-3">
                   <li className="flex items-start">
                     <Check className="h-5 w-5 text-primary mr-2 mt-0.5" />
-                    <span>Down Payment is Rp 500.000 for Consultation Package</span>
+                    <span>
+                      Down Payment is Rp 500.000 for Consultation Package
+                    </span>
                   </li>
                   <li className="flex items-start">
                     <Check className="h-5 w-5 text-primary mr-2 mt-0.5" />
-                    <span>Full payment must be made within 7 days before the event</span>
+                    <span>
+                      Full payment must be made within 7 days before the event
+                    </span>
                   </li>
                   <li className="flex items-start">
                     <Check className="h-5 w-5 text-primary mr-2 mt-0.5" />
-                    <span>Additional transport fee of Rp 500.000 if the event is outside of Temanggung</span>
+                    <span>
+                      Additional transport fee of Rp 500.000 if the event is
+                      outside of Temanggung
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -486,11 +556,17 @@ export default function ServicesPage() {
                 <ul className="space-y-3">
                   <li className="flex items-start">
                     <Check className="h-5 w-5 text-primary mr-2 mt-0.5" />
-                    <span>Pedang Pora or Cultural Ceremony will get a charge for Rp 750.000</span>
+                    <span>
+                      Pedang Pora or Cultural Ceremony will get a charge for Rp
+                      750.000
+                    </span>
                   </li>
                   <li className="flex items-start">
                     <Check className="h-5 w-5 text-primary mr-2 mt-0.5" />
-                    <span>7 Crew for Standard Package (S) & 8 Crew in Complete Package (C)</span>
+                    <span>
+                      7 Crew for Standard Package (S) & 8 Crew in Complete
+                      Package (C)
+                    </span>
                   </li>
                 </ul>
               </div>
