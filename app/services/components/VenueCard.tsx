@@ -18,8 +18,9 @@ interface VenueCardProps {
   mcFee: string;
   plannerFee: string;
   hasPreWeddingBonus?: boolean;
-  additionalFees?: Array<{ label: string; value: string }>;
+  additionalFees?: { label: string; value: string }[];
   imageSrc?: string;
+  whatsappTemplate?: string;
 }
 
 export function VenueCard({
@@ -38,9 +39,10 @@ export function VenueCard({
   soundSystemFee,
   mcFee,
   plannerFee,
-  hasPreWeddingBonus = true,
+  hasPreWeddingBonus = false,
   additionalFees = [],
-  imageSrc,
+  imageSrc = "/venue-placeholder.jpg",
+  whatsappTemplate = 'Halo, saya tertarik dengan paket ini. Bisa minta info lebih lanjut?',
 }: VenueCardProps) {
   return (
     <div className="bg-white rounded-2xl overflow-hidden shadow-xl">
@@ -170,7 +172,7 @@ export function VenueCard({
         )}
 
         <Link
-          href="https://wa.me/62895323351511"
+          href={`https://wa.me/62895323351511?text=${encodeURIComponent(whatsappTemplate || 'Halo, saya tertarik dengan paket ini. Bisa minta info lebih lanjut?')}`}
           className="block w-full bg-primary text-white text-center py-4 rounded-lg hover:bg-primary/90 transition-colors font-medium"
           target="_blank"
           rel="noopener noreferrer"
