@@ -25,6 +25,8 @@ import { portfolioItems } from "./portfolio/page";
 import HomeBlogPosts from "@/components/home-blog-posts";
 import { WeddingPackages } from "./services/components/WeddingPackages";
 import { VenueCard } from "./services/components/VenueCard";
+import { PortfolioSection } from "@/components/portfolio";
+import { generatePortfolioItems, selectFeaturedItems } from "@/components/portfolio";
 
 const SlidingLogos = ({ direction = 'left' }) => {
   const duration = 20;
@@ -89,10 +91,28 @@ export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
 
-  // Select only 8 specific images for the slideshow
-  const slideshowImages = portfolioItems.slice(0, 8);
+  // Get gallery photos from the actual files in public/gallery
+  const galleryFiles = [
+    "Alfon & Desy.webp",
+    "Amy & Rizky.jpg",
+    "Edwin & Rani.jpg",
+    "Kintan & Dzikri.jpg",
+    "Maghfira & Fajar.jpg",
+    "Mega & Mirza.jpg",
+    "Putri & Habib.webp",
+    "Reza & Dian.webp",
+    "Satria & Nisa.webp",
+    "Tiara & Mufti.webp",
+    "Vina & Wahyu.jpg",
+    "Yoshua & Hana.jpg"
+  ];
+  
+  // Generate portfolio items from the gallery files
+  const galleryPortfolioItems = generatePortfolioItems(galleryFiles);
+  
+  // Select featured items for the homepage
   const [activePortfolioItems, setActivePortfolioItems] = useState(
-    slideshowImages.slice(0, 4)
+    selectFeaturedItems(galleryPortfolioItems)
   );
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -135,7 +155,7 @@ export default function Home() {
     const portfolioInterval = setInterval(() => {
       setActivePortfolioItems((prevItems) => {
         // Create a new array with shuffled items from our limited set
-        const allItems = [...slideshowImages];
+        const allItems = [...galleryPortfolioItems];
         // Fisher-Yates shuffle algorithm
         for (let i = allItems.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
@@ -672,85 +692,7 @@ export default function Home() {
         </section>
 
         {/* Portfolio/Gallery Section */}
-        <section className="py-24 md:py-32 bg-white overflow-hidden">
-          <div className="container mx-auto px-4 md:px-6">
-            <motion.div
-              className="text-center max-w-3xl mx-auto mb-16"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="inline-block mb-4">
-                <span className="text-xs uppercase tracking-widest text-primary font-medium">
-                  Our Portfolio
-                </span>
-                <div className="h-px w-20 bg-primary mt-1 mx-auto"></div>
-              </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                Moments We've Crafted
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                Explore some of our most memorable weddings and the beautiful
-                stories behind them.
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {activePortfolioItems.map((item, index) => (
-                <motion.div
-                  key={`${item.src}-${index}`}
-                  className={`relative ${
-                    index === 0 || index === 3
-                      ? "md:col-span-2 md:row-span-2"
-                      : ""
-                  } rounded-xl overflow-hidden`}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <div
-                    className={`${
-                      index === 0 || index === 3
-                        ? "aspect-[4/3]"
-                        : "aspect-square"
-                    } w-full relative`}
-                  >
-                    <Image
-                      src={item.src}
-                      alt={item.title}
-                      fill
-                      className="object-cover w-full h-full"
-                      sizes="(max-width: 768px) 50vw, 25vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                      <h3 className="text-white font-medium">{item.title}</h3>
-                      <p className="text-white/80 text-sm">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            <motion.div
-              className="text-center mt-12"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              <Link
-                href="/portfolio"
-                className="inline-flex items-center text-primary font-medium"
-              >
-                <span>View Full Portfolio</span>
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
-            </motion.div>
-          </div>
-        </section>
+        <PortfolioSection items={activePortfolioItems} />
 
         {/* Testimonials Section */}
         <section
