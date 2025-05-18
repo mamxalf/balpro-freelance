@@ -1113,7 +1113,7 @@ export default function Home() {
                       <div>
                         <h4 className="font-medium text-lg">Phone</h4>
                         <p className="text-muted-foreground">
-                          +1 (555) 123-4567
+                          +62 895 3233 51511
                         </p>
                         <p className="text-sm text-muted-foreground mt-1">
                           Available Mon-Fri, 9am-6pm
@@ -1157,12 +1157,10 @@ export default function Home() {
                       <div>
                         <h4 className="font-medium text-lg">Office</h4>
                         <p className="text-muted-foreground">
-                          123 Wedding Lane, Suite 101
-                          <br />
-                          Celebration City, WD 12345
+                          Jl. Gilingsari KM. 2 (Angkringan Balakosa Temanggung)
                         </p>
                         <Link
-                          href="https://maps.google.com"
+                          href="https://maps.app.goo.gl/tKXZYuu28g6NgiSJ7"
                           target="_blank"
                           className="text-primary text-sm inline-flex items-center mt-1 hover:underline"
                         >
@@ -1218,7 +1216,7 @@ export default function Home() {
                       whileTap={{ scale: 0.95 }}
                     >
                       <Link
-                        href="https://wa.me/15551234567"
+                        href="https://wa.me/62895323351511"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="WhatsApp"
@@ -1272,7 +1270,7 @@ export default function Home() {
                 whileTap={{ scale: 0.95 }}
               >
                 <Link
-                  href="https://wa.me/15551234567"
+                  href="https://wa.me/62895323351511"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-[#25D366] text-white px-6 py-3 rounded-full hover:shadow-lg transition-all duration-300"
@@ -1300,7 +1298,7 @@ export default function Home() {
           whileTap={{ scale: 0.9 }}
         >
           <Link
-            href="https://wa.me/15551234567"
+            href="https://wa.me/62895323351511"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center w-16 h-16 bg-[#25D366] rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
@@ -1378,7 +1376,7 @@ export default function Home() {
                       Give us a call
                     </span>
                     <span className="text-white font-medium">
-                      +1 (555) 123-4567
+                      +62 895 3233 51511
                     </span>
                   </div>
                 </li>
@@ -1400,9 +1398,7 @@ export default function Home() {
                       Find us
                     </span>
                     <span className="text-white font-medium">
-                      123 Wedding Lane
-                      <br />
-                      Celebration City, WD 12345
+                      Jl. Gilingsari KM. 2 (Angkringan Balakosa Temanggung)
                     </span>
                   </div>
                 </li>
