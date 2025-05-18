@@ -28,6 +28,8 @@ import {
 } from "lucide-react";
 import { portfolioItems } from "./portfolio/page";
 import HomeBlogPosts from "@/components/home-blog-posts";
+import { WeddingPackages } from "./services/components/WeddingPackages";
+import { VenueCard } from "./services/components/VenueCard";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -501,411 +503,114 @@ export default function Home() {
         </section>
 
         {/* Services Section */}
-        <section
-          id="services"
-          className="py-24 md:py-32 bg-slate-50 overflow-hidden"
-        >
-          <div className="container mx-auto px-4 md:px-6">
-            <motion.div
-              className="text-center max-w-3xl mx-auto mb-16"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="inline-block mb-4">
-                <span className="text-xs uppercase tracking-widest text-primary font-medium">
-                  Our Services
-                </span>
-                <div className="h-px w-20 bg-primary mt-1 mx-auto"></div>
-              </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                Tailored Wedding Experiences
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                We offer comprehensive wedding planning services tailored to
-                your unique vision and requirements, ensuring every detail is
-                meticulously planned and flawlessly executed.
-              </p>
-            </motion.div>
+        <section id="services" className="bg-slate-50 overflow-hidden">
+          <WeddingPackages />
 
-            <div className="grid md:grid-cols-3 gap-8">
-              {[
-                {
-                  title: "Full Wedding Planning",
-                  description:
-                    "Comprehensive planning and coordination from concept to execution, ensuring a seamless and stress-free experience.",
-                  features: [
-                    "Venue selection and management",
-                    "Budget planning and management",
-                    "Vendor coordination",
-                    "Timeline creation and management",
-                    "Day-of coordination and supervision",
-                  ],
-                  color: "bg-white",
-                },
-                {
-                  title: "Partial Planning",
-                  description:
-                    "Perfect for couples who have started planning but need expert guidance to bring their vision to life.",
-                  features: [
-                    "Personalized wedding concept design",
-                    "Vendor recommendations and management",
-                    "Timeline creation and management",
-                    "Design and styling consultation",
-                    "Month-of coordination",
-                  ],
-                  color: "bg-primary/5",
-                },
-                {
-                  title: "Day-of Coordination",
-                  description:
-                    "Ensuring your wedding day runs smoothly while you focus on creating memories that last a lifetime.",
-                  features: [
-                    "Detailed timeline creation",
-                    "Vendor coordination",
-                    "Ceremony and reception setup",
-                    "Guest management",
-                    "Emergency kit and problem-solving",
-                  ],
-                  color: "bg-white",
-                },
-              ].map((service, index) => (
+          {/* Venue Cards */}
+          <div className="py-16 md:py-24">
+            <div className="container mx-auto px-4 md:px-6">
+              <motion.div
+                className="text-center max-w-3xl mx-auto mt-20 mb-10"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+              >
+                <div className="inline-block mb-4">
+                  <span className="text-xs uppercase tracking-widest text-primary font-medium">
+                    Our Venues
+                  </span>
+                  <div className="h-px w-20 bg-primary mt-1 mx-auto"></div>
+                </div>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                  #semuabisamenikah
+                </h2>
+                <p className="text-lg text-muted-foreground">
+                  Choose from our premium wedding venues for your special day
+                </p>
+              </motion.div>
+
+              <div className="grid md:grid-cols-2 gap-8 mb-10">
+                {/* Balakosa Venue Card */}
                 <motion.div
-                  key={index}
-                  className={`${service.color} rounded-2xl p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-2`}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  transition={{ duration: 0.6 }}
                 >
-                  <div className="h-12 flex items-center">
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                      <span className="text-primary font-bold">
-                        {index + 1}
-                      </span>
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-bold mt-6 mb-4">
-                    {service.title}
-                  </h3>
-                  <p className="text-muted-foreground mb-6">
-                    {service.description}
-                  </p>
-                  <ul className="space-y-3">
-                    {service.features.map((feature, i) => (
-                      <li key={i} className="flex items-start">
-                        <svg
-                          className="h-5 w-5 text-primary mr-2 mt-0.5"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M5 13l4 4L19 7"
-                          />
-                        </svg>
-                        <span className="text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mt-8">
-                    <Link
-                      href="#contact"
-                      className="inline-flex items-center text-primary font-medium text-sm hover:underline"
-                    >
-                      <span>Learn more</span>
-                      <ChevronRight className="ml-1 h-4 w-4" />
-                    </Link>
-                  </div>
+                  <VenueCard
+                    name="Balakosa"
+                    location="Temanggung"
+                    price="Rp 57,6 juta"
+                    capacity="300"
+                    venueFee="Venue Rental (Full Day)"
+                    decorationFee="Full Venue Decoration"
+                    cateringFee="Food Catering (Buffet & 4 Stall)"
+                    cateringPerPax="Makan 2x & Snack 1x"
+                    muaFee="MUA Full Package (Modern Wedding)"
+                    photoVideoFee="Photo & Video Documentation"
+                    preWeddingFee="Free Pre-Wedding Video (Worth Rp 1,5 juta)"
+                    entertainmentFee="Entertainment & MC"
+                    soundSystemFee="Sound System & Lighting"
+                    mcFee="Professional MC"
+                    plannerFee="Wedding Planner"
+                    hasPreWeddingBonus={true}
+                    additionalFees={[
+                      { label: "Venue Capacity", value: "300 pax" },
+                      { label: "Additional Decoration", value: "Pergola Akad" },
+                    ]}
+                  />
                 </motion.div>
-              ))}
-            </div>
 
-            <motion.div
-              className="text-center mt-16"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              <Link
-                href="#contact"
-                className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-8 text-sm font-medium text-white shadow transition-all duration-300 hover:bg-primary/90 hover:translate-y-[-2px] hover:shadow-lg"
-              >
-                Request Custom Package
-              </Link>
-            </motion.div>
-
-            {/* Venue Cards */}
-            <motion.div
-              className="text-center max-w-3xl mx-auto mt-20 mb-10"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="inline-block mb-4">
-                <span className="text-xs uppercase tracking-widest text-primary font-medium">
-                  Our Venues
-                </span>
-                <div className="h-px w-20 bg-primary mt-1 mx-auto"></div>
-              </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                #semuabisamenikah
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                Choose from our premium wedding venues for your special day
-              </p>
-            </motion.div>
-
-            <div className="grid md:grid-cols-2 gap-8 mb-10">
-              {/* Balakosa Venue Card */}
-              <motion.div
-                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <div className="relative h-64">
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent z-10"></div>
-                  <div className="absolute top-4 left-4 bg-primary/90 text-white px-4 py-1 rounded-full text-sm font-medium z-20">
-                    Balakosa
-                  </div>
-                  <div className="absolute bottom-4 left-4 text-white z-20">
-                    <h3 className="text-2xl font-bold">Balakosa Venue</h3>
-                    <p className="text-white/80">Temanggung</p>
-                  </div>
-                  <div className="absolute inset-0 bg-slate-900/20"></div>
-                </div>
-                <div className="p-6">
-                  <div className="flex justify-between items-center mb-4">
-                    <div>
-                      <h4 className="text-xl font-bold">Complete Package</h4>
-                      <p className="text-primary font-bold text-2xl">
-                        Rp 57,6 juta
-                      </p>
-                    </div>
-                    <div className="bg-primary/10 px-3 py-1 rounded-full">
-                      <p className="text-primary text-sm">300 pax</p>
-                    </div>
-                  </div>
-
-                  <ul className="space-y-2 mb-6">
-                    <li className="flex items-start">
-                      <svg
-                        className="h-5 w-5 text-primary mr-2 mt-0.5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                      <span>Venue Decoration</span>
-                    </li>
-                    <li className="flex items-start">
-                      <svg
-                        className="h-5 w-5 text-primary mr-2 mt-0.5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                      <span>Food Catering (Buffet & 4 Stall)</span>
-                    </li>
-                    <li className="flex items-start">
-                      <svg
-                        className="h-5 w-5 text-primary mr-2 mt-0.5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                      <span>MUA Full Package (Modern Wedding)</span>
-                    </li>
-                    <li className="flex items-start">
-                      <svg
-                        className="h-5 w-5 text-primary mr-2 mt-0.5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                      <span>Photo & Video</span>
-                    </li>
-                  </ul>
-
-                  <div className="bg-slate-50 p-3 rounded-lg text-sm mb-6">
-                    <p className="font-medium">Free Pre-Wedding Video</p>
-                    <p className="text-muted-foreground">Worth Rp 1,5 juta</p>
-                  </div>
-
-                  <Link
-                    href="/services"
-                    className="block w-full bg-primary text-white text-center py-3 rounded-lg hover:bg-primary/90 transition-colors"
-                  >
-                    View Details
-                  </Link>
-                </div>
-              </motion.div>
-
-              {/* Gedung Juang Venue Card */}
-              <motion.div
-                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <div className="relative h-64">
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent z-10"></div>
-                  <div className="absolute top-4 left-4 bg-primary/90 text-white px-4 py-1 rounded-full text-sm font-medium z-20">
-                    Gd. Juang
-                  </div>
-                  <div className="absolute bottom-4 left-4 text-white z-20">
-                    <h3 className="text-2xl font-bold">Gedung Juang</h3>
-                    <p className="text-white/80">Temanggung</p>
-                  </div>
-                  <div className="absolute inset-0 bg-slate-900/20"></div>
-                </div>
-                <div className="p-6">
-                  <div className="flex justify-between items-center mb-4">
-                    <div>
-                      <h4 className="text-xl font-bold">Complete Package</h4>
-                      <p className="text-primary font-bold text-2xl">
-                        Rp 62,1 juta
-                      </p>
-                    </div>
-                    <div className="bg-primary/10 px-3 py-1 rounded-full">
-                      <p className="text-primary text-sm">300 pax</p>
-                    </div>
-                  </div>
-
-                  <ul className="space-y-2 mb-6">
-                    <li className="flex items-start">
-                      <svg
-                        className="h-5 w-5 text-primary mr-2 mt-0.5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                      <span>100 Visitor Seats</span>
-                    </li>
-                    <li className="flex items-start">
-                      <svg
-                        className="h-5 w-5 text-primary mr-2 mt-0.5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                      <span>Venue Decoration (+ Pergola Akad)</span>
-                    </li>
-                    <li className="flex items-start">
-                      <svg
-                        className="h-5 w-5 text-primary mr-2 mt-0.5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                      <span>Food Catering (Buffet & 4 Stall)</span>
-                    </li>
-                    <li className="flex items-start">
-                      <svg
-                        className="h-5 w-5 text-primary mr-2 mt-0.5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                      <span>Photo & Video</span>
-                    </li>
-                  </ul>
-
-                  <div className="bg-slate-50 p-3 rounded-lg text-sm mb-6">
-                    <p className="font-medium">Free Pre-Wedding Video</p>
-                    <p className="text-muted-foreground">Worth Rp 1,5 juta</p>
-                  </div>
-
-                  <Link
-                    href="/services"
-                    className="block w-full bg-primary text-white text-center py-3 rounded-lg hover:bg-primary/90 transition-colors"
-                  >
-                    View Details
-                  </Link>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Services Page Navigation */}
-            <div className="text-center mt-10">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-              >
-                <Link
-                  href="/services"
-                  className="inline-flex items-center gap-2 bg-white border border-primary/20 text-primary px-6 py-3 rounded-xl hover:bg-primary/5 transition-all duration-300"
+                {/* Gedung Juang Venue Card */}
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
                 >
-                  <span>Explore All Our Services</span>
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </motion.div>
+                  <VenueCard
+                    name="Gedung Juang"
+                    location="Temanggung"
+                    price="Rp 62,1 juta"
+                    capacity="300"
+                    venueFee="Venue Rental (Full Day)"
+                    decorationFee="Full Venue Decoration + Pergola Akad"
+                    cateringFee="Food Catering (Buffet & 4 Stall)"
+                    cateringPerPax="Makan 2x & Snack 1x"
+                    muaFee="MUA Full Package (Modern Wedding)"
+                    photoVideoFee="Photo & Video Documentation"
+                    preWeddingFee="Free Pre-Wedding Video (Worth Rp 1,5 juta)"
+                    entertainmentFee="Entertainment & MC"
+                    soundSystemFee="Sound System & Lighting"
+                    mcFee="Professional MC"
+                    plannerFee="Wedding Planner"
+                    hasPreWeddingBonus={true}
+                    additionalFees={[
+                      { label: "Venue Capacity", value: "300 pax" },
+                      { label: "Special Feature", value: "100 Visitor Seats" },
+                    ]}
+                  />
+                </motion.div>
+              </div>
+
+              {/* Services Page Navigation */}
+              <div className="text-center mt-10">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <Link
+                    href="/services"
+                    className="inline-flex items-center gap-2 bg-white border border-primary/20 text-primary px-6 py-3 rounded-xl hover:bg-primary/5 transition-all duration-300"
+                  >
+                    <span>Explore All Our Services</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </motion.div>
+              </div>
             </div>
           </div>
         </section>
