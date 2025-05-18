@@ -3,12 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  AnimatePresence,
-} from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence, useAnimation } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -30,6 +25,65 @@ import { portfolioItems } from "./portfolio/page";
 import HomeBlogPosts from "@/components/home-blog-posts";
 import { WeddingPackages } from "./services/components/WeddingPackages";
 import { VenueCard } from "./services/components/VenueCard";
+
+const SlidingLogos = ({ direction = 'left' }) => {
+  const duration = 20;
+  const logos = [
+    "LOGO_VENDOR_BALPRO_SEMUABISAMENIKAH_AILSA.png",
+    "LOGO_VENDOR_BALPRO_SEMUABISAMENIKAH_FRISMA.png",
+    "LOGO_VENDOR_BALPRO_SEMUABISAMENIKAH_MEREKAMKENANG.png",
+    "LOGO_VENDOR_BALPRO_SEMUABISAMENIKAH_STARGROOVE.png",
+    "LOGO_VENDOR_BALPRO_SEMUABISAMENIKAH_ULTRA.png",
+  ];
+
+  // Duplicate the logos array to ensure smooth infinite loop
+  const duplicatedLogos = [...logos, ...logos];
+
+  return (
+    <div className="flex">
+      <motion.div
+        className="flex"
+        initial={{ x: direction === 'left' ? '0%' : '-100%' }}
+        animate={{
+          x: direction === 'left' ? '-100%' : '0%',
+        }}
+        transition={{
+          duration,
+          repeat: Infinity,
+          ease: 'linear',
+        }}
+      >
+        {duplicatedLogos.map((filename, idx) => {
+          const name = filename
+            .replace("LOGO_VENDOR_BALPRO_SEMUABISAMENIKAH_", "")
+            .replace(".png", "")
+            .replace(/_/g, " ");
+          
+          return (
+            <motion.div
+              key={`${filename}-${idx}`}
+              className="mx-4 w-[200px] h-[120px] bg-slate-900 rounded-xl overflow-hidden p-4 flex-shrink-0"
+              whileHover={{ scale: 1.05, zIndex: 10 }}
+            >
+              <div className="relative w-full h-full">
+                <Image
+                  src={`/vendor/${filename}`}
+                  alt={`Partner ${name}`}
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                <h3 className="text-white font-medium text-sm">{name}</h3>
+                <p className="text-white/80 text-xs">Partner</p>
+              </div>
+            </motion.div>
+          );
+        })}
+      </motion.div>
+    </div>
+  );
+};
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -815,45 +869,17 @@ export default function Home() {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-              {[
-                "LOGO_VENDOR_BALPRO_SEMUABISAMENIKAH_AILSA.png",
-                "LOGO_VENDOR_BALPRO_SEMUABISAMENIKAH_FRISMA.png",
-                "LOGO_VENDOR_BALPRO_SEMUABISAMENIKAH_MEREKAMKENANG.png",
-                "LOGO_VENDOR_BALPRO_SEMUABISAMENIKAH_STARGROOVE.png",
-                "LOGO_VENDOR_BALPRO_SEMUABISAMENIKAH_ULTRA.png",
-              ].map((filename, idx) => {
-                // Extract a readable partner name from the filename
-                const name = filename
-                  .replace("LOGO_VENDOR_BALPRO_SEMUABISAMENIKAH_", "")
-                  .replace(".png", "")
-                  .replace(/_/g, " ");
-                return (
-                  <motion.div
-                    key={filename}
-                    className="bg-slate-900 aspect-square relative rounded-xl overflow-hidden hover:shadow-md transition-all duration-300 p-4 flex items-center justify-center"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: idx * 0.1 }}
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <div className="relative w-full h-full">
-                      <Image
-                        src={`/vendor/${filename}`}
-                        alt={`Partner ${name}`}
-                        fill
-                        sizes="(max-width: 768px) 50vw, 25vw"
-                        className="object-contain p-2"
-                      />
-                    </div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                      <h3 className="text-white font-medium">{name}</h3>
-                      <p className="text-white/80 text-sm">Partner</p>
-                    </div>
-                  </motion.div>
-                );
-              })}
+            <div className="relative overflow-hidden py-8">
+              <div className="relative">
+                {/* First row */}
+                <div className="flex mb-8">
+                  <SlidingLogos direction="left" />
+                </div>
+                {/* Second row - reversed direction */}
+                <div className="flex">
+                  <SlidingLogos direction="right" />
+                </div>
+              </div>
             </div>
           </div>
         </section>
