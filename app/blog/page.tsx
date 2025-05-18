@@ -19,7 +19,7 @@ import {
 import {
   fetchAllCategories,
   fetchFeaturedPosts,
-  fetchRecentPosts
+  fetchRecentPosts,
 } from "@/lib/blog-client";
 import { BlogPost } from "@/lib/blog-types";
 
@@ -39,14 +39,14 @@ export default function BlogPage() {
         const [categoriesData, featuredData, recentData] = await Promise.all([
           fetchAllCategories(),
           fetchFeaturedPosts(),
-          fetchRecentPosts()
+          fetchRecentPosts(),
         ]);
 
         setCategories(categoriesData);
         setFeaturedPosts(featuredData);
         setRecentPosts(recentData);
       } catch (error) {
-        console.error('Error fetching blog data:', error);
+        console.error("Error fetching blog data:", error);
         // Set empty arrays as fallback
         setCategories([]);
         setFeaturedPosts([]);
@@ -59,10 +59,11 @@ export default function BlogPage() {
 
   // Filter posts based on search query
   const filteredRecentPosts = searchQuery
-    ? recentPosts.filter(post =>
-        post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        post.category.toLowerCase().includes(searchQuery.toLowerCase())
+    ? recentPosts.filter(
+        (post) =>
+          post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          post.category.toLowerCase().includes(searchQuery.toLowerCase())
       )
     : recentPosts;
 
@@ -70,7 +71,10 @@ export default function BlogPage() {
   const totalPages = Math.ceil(filteredRecentPosts.length / postsPerPage);
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = filteredRecentPosts.slice(indexOfFirstPost, indexOfLastPost);
+  const currentPosts = filteredRecentPosts.slice(
+    indexOfFirstPost,
+    indexOfLastPost
+  );
 
   // Reset to page 1 when search query changes
   useEffect(() => {
@@ -288,7 +292,10 @@ export default function BlogPage() {
                 </div>
                 {searchQuery && (
                   <div className="mt-2 text-sm text-muted-foreground">
-                    Showing results for: <span className="font-medium text-primary">{searchQuery}</span>
+                    Showing results for:{" "}
+                    <span className="font-medium text-primary">
+                      {searchQuery}
+                    </span>
                   </div>
                 )}
               </div>
@@ -460,7 +467,6 @@ export default function BlogPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-
               {filteredRecentPosts.length > 0 && (
                 <nav className="flex items-center gap-2">
                   <Button
@@ -469,7 +475,10 @@ export default function BlogPage() {
                     className="rounded-full"
                     onClick={() => {
                       if (currentPage > 1) {
-                        console.log("Moving to previous page:", currentPage - 1);
+                        console.log(
+                          "Moving to previous page:",
+                          currentPage - 1
+                        );
                         setCurrentPage(currentPage - 1);
                       }
                     }}
@@ -493,24 +502,26 @@ export default function BlogPage() {
                     <span className="sr-only">Previous page</span>
                   </Button>
 
-                  {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                    <Button
-                      key={page}
-                      variant="outline"
-                      size="sm"
-                      className={`rounded-full ${
-                        currentPage === page
-                          ? "bg-primary text-white hover:bg-primary/90 border-primary"
-                          : ""
-                      }`}
-                      onClick={() => {
-                        console.log("Moving to page:", page);
-                        setCurrentPage(page);
-                      }}
-                    >
-                      {page}
-                    </Button>
-                  ))}
+                  {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                    (page) => (
+                      <Button
+                        key={page}
+                        variant="outline"
+                        size="sm"
+                        className={`rounded-full ${
+                          currentPage === page
+                            ? "bg-primary text-white hover:bg-primary/90 border-primary"
+                            : ""
+                        }`}
+                        onClick={() => {
+                          console.log("Moving to page:", page);
+                          setCurrentPage(page);
+                        }}
+                      >
+                        {page}
+                      </Button>
+                    )
+                  )}
 
                   <Button
                     variant="outline"
@@ -614,8 +625,26 @@ export default function BlogPage() {
                   aria-label="Instagram"
                   className="bg-white/10 hover:bg-primary/20 p-2.5 rounded-full transition-all duration-300 hover:scale-110"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-white">
-                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-5 w-5 text-white"
+                  >
+                    <rect
+                      width="20"
+                      height="20"
+                      x="2"
+                      y="2"
+                      rx="5"
+                      ry="5"
+                    ></rect>
                     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                     <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
                   </svg>
@@ -625,7 +654,18 @@ export default function BlogPage() {
                   aria-label="Facebook"
                   className="bg-white/10 hover:bg-primary/20 p-2.5 rounded-full transition-all duration-300 hover:scale-110"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-white">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-5 w-5 text-white"
+                  >
                     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                   </svg>
                 </Link>
@@ -634,7 +674,18 @@ export default function BlogPage() {
                   aria-label="Twitter"
                   className="bg-white/10 hover:bg-primary/20 p-2.5 rounded-full transition-all duration-300 hover:scale-110"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-white">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-5 w-5 text-white"
+                  >
                     <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
                   </svg>
                 </Link>
@@ -745,7 +796,7 @@ export default function BlogPage() {
                       Give us a call
                     </span>
                     <span className="text-white font-medium">
-                      +1 (555) 123-4567
+                      +62 812-3456-7890
                     </span>
                   </div>
                 </li>

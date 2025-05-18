@@ -106,7 +106,7 @@ export default function Home() {
               <div className="flex items-center space-x-1">
                 <PhoneIcon className="h-3 w-3 text-primary/70" />
                 <span className="hover:text-primary transition-colors">
-                  +1 (555) 123-4567
+                  +62 895 3233 51511
                 </span>
               </div>
               <div className="flex items-center space-x-1">
@@ -309,7 +309,7 @@ export default function Home() {
                 <div className="space-y-2 text-sm">
                   <div className="flex items-center">
                     <PhoneIcon className="h-3.5 w-3.5 text-primary/70 mr-2" />
-                    <span>+1 (555) 123-4567</span>
+                    <span>+62 895 3233 51511</span>
                   </div>
                   <div className="flex items-center">
                     <Mail className="h-3.5 w-3.5 text-primary/70 mr-2" />
@@ -685,51 +685,96 @@ export default function Home() {
                   <div className="flex justify-between items-center mb-4">
                     <div>
                       <h4 className="text-xl font-bold">Complete Package</h4>
-                      <p className="text-primary font-bold text-2xl">Rp 57,6 juta</p>
+                      <p className="text-primary font-bold text-2xl">
+                        Rp 57,6 juta
+                      </p>
                     </div>
                     <div className="bg-primary/10 px-3 py-1 rounded-full">
                       <p className="text-primary text-sm">300 pax</p>
                     </div>
                   </div>
-                  
+
                   <ul className="space-y-2 mb-6">
                     <li className="flex items-start">
-                      <svg className="h-5 w-5 text-primary mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                      <svg
+                        className="h-5 w-5 text-primary mr-2 mt-0.5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M5 13l4 4L19 7"
+                        />
                       </svg>
                       <span>Venue Decoration</span>
                     </li>
                     <li className="flex items-start">
-                      <svg className="h-5 w-5 text-primary mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                      <svg
+                        className="h-5 w-5 text-primary mr-2 mt-0.5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M5 13l4 4L19 7"
+                        />
                       </svg>
                       <span>Food Catering (Buffet & 4 Stall)</span>
                     </li>
                     <li className="flex items-start">
-                      <svg className="h-5 w-5 text-primary mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                      <svg
+                        className="h-5 w-5 text-primary mr-2 mt-0.5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M5 13l4 4L19 7"
+                        />
                       </svg>
                       <span>MUA Full Package (Modern Wedding)</span>
                     </li>
                     <li className="flex items-start">
-                      <svg className="h-5 w-5 text-primary mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                      <svg
+                        className="h-5 w-5 text-primary mr-2 mt-0.5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M5 13l4 4L19 7"
+                        />
                       </svg>
                       <span>Photo & Video</span>
                     </li>
                   </ul>
-                  
+
                   <div className="bg-slate-50 p-3 rounded-lg text-sm mb-6">
                     <p className="font-medium">Free Pre-Wedding Video</p>
                     <p className="text-muted-foreground">Worth Rp 1,5 juta</p>
                   </div>
-                  
-                  <Link href="/services" className="block w-full bg-primary text-white text-center py-3 rounded-lg hover:bg-primary/90 transition-colors">
+
+                  <Link
+                    href="/services"
+                    className="block w-full bg-primary text-white text-center py-3 rounded-lg hover:bg-primary/90 transition-colors"
+                  >
                     View Details
                   </Link>
                 </div>
               </motion.div>
-              
+
               {/* Gedung Juang Venue Card */}
               <motion.div
                 className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
@@ -753,52 +798,97 @@ export default function Home() {
                   <div className="flex justify-between items-center mb-4">
                     <div>
                       <h4 className="text-xl font-bold">Complete Package</h4>
-                      <p className="text-primary font-bold text-2xl">Rp 62,1 juta</p>
+                      <p className="text-primary font-bold text-2xl">
+                        Rp 62,1 juta
+                      </p>
                     </div>
                     <div className="bg-primary/10 px-3 py-1 rounded-full">
                       <p className="text-primary text-sm">300 pax</p>
                     </div>
                   </div>
-                  
+
                   <ul className="space-y-2 mb-6">
                     <li className="flex items-start">
-                      <svg className="h-5 w-5 text-primary mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                      <svg
+                        className="h-5 w-5 text-primary mr-2 mt-0.5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M5 13l4 4L19 7"
+                        />
                       </svg>
                       <span>100 Visitor Seats</span>
                     </li>
                     <li className="flex items-start">
-                      <svg className="h-5 w-5 text-primary mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                      <svg
+                        className="h-5 w-5 text-primary mr-2 mt-0.5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M5 13l4 4L19 7"
+                        />
                       </svg>
                       <span>Venue Decoration (+ Pergola Akad)</span>
                     </li>
                     <li className="flex items-start">
-                      <svg className="h-5 w-5 text-primary mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                      <svg
+                        className="h-5 w-5 text-primary mr-2 mt-0.5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M5 13l4 4L19 7"
+                        />
                       </svg>
                       <span>Food Catering (Buffet & 4 Stall)</span>
                     </li>
                     <li className="flex items-start">
-                      <svg className="h-5 w-5 text-primary mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                      <svg
+                        className="h-5 w-5 text-primary mr-2 mt-0.5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M5 13l4 4L19 7"
+                        />
                       </svg>
                       <span>Photo & Video</span>
                     </li>
                   </ul>
-                  
+
                   <div className="bg-slate-50 p-3 rounded-lg text-sm mb-6">
                     <p className="font-medium">Free Pre-Wedding Video</p>
                     <p className="text-muted-foreground">Worth Rp 1,5 juta</p>
                   </div>
-                  
-                  <Link href="/services" className="block w-full bg-primary text-white text-center py-3 rounded-lg hover:bg-primary/90 transition-colors">
+
+                  <Link
+                    href="/services"
+                    className="block w-full bg-primary text-white text-center py-3 rounded-lg hover:bg-primary/90 transition-colors"
+                  >
                     View Details
                   </Link>
                 </div>
               </motion.div>
             </div>
-            
+
             {/* Services Page Navigation */}
             <div className="text-center mt-10">
               <motion.div
@@ -807,8 +897,8 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <Link 
-                  href="/services" 
+                <Link
+                  href="/services"
                   className="inline-flex items-center gap-2 bg-white border border-primary/20 text-primary px-6 py-3 rounded-xl hover:bg-primary/5 transition-all duration-300"
                 >
                   <span>Explore All Our Services</span>
