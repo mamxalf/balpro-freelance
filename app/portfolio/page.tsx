@@ -4,85 +4,28 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-export const portfolioItems = [
-  {
-    src: "/gallery/pexels-arjunadinata-30248254.jpg",
-    title: "Elegant Outdoor Ceremony",
-    description: "A breathtaking wedding surrounded by nature.",
-  },
-  {
-    src: "/gallery/pexels-arjunadinata-30700788.jpg",
-    title: "Traditional Balinese Vows",
-    description: "A beautiful celebration with local culture.",
-  },
-  {
-    src: "/gallery/pexels-arjunadinata-30700790.jpg",
-    title: "Classic White Wedding",
-    description: "Timeless elegance, pure romance.",
-  },
-  {
-    src: "/gallery/pexels-danu-hidayatur-rahman-1412074-2852133.jpg",
-    title: "Intimate Moments",
-    description: "Capturing the joy of togetherness.",
-  },
-  {
-    src: "/gallery/pexels-danu-hidayatur-rahman-1412074-2852135.jpg",
-    title: "Garden Bliss",
-    description: "A lush, floral outdoor ceremony.",
-  },
-  {
-    src: "/gallery/pexels-danu-hidayatur-rahman-1412074-5562915.jpg",
-    title: "Rustic Chic",
-    description: "Barn wedding with a modern twist.",
-  },
-  {
-    src: "/gallery/pexels-panditwiguna-11837755.jpg",
-    title: "Beachfront Vows",
-    description: "Sunset ceremony on golden sands.",
-  },
-  {
-    src: "/gallery/pexels-panditwiguna-14828542.jpg",
-    title: "City Lights",
-    description: "Modern love in a metropolitan setting.",
-  },
-  {
-    src: "/gallery/pexels-panditwiguna-2788492.jpg",
-    title: "Santorini Dream",
-    description: "Elegant white and blue, overlooking the caldera.",
-  },
-  {
-    src: "/gallery/pexels-panditwiguna-2788494.jpg",
-    title: "Lake Como Romance",
-    description: "Luxury and charm on the Italian lakeshore.",
-  },
-  {
-    src: "/gallery/pexels-panditwiguna-29136145.jpg",
-    title: "Classic Ballroom",
-    description: "Timeless elegance in a grand ballroom.",
-  },
-  {
-    src: "/gallery/pexels-panditwiguna-2970286.jpg",
-    title: "Chic Minimalist",
-    description: "Sleek, modern, and sophisticated.",
-  },
-  {
-    src: "/gallery/pexels-panditwiguna-2970290.jpg",
-    title: "Boho Romance",
-    description: "Free-spirited celebration of love.",
-  },
-  {
-    src: "/gallery/pexels-panditwiguna-31902400.jpg",
-    title: "Enchanted Forest",
-    description: "A magical woodland ceremony.",
-  },
-  {
-    src: "/gallery/pexels-panditwiguna-31902403.jpg",
-    title: "Golden Hour",
-    description: "Capturing love at sunset.",
-  },
+import { useState } from "react";
+// Import the utility function to generate portfolio items from filenames
+import { generatePortfolioItems } from "@/components/portfolio";
+
+// Actual gallery files from public/gallery directory
+const galleryFiles = [
+  "Alfon & Desy.webp",
+  "Amy & Rizky.jpg",
+  "Edwin & Rani.jpg",
+  "Kintan & Dzikri.jpg",
+  "Maghfira & Fajar.jpg",
+  "Mega & Mirza.jpg",
+  "Putri & Habib.webp",
+  "Reza & Dian.webp",
+  "Satria & Nisa.webp",
+  "Tiara & Mufti.webp",
+  "Vina & Wahyu.jpg",
+  "Yoshua & Hana.jpg"
 ];
 
-import { useState } from "react";
+// Generate portfolio items from the gallery files
+export const portfolioItems = generatePortfolioItems(galleryFiles);
 
 export default function PortfolioPage() {
   const [selected, setSelected] = useState<null | (typeof portfolioItems)[0]>(
