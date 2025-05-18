@@ -7,6 +7,7 @@ import { GoogleAnalytics } from "@/app/lib/analytics"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
+  metadataBase: new URL('https://balpro.id'),
   title: "Balpro - Wedding Organizer Indonesia | #semuabisamenikah",
   description: "Balpro Wedding Enterprise menyediakan jasa Wedding Organizer & Consultation di Temanggung dan sekitarnya. Paket mulai dari Rp 2.000.000.",
   keywords: "wedding organizer, wedding planner, Balpro, Temanggung, Indonesia, wedding consultation, wedding packages, #semuabisamenikah",

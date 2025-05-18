@@ -3,13 +3,13 @@
 
 import { usePathname, useSearchParams } from 'next/navigation';
 import Script from 'next/script';
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 
 // Replace with your actual Google Analytics measurement ID
-const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+const GA_MEASUREMENT_ID = 'G-BALPRO2025';
 
-// Initialize Google Analytics on the client side
-export function GoogleAnalytics() {
+// Analytics content component that uses client hooks
+function AnalyticsContent() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -22,6 +22,11 @@ export function GoogleAnalytics() {
     }
   }, [pathname, searchParams]);
 
+  return null;
+}
+
+// Initialize Google Analytics on the client side
+export function GoogleAnalytics() {
   return (
     <>
       <Script
@@ -44,6 +49,9 @@ export function GoogleAnalytics() {
           `,
         }}
       />
+      <Suspense fallback={null}>
+        <AnalyticsContent />
+      </Suspense>
     </>
   );
 }
