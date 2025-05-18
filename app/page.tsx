@@ -3,7 +3,13 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useTransform, AnimatePresence, useAnimation } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  AnimatePresence,
+  useAnimation,
+} from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -26,9 +32,12 @@ import HomeBlogPosts from "@/components/home-blog-posts";
 import { WeddingPackages } from "./services/components/WeddingPackages";
 import { VenueCard } from "./services/components/VenueCard";
 import { PortfolioSection } from "@/components/portfolio";
-import { generatePortfolioItems, selectFeaturedItems } from "@/components/portfolio";
+import {
+  generatePortfolioItems,
+  selectFeaturedItems,
+} from "@/components/portfolio";
 
-const SlidingLogos = ({ direction = 'left' }) => {
+const SlidingLogos = ({ direction = "left" }) => {
   const duration = 20;
   const logos = [
     "LOGO_VENDOR_BALPRO_SEMUABISAMENIKAH_AILSA.png",
@@ -45,14 +54,14 @@ const SlidingLogos = ({ direction = 'left' }) => {
     <div className="flex">
       <motion.div
         className="flex"
-        initial={{ x: direction === 'left' ? '0%' : '-100%' }}
+        initial={{ x: direction === "left" ? "0%" : "-100%" }}
         animate={{
-          x: direction === 'left' ? '-100%' : '0%',
+          x: direction === "left" ? "-100%" : "0%",
         }}
         transition={{
           duration,
           repeat: Infinity,
-          ease: 'linear',
+          ease: "linear",
         }}
       >
         {duplicatedLogos.map((filename, idx) => {
@@ -60,7 +69,7 @@ const SlidingLogos = ({ direction = 'left' }) => {
             .replace("LOGO_VENDOR_BALPRO_SEMUABISAMENIKAH_", "")
             .replace(".png", "")
             .replace(/_/g, " ");
-          
+
           return (
             <motion.div
               key={`${filename}-${idx}`}
@@ -104,12 +113,12 @@ export default function Home() {
     "Satria & Nisa.webp",
     "Tiara & Mufti.webp",
     "Vina & Wahyu.jpg",
-    "Yoshua & Hana.jpg"
+    "Yoshua & Hana.jpg",
   ];
-  
+
   // Generate portfolio items from the gallery files
   const galleryPortfolioItems = generatePortfolioItems(galleryFiles);
-  
+
   // Select featured items for the homepage
   const [activePortfolioItems, setActivePortfolioItems] = useState(
     selectFeaturedItems(galleryPortfolioItems)
@@ -603,14 +612,23 @@ export default function Home() {
                 <p className="text-lg text-muted-foreground mb-6">
                   Choose from our premium wedding venues for your special day
                 </p>
-                <a 
+                <a
                   href="https://wa.me/62895323351511?text=Halo%20saya%20dari%20web%2C%20mau%20konsultasi%20wedding%20Impian%20mulai%2030%20juta.%20Mohon%20info%20lebih%20lanjut."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center px-6 py-2.5 bg-green-600 hover:bg-green-700 text-white font-medium rounded-full text-sm transition-colors duration-300 shadow-md hover:shadow-lg"
                 >
-                  <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path fillRule="evenodd" d="M19.6 4.2c-2.1-2.1-5-3.3-8.1-3.3-6.6 0-12 5.4-12 12 0 2.1.6 4.2 1.7 6l-1.8 6.6 6.8-1.7c1.8 1 3.8 1.5 5.9 1.5 6.6 0 12-5.4 12-12 0-3.1-1.2-6-3.3-8.1zM12 21.4c-1.7 0-3.4-.5-4.8-1.3l-.3-.2-3.5.9.9-3.4v-.2c-.9-1.6-1.4-3.3-1.4-5.2 0-5.2 4.2-9.4 9.4-9.4 2.5 0 4.9 1 6.7 2.8 1.8 1.8 2.8 4.2 2.8 6.7 0 5.2-4.2 9.4-9.4 9.4zm5.1-7.1c-.3-.1-1.7-.8-1.9-.9-.2-.1-.4-.1-.6.1-.2.2-.6.9-.8 1.1-.1.2-.3.2-.5.1-.7-.3-1.4-.6-2-1.1-1.6-1.4-2.7-3.2-3-3.7-.2-.5 0-.7.2-1 .2-.2.4-.5.6-.5.2 0 .3 0 .4.1.2 0 .3 0 .5.6.1.4.5 1.4.5 1.5.1.1.1.2 0 .3 0 0-.1.1-.2.2-.1.1-.2.1-.3.2-.1 0-.2 0-.3-.1l-.5-.2c-.2-.1-.4-.1-.6 0-.2.1-.4.2-.6.3-.5.3-.9.6-1.2 1-.2.2 0 .5.1.6.9 1.4 2 2.6 3.3 3.5.4.4.9.7 1.4 1 .5.3 1 .5 1.6.7.5.2 1 .2 1.5.1.5-.1 1-.4 1.4-.7.4-.3.7-.7.9-1.1.1-.4.1-.8 0-1.2-.1-.4-.4-.6-.8-.8z" clipRule="evenodd" />
+                  <svg
+                    className="w-5 h-5 mr-2"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M19.6 4.2c-2.1-2.1-5-3.3-8.1-3.3-6.6 0-12 5.4-12 12 0 2.1.6 4.2 1.7 6l-1.8 6.6 6.8-1.7c1.8 1 3.8 1.5 5.9 1.5 6.6 0 12-5.4 12-12 0-3.1-1.2-6-3.3-8.1zM12 21.4c-1.7 0-3.4-.5-4.8-1.3l-.3-.2-3.5.9.9-3.4v-.2c-.9-1.6-1.4-3.3-1.4-5.2 0-5.2 4.2-9.4 9.4-9.4 2.5 0 4.9 1 6.7 2.8 1.8 1.8 2.8 4.2 2.8 6.7 0 5.2-4.2 9.4-9.4 9.4zm5.1-7.1c-.3-.1-1.7-.8-1.9-.9-.2-.1-.4-.1-.6.1-.2.2-.6.9-.8 1.1-.1.2-.3.2-.5.1-.7-.3-1.4-.6-2-1.1-1.6-1.4-2.7-3.2-3-3.7-.2-.5 0-.7.2-1 .2-.2.4-.5.6-.5.2 0 .3 0 .4.1.2 0 .3 0 .5.6.1.4.5 1.4.5 1.5.1.1.1.2 0 .3 0 0-.1.1-.2.2-.1.1-.2.1-.3.2-.1 0-.2 0-.3-.1l-.5-.2c-.2-.1-.4-.1-.6 0-.2.1-.4.2-.6.3-.5.3-.9.6-1.2 1-.2.2 0 .5.1.6.9 1.4 2 2.6 3.3 3.5.4.4.9.7 1.4 1 .5.3 1 .5 1.6.7.5.2 1 .2 1.5.1.5-.1 1-.4 1.4-.7.4-.3.7-.7.9-1.1.1-.4.1-.8 0-1.2-.1-.4-.4-.6-.8-.8z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                   Konsultasi Wedding Impian Mulai 30 Juta (100 pax)
                 </a>
@@ -646,6 +664,7 @@ export default function Home() {
                       { label: "Venue Capacity", value: "300 pax" },
                       { label: "Additional Decoration", value: "Pergola Akad" },
                     ]}
+                    imageSrc="/balakosa_venue.jpg"
                   />
                 </motion.div>
 

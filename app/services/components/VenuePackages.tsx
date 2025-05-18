@@ -43,6 +43,7 @@ export function VenuePackages() {
               { label: "Venue Capacity", value: "300 pax" },
               { label: "Additional Decoration", value: "Pergola Akad" },
             ]}
+            imageSrc="/balakosa_venue.jpg"
           />
 
           {/* Gedung Juang Venue Package */}
