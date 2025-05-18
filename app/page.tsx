@@ -51,21 +51,21 @@ export default function Home() {
   const testimonials = [
     {
       quote:
-        "Balpro transformed our wedding into a magical experience beyond our wildest dreams. Every detail was perfect.",
-      couple: "Sarah & Michael",
-      location: "Bali, June 2024",
+        "Balpro mengubah pernikahan kami menjadi pengalaman yang luar biasa. Setiap detailnya sempurna.",
+      couple: "Rina & Budi",
+      location: "Temanggung, Maret 2024",
     },
     {
       quote:
-        "Working with Balpro was the best decision we made. They created an atmosphere of pure elegance and joy.",
-      couple: "Emma & James",
-      location: "Santorini, May 2024",
+        "Bekerja dengan Balpro adalah keputusan terbaik yang kami buat. Mereka menciptakan suasana elegan dan penuh sukacita.",
+      couple: "Dewi & Agus",
+      location: "Temanggung, November 2023",
     },
     {
       quote:
-        "The attention to detail was extraordinary. Our guests are still talking about how beautiful everything was.",
-      couple: "Olivia & William",
-      location: "Lake Como, April 2024",
+        "Perhatian terhadap detailnya luar biasa. Tamu-tamu kami masih membicarakan betapa indahnya semuanya.",
+      couple: "Siti & Joko",
+      location: "Temanggung, Juli 2022",
     },
   ];
 
@@ -98,45 +98,38 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col bg-white">
       {/* Elegant Navigation */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-rose-50 via-white to-rose-50 backdrop-blur-md border-b border-rose-100/30 transition-all duration-300 shadow-sm">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-gray-900/95 via-black/95 to-gray-900/95 text-white backdrop-blur-md border-b border-gray-700/30 transition-all duration-300 shadow-lg">
         {/* Top mini-bar with contact info */}
-        <div className="hidden lg:block py-1.5 bg-gradient-to-r from-primary/5 to-primary/10 text-xs text-gray-700">
+        <div className="hidden lg:block py-1.5 bg-gradient-to-r from-gray-800 to-gray-900 text-xs text-gray-300">
           <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
             <div className="flex items-center space-x-6">
               <div className="flex items-center space-x-1">
-                <PhoneIcon className="h-3 w-3 text-primary/70" />
-                <span className="hover:text-primary transition-colors">
+                <PhoneIcon className="h-3 w-3 text-gray-400" />
+                <span className="hover:text-white transition-colors">
                   +62 895 3233 51511
                 </span>
               </div>
               <div className="flex items-center space-x-1">
-                <Mail className="h-3 w-3 text-primary/70" />
-                <span className="hover:text-primary transition-colors">
+                <Mail className="h-3 w-3 text-gray-400" />
+                <span className="hover:text-white transition-colors">
                   info@balpro.id
                 </span>
               </div>
             </div>
             <div className="flex items-center space-x-4">
               <a
-                href="#"
-                className="hover:text-primary transition-colors"
+                href="https://www.instagram.com/balpro__/"
+                className="text-gray-400 hover:text-white transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="h-3.5 w-3.5" />
               </a>
               <a
-                href="#"
-                className="hover:text-primary transition-colors"
+                href="https://www.facebook.com/balakosaproject/"
+                className="text-gray-400 hover:text-white transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="h-3.5 w-3.5" />
-              </a>
-              <a
-                href="#"
-                className="hover:text-primary transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="h-3.5 w-3.5" />
               </a>
             </div>
           </div>
@@ -145,8 +138,9 @@ export default function Home() {
         {/* Main navbar */}
         <div className="container mx-auto px-4 md:px-6 flex h-16 md:h-20 items-center justify-between relative">
           {/* Decorative elements */}
-          <div className="absolute left-8 top-0 h-0.5 w-16 bg-gradient-to-r from-transparent via-primary/20 to-transparent hidden md:block"></div>
-          <div className="absolute right-8 top-0 h-0.5 w-16 bg-gradient-to-r from-transparent via-primary/20 to-transparent hidden md:block"></div>
+          <div className="absolute left-8 top-0 h-0.5 w-24 bg-gradient-to-r from-transparent via-gray-500 to-transparent hidden md:block"></div>
+          <div className="absolute right-8 top-0 h-0.5 w-24 bg-gradient-to-r from-transparent via-gray-500 to-transparent hidden md:block"></div>
+          <div className="absolute left-1/2 -translate-x-1/2 top-0 h-0.5 w-32 bg-gradient-to-r from-transparent via-gray-400/30 to-transparent hidden md:block"></div>
 
           {/* Logo */}
           <Link href="/" className="flex items-center group">
@@ -156,13 +150,16 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <span className="text-2xl font-serif tracking-wider text-primary group-hover:text-primary/80 transition-colors duration-300">
-                Balpro
-              </span>
-              <div className="h-px w-0 bg-primary absolute -bottom-1 left-0 group-hover:w-full transition-all duration-500"></div>
-              <span className="text-[10px] tracking-widest text-gray-500 absolute -bottom-4 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
-                WEDDING ORGANIZER
-              </span>
+              <div className="h-40 w-auto">
+                <Image
+                  src="/BALPRO_NEWLOGO_NOBG.png"
+                  alt="Balpro Wedding Organizer"
+                  width={800}
+                  height={256}
+                  className="h-full w-auto object-contain"
+                  priority
+                />
+              </div>
             </motion.div>
           </Link>
 
@@ -184,10 +181,10 @@ export default function Home() {
               >
                 <Link
                   href={item.path}
-                  className="text-sm font-medium hover:text-primary transition-all duration-300 relative group py-2 px-3 rounded-md hover:bg-primary/5"
+                  className="text-sm font-medium text-gray-300 hover:text-white transition-all duration-300 relative group py-2 px-3 rounded-md hover:bg-gray-800"
                 >
                   <span className="relative z-10">{item.name}</span>
-                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary/40 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-gray-400 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
                 </Link>
               </motion.div>
             ))}
@@ -202,10 +199,10 @@ export default function Home() {
             >
               <Link
                 href="#contact"
-                className="hidden md:inline-flex h-10 items-center justify-center rounded-full bg-gradient-to-r from-primary to-primary/90 px-6 py-2 text-sm font-medium text-white shadow-md shadow-primary/10 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:scale-105 hover:from-primary/90 hover:to-primary relative overflow-hidden group"
+                className="hidden md:inline-flex h-10 items-center justify-center rounded-full bg-gradient-to-r from-gray-200 to-white px-6 py-2 text-sm font-medium text-gray-900 shadow-md shadow-black/20 transition-all duration-300 hover:shadow-lg hover:shadow-black/30 hover:scale-105 hover:brightness-110 relative overflow-hidden group border border-white/50"
               >
                 <span className="relative z-10">Get in Touch</span>
-                <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+                <span className="absolute inset-0 bg-gradient-to-r from-gray-100 to-white opacity-0 group-hover:opacity-30 transition-opacity duration-300"></span>
               </Link>
             </motion.div>
 
@@ -213,10 +210,10 @@ export default function Home() {
             <Button
               variant="ghost"
               size="icon"
-              className="relative md:hidden hover:bg-primary/5 transition-colors duration-300"
+              className="relative md:hidden hover:bg-gray-800 transition-colors duration-300"
               onClick={() => setIsMenuOpen(true)}
             >
-              <Menu className="h-5 w-5 text-gray-700" />
+              <Menu className="h-5 w-5 text-gray-300" />
               <span className="sr-only">Toggle menu</span>
             </Button>
           </div>
@@ -227,36 +224,40 @@ export default function Home() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="fixed inset-0 z-50 bg-gradient-to-br from-white via-rose-50 to-white flex flex-col p-6"
+            className="fixed inset-0 z-50 bg-gradient-to-br from-gray-900 via-black to-gray-900 flex flex-col p-6"
             initial={{ opacity: 0, x: "100%" }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
           >
             {/* Mobile nav header with decorative elements */}
-            <div className="relative flex justify-between items-center mb-10 pb-4 border-b border-primary/10">
-              <div className="absolute top-0 left-0 h-px w-20 bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+            <div className="relative flex justify-between items-center mb-10 pb-4 border-b border-gray-700/30">
+              <div className="absolute top-0 left-0 h-px w-20 bg-gradient-to-r from-transparent via-gray-500 to-transparent"></div>
 
               <Link
                 href="/"
                 className="flex items-center group"
                 onClick={() => setIsMenuOpen(false)}
               >
-                <span className="text-2xl font-serif tracking-wider text-primary">
-                  Balpro
-                </span>
-                <span className="text-[10px] tracking-widest text-gray-500 absolute top-8 left-2 whitespace-nowrap">
-                  WEDDING ORGANIZER
-                </span>
+                <div className="h-32 w-auto">
+                  <Image
+                    src="/BALPRO_NEWLOGO_NOBG.png"
+                    alt="Balpro Wedding Organizer"
+                    width={640}
+                    height={48}
+                    className="h-full w-auto object-contain"
+                    priority
+                  />
+                </div>
               </Link>
 
               <Button
                 variant="ghost"
                 size="icon"
-                className="hover:bg-primary/5 transition-colors duration-300 rounded-full"
+                className="hover:bg-gray-800 transition-colors duration-300 rounded-full"
                 onClick={() => setIsMenuOpen(false)}
               >
-                <X className="h-5 w-5 text-gray-700" />
+                <X className="h-5 w-5 text-gray-300" />
                 <span className="sr-only">Close menu</span>
               </Button>
             </div>
@@ -279,7 +280,7 @@ export default function Home() {
                 >
                   <Link
                     href={item.path}
-                    className="text-xl font-medium text-gray-800 hover:text-primary transition-colors flex items-center justify-between p-3 rounded-lg hover:bg-white/50 group"
+                    className="text-xl font-medium text-gray-300 hover:text-white transition-colors flex items-center justify-between p-3 rounded-lg hover:bg-gray-800 group"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     <span className="flex items-center">
@@ -292,7 +293,7 @@ export default function Home() {
                       whileHover={{ x: 5 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <ChevronRight className="h-5 w-5 text-primary/60 group-hover:text-primary transition-colors" />
+                      <ChevronRight className="h-5 w-5 text-gray-500 group-hover:text-white transition-colors" />
                     </motion.span>
                   </Link>
                 </motion.div>
@@ -301,18 +302,18 @@ export default function Home() {
 
             {/* Contact info section in mobile menu */}
             <div className="mt-auto pt-8">
-              <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 mb-6 shadow-sm border border-primary/5">
-                <h3 className="text-sm font-medium text-gray-500 mb-3 flex items-center">
-                  <MessageCircle className="h-3.5 w-3.5 mr-2 text-primary/60" />
+              <div className="bg-gray-800/70 backdrop-blur-sm rounded-xl p-4 mb-6 shadow-sm border border-gray-700/30">
+                <h3 className="text-sm font-medium text-gray-300 mb-3 flex items-center">
+                  <MessageCircle className="h-3.5 w-3.5 mr-2 text-gray-400" />
                   Contact Information
                 </h3>
-                <div className="space-y-2 text-sm">
+                <div className="space-y-2 text-sm text-gray-300">
                   <div className="flex items-center">
-                    <PhoneIcon className="h-3.5 w-3.5 text-primary/70 mr-2" />
+                    <PhoneIcon className="h-3.5 w-3.5 text-gray-400 mr-2" />
                     <span>+62 895 3233 51511</span>
                   </div>
                   <div className="flex items-center">
-                    <Mail className="h-3.5 w-3.5 text-primary/70 mr-2" />
+                    <Mail className="h-3.5 w-3.5 text-gray-400 mr-2" />
                     <span>info@balpro.id</span>
                   </div>
                 </div>
@@ -325,14 +326,14 @@ export default function Home() {
               >
                 <Link
                   href="#contact"
-                  className="flex w-full items-center justify-center rounded-full bg-gradient-to-r from-primary to-primary/90 px-6 py-3.5 text-base font-medium text-white shadow-lg shadow-primary/10 transition-all duration-300 hover:shadow-xl hover:shadow-primary/20 relative overflow-hidden group"
+                  className="flex w-full items-center justify-center rounded-full bg-gradient-to-r from-gray-200 to-white px-6 py-3.5 text-base font-medium text-gray-900 shadow-lg shadow-black/20 transition-all duration-300 hover:shadow-xl hover:shadow-black/30 hover:scale-105 hover:brightness-110 relative overflow-hidden group border border-white/50"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <span className="relative z-10 flex items-center">
                     Get in Touch
                     <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                   </span>
-                  <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-gray-100 to-white opacity-0 group-hover:opacity-30 transition-opacity duration-300"></span>
                 </Link>
               </motion.div>
             </div>
