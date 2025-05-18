@@ -370,7 +370,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
               >
-                Crafting Your Perfect Wedding Story
+                Balpro, #semuabisamenikah
               </motion.h1>
               <motion.p
                 className="text-lg text-white/90 max-w-md"
@@ -378,8 +378,8 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.8 }}
               >
-                Where dreams transform into unforgettable moments, designed with
-                elegance and executed with precision.
+                Berapapun budget Anda untuk menikah, kami siap untuk buat
+                pernikahan impian Anda tetap spesial.
               </motion.p>
               <motion.div
                 className="flex flex-col sm:flex-row gap-4 pt-4"
@@ -443,19 +443,20 @@ export default function Home() {
                     <div className="h-px w-20 bg-primary mt-1"></div>
                   </div>
                   <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
-                    Crafting Unforgettable Wedding Experiences
+                    Berawal Dari Sekedar Mencoba
                   </h2>
                 </div>
                 <p className="text-lg text-muted-foreground">
-                  With over a decade of experience in wedding planning, Balpro
-                  has established itself as a premier wedding organizer, known
-                  for creating elegant, personalized celebrations that reflect
-                  each couple's unique love story.
+                  Kami mulai bergerak sekitar tahun 2021 (pasca COVID-19) di
+                  Angkringan Balakosa dengan kepercayaan diri untuk mengerjakan
+                  sebuah acara pernikahan intimate berisikan 100 tamu, kini kami
+                  telah dipercaya hingga +50 klien yang berasal dari wilayah
+                  Temanggung bahkan hingga Semarang.
                 </p>
                 <p className="text-lg text-muted-foreground">
-                  We believe that your wedding day should be as unique as your
-                  love story, which is why we work closely with you to create a
-                  celebration that truly reflects your personality and vision.
+                  Sebagai bentuk komitmen di dunia pernikahan, Balpro Wedding
+                  Enterprise akan terus memberikan pelayanan terbaik untuk
+                  pernikahan Impian Anda.
                 </p>
                 <div className="pt-4">
                   <Link
@@ -477,7 +478,7 @@ export default function Home() {
               >
                 <div className="relative h-[600px] rounded-2xl overflow-hidden">
                   <Image
-                    src="/wedding_ring.jpg"
+                    src="/balpro_photo_1.jpg"
                     alt="Wedding couple"
                     fill
                     className="object-cover"
@@ -485,16 +486,16 @@ export default function Home() {
                 </div>
                 <div className="absolute -bottom-8 -left-8 bg-white p-6 rounded-xl shadow-lg max-w-xs">
                   <div className="flex items-center space-x-4 mb-3">
-                    <div className="bg-primary/10 rounded-full p-2">
-                      <span className="text-primary text-xl font-bold">
-                        10+
+                    <div className="flex-shrink-0">
+                      <span className="text-2xl font-bold text-primary">
+                        2021
                       </span>
                     </div>
-                    <h3 className="text-lg font-medium">Years of Excellence</h3>
+                    <h3 className="text-lg font-medium">Kami Berdiri.</h3>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    Creating magical moments and unforgettable experiences for
-                    hundreds of couples.
+                    Terus berkomitmen memberi pelayanan dan pengalaman terbaik
+                    pada pernikahan Anda
                   </p>
                 </div>
               </motion.div>
@@ -518,7 +519,7 @@ export default function Home() {
               >
                 <div className="inline-block mb-4">
                   <span className="text-xs uppercase tracking-widest text-primary font-medium">
-                    Our Venues
+                    SPECIAL PACKAGES
                   </span>
                   <div className="h-px w-20 bg-primary mt-1 mx-auto"></div>
                 </div>
@@ -590,6 +591,7 @@ export default function Home() {
                       { label: "Venue Capacity", value: "300 pax" },
                       { label: "Special Feature", value: "100 Visitor Seats" },
                     ]}
+                    imageSrc="/gd_juang.jpg"
                   />
                 </motion.div>
               </div>

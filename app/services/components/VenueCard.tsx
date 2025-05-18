@@ -19,6 +19,7 @@ interface VenueCardProps {
   plannerFee: string;
   hasPreWeddingBonus?: boolean;
   additionalFees?: Array<{ label: string; value: string }>;
+  imageSrc?: string;
 }
 
 export function VenueCard({
@@ -39,11 +40,25 @@ export function VenueCard({
   plannerFee,
   hasPreWeddingBonus = true,
   additionalFees = [],
+  imageSrc,
 }: VenueCardProps) {
   return (
     <div className="bg-white rounded-2xl overflow-hidden shadow-xl">
       <div className="relative h-72">
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent z-10"></div>
+        {imageSrc ? (
+          <div className="absolute inset-0">
+            <img
+              src={imageSrc}
+              alt={`${name} Venue`}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+          </div>
+        ) : (
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-200 to-slate-300">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+          </div>
+        )}
         <div className="absolute top-4 left-4 bg-primary/90 text-white px-4 py-1 rounded-full text-sm font-medium z-20">
           {name}
         </div>
@@ -51,7 +66,6 @@ export function VenueCard({
           <h3 className="text-3xl font-bold">{name} Venue</h3>
           <p className="text-white/80">{location}</p>
         </div>
-        <div className="absolute inset-0 bg-slate-900/20"></div>
       </div>
 
       <div className="p-8">

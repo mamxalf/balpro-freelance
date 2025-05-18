@@ -59,6 +59,7 @@ export function VenuePackages() {
             additionalFees={[
               { label: "100 Visitor Seats", value: "Rp 1.000.000" },
             ]}
+            imageSrc="/gd_juang.jpg"
           />
         </div>
       </div>
