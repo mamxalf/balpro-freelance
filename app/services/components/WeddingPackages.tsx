@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { PackageCard } from "./PackageCard";
 
 export function WeddingPackages() {
@@ -61,29 +62,73 @@ export function WeddingPackages() {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-16 md:py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-block mb-4">
+        <motion.div 
+          className="text-center max-w-3xl mx-auto mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <motion.div 
+            className="inline-block mb-4"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             <span className="text-xs uppercase tracking-widest text-primary font-medium">
               Wedding Packages
             </span>
-            <div className="h-px w-20 bg-primary mt-1 mx-auto"></div>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <motion.div 
+              className="h-px w-20 bg-primary mt-1 mx-auto"
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            />
+          </motion.div>
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold mb-6"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
             Choose Your Perfect Package
-          </h2>
-          <p className="text-lg text-muted-foreground">
+          </motion.h2>
+          <motion.p 
+            className="text-lg text-muted-foreground"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
             We offer a range of wedding planning packages to suit your needs
             and budget
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <motion.div 
+          className="grid md:grid-cols-3 gap-8"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, staggerChildren: 0.2, when: "beforeChildren" }}
+        >
           {packages.map((pkg, index) => (
-            <PackageCard key={index} {...pkg} />
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <PackageCard {...pkg} />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

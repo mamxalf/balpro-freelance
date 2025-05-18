@@ -1,4 +1,5 @@
 import { Check } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface PackageCardProps {
   title: string;
@@ -24,11 +25,18 @@ export function PackageCard({
   whatsappTemplate = 'Halo, saya tertarik dengan paket ini. Bisa minta info lebih lanjut?',
 }: PackageCardProps) {
   return (
-    <div className={`relative rounded-2xl p-8 shadow-lg border ${
-      isPopular 
-        ? 'bg-primary/5 border-primary/10' 
-        : 'bg-white border-slate-100'
-    }`}>
+    <motion.div 
+      className={`relative rounded-2xl p-8 shadow-lg border ${
+        isPopular 
+          ? 'bg-primary/5 border-primary/10' 
+          : 'bg-white border-slate-100'
+      }`}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      whileHover={{ y: -5, transition: { duration: 0.2 } }}
+    >
       {isPopular && (
         <div className="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-4 py-1 rounded-bl-lg rounded-tr-lg">
           POPULAR
@@ -70,14 +78,16 @@ export function PackageCard({
           </p>
         )}
       </div>
-      <a
+      <motion.a
         href={`https://wa.me/62895323351511?text=${encodeURIComponent(whatsappTemplate || 'Halo, saya tertarik dengan paket ini. Bisa minta info lebih lanjut?')}`}
         className="block w-full bg-green-600 hover:bg-green-700 text-white text-center py-3 px-4 rounded-lg font-medium transition-colors"
         target="_blank"
         rel="noopener noreferrer"
+        whileHover={{ scale: 1.02, boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)' }}
+        whileTap={{ scale: 0.98 }}
       >
         Konsultasi via WhatsApp
-      </a>
-    </div>
+      </motion.a>
+    </motion.div>
   );
 }
