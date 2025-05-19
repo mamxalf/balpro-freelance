@@ -1156,7 +1156,7 @@ export default function Home() {
                       whileTap={{ scale: 0.95 }}
                     >
                       <Link
-                        href="#"
+                        href="https://www.instagram.com/balpro__/"
                         aria-label="Instagram"
                         className="bg-gradient-to-br from-amber-500 via-pink-500 to-violet-500 rounded-full p-3 flex items-center justify-center text-white hover:shadow-lg transition-all duration-300"
                       >
@@ -1168,23 +1168,11 @@ export default function Home() {
                       whileTap={{ scale: 0.95 }}
                     >
                       <Link
-                        href="#"
+                        href="https://www.facebook.com/balakosaproject"
                         aria-label="Facebook"
                         className="bg-[#1877F2] rounded-full p-3 flex items-center justify-center text-white hover:shadow-lg transition-all duration-300"
                       >
                         <Facebook className="h-5 w-5" />
-                      </Link>
-                    </motion.div>
-                    <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Link
-                        href="#"
-                        aria-label="Twitter"
-                        className="bg-[#1DA1F2] rounded-full p-3 flex items-center justify-center text-white hover:shadow-lg transition-all duration-300"
-                      >
-                        <Twitter className="h-5 w-5" />
                       </Link>
                     </motion.div>
                     <motion.div
@@ -1302,13 +1290,12 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between gap-12 mb-12">
             {/* Brand and social */}
             <div className="md:max-w-xs">
-              <Link href="/" className="inline-block mb-6">
-                <span className="text-2xl font-semibold tracking-wider text-white">
-                  Balpro
-                </span>
-                <span className="block text-sm text-primary/80 mt-1">
-                  Wedding Organizer
-                </span>
+              <Link href="/" className="inline-block">
+                <img
+                  src="/BALPRO_NEWLOGO_NOBG.png"
+                  alt="Balpro Wedding Organizer"
+                  className="h-32 w-auto"
+                />
               </Link>
               <p className="text-slate-300 mb-6">
                 Creating magical moments and unforgettable wedding experiences
@@ -1316,25 +1303,18 @@ export default function Home() {
               </p>
               <div className="flex space-x-4">
                 <Link
-                  href="#"
+                  href="https://www.instagram.com/balpro__/"
                   aria-label="Instagram"
                   className="bg-white/10 hover:bg-primary/20 p-2.5 rounded-full transition-all duration-300 hover:scale-110"
                 >
                   <Instagram className="h-5 w-5 text-white" />
                 </Link>
                 <Link
-                  href="#"
+                  href="https://www.facebook.com/balakosaproject"
                   aria-label="Facebook"
                   className="bg-white/10 hover:bg-primary/20 p-2.5 rounded-full transition-all duration-300 hover:scale-110"
                 >
                   <Facebook className="h-5 w-5 text-white" />
-                </Link>
-                <Link
-                  href="#"
-                  aria-label="Twitter"
-                  className="bg-white/10 hover:bg-primary/20 p-2.5 rounded-full transition-all duration-300 hover:scale-110"
-                >
-                  <Twitter className="h-5 w-5 text-white" />
                 </Link>
               </div>
             </div>
@@ -1393,7 +1373,7 @@ export default function Home() {
               </p>
             </div>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link
+              {/* <Link
                 href="#"
                 className="text-slate-400 hover:text-white transition-colors text-sm"
               >
@@ -1410,7 +1390,7 @@ export default function Home() {
                 className="text-slate-400 hover:text-white transition-colors text-sm"
               >
                 Cookies
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
