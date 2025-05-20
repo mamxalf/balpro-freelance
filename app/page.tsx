@@ -138,31 +138,31 @@ export default function Home() {
       quote:
         "Terimakasihh banyakk atas bantuan mas rendi dan teman2 balpro, tanpa teman2 acara ini tidak akan berjalan dengan lancarr, sekali lagi terima kasihh mas rendi, senang sekali bisa bekerja sama dengan teman2 baplroo",
       couple: "Putri Nila",
-      location: "Balakosa, March 2022",
+      location: "March 2022",
     },
     {
       quote:
         "Dari lubuk hati yg paling dalam, kami keluarga besar Bp. Sunoto - Ibu Heny mengucapkan terimakasih dan penghargaan yang setinggi - tingginya atas seluruh bantuan, tenaga, ide, saran, dsb dari mulai perencanaan, pelaksanaan, dan penyelesaian hajat pernikahan putri kami. Semoga Team Balakosa Project senantiasa selalu kreatif, inovatif, dan kredibel . Semoga selalu dilimpahi kesehatan, kekuatan, dan umur panjang. Apabila dalam kerjasama kami selama ini ada salah dan khilaf, kami mohon maaf yang sebesar - besarnya. Sekali lagi terimakasih yang tiada terkira. Kami sangat puas dan terkesan dengan Team Balakosa Project.",
       couple: "Lala's Mom",
-      location: "Temanggung, November 2021",
+      location: "November 2021",
     },
     {
       quote:
         "terimakasih kasih banyak team dari balakosa project terutama mas sudah membatu dari prepare - selesai acara wedding kemarin: - team dari wo servicenya excelent & care semua. - dari dekorasi sesuai sama ekspetasi . - dari segi catering enak semua menunya, keluarga besar sampai tamu komen enak ,terutama bistiknya laris banget. - mas david mc juga gokill & fleksibel. - untuk tim foto & video good, fleksibel di timing - udah diberi kelonggaran waktu yg banyak",
       couple: "Amy",
-      location: "Temanggung, September 2021",
+      location: "September 2021",
     },
     {
       quote:
         "Oh ya mas, makasih banyaaaaaak yaa alhamdulillah hari ini udah selese dan lancar alhamdulillah. Dibantuin sm WO di hari H dan alhamdulillah sejauh ini good. Kami sangat terbantu apalagi tadi pas acara serah2an ituu. Pokoknya overall baik. Semoga tim balakosa semakin profesional lagi yaa dan semangat mas merintis karirnya",
       couple: "Vina & Wahyu",
-      location: "Temanggung, July 2021",
+      location: "July 2021",
     },
     {
       quote:
         "Mas, makasih ya atas kerjasamanya kemarin acara berjalan lancar. Salam untuk semua crew balakosa, sukses selalu",
       couple: "Maghfira",
-      location: "Temanggung, Mei 2022",
+      location: "Mei 2022",
     },
   ];
 
@@ -767,7 +767,7 @@ export default function Home() {
             </motion.div>
 
             <div className="max-w-4xl mx-auto">
-              <div className="relative h-[400px] md:h-[300px] rounded-2xl overflow-hidden bg-white shadow-lg">
+              <div className="relative h-[500px] md:h-[450px] rounded-2xl overflow-hidden bg-white shadow-lg">
                 <div className="absolute top-0 left-0 w-full h-full">
                   <Image
                     src="/placeholder.svg?height=600&width=1200"
@@ -780,24 +780,26 @@ export default function Home() {
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={activeTestimonial}
-                      className="text-center max-w-2xl"
+                      className="text-center max-w-3xl h-full flex flex-col justify-center"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -20 }}
                       transition={{ duration: 0.5 }}
                     >
                       <svg
-                        className="w-12 h-12 text-primary/20 mx-auto mb-6"
+                        className="w-10 h-10 text-primary/20 mx-auto mb-4"
                         fill="currentColor"
                         viewBox="0 0 32 32"
                       >
                         <path d="M10 8c-3.3 0-6 2.7-6 6v10h10V14H8c0-1.1.9-2 2-2V8zm18 0c-3.3 0-6 2.7-6 6v10h10V14h-6c0-1.1.9-2 2-2V8z" />
                       </svg>
-                      <p className="text-xl md:text-2xl font-light mb-6 italic">
-                        "{testimonials[activeTestimonial].quote}"
-                      </p>
-                      <div>
-                        <p className="font-medium">
+                      <div className="max-h-[280px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent mb-4 px-4">
+                        <p className="text-lg md:text-xl font-light italic leading-relaxed">
+                          "{testimonials[activeTestimonial].quote}"
+                        </p>
+                      </div>
+                      <div className="mt-auto">
+                        <p className="font-medium text-lg">
                           {testimonials[activeTestimonial].couple}
                         </p>
                         <p className="text-sm text-muted-foreground">
