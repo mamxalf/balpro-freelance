@@ -136,21 +136,33 @@ export default function Home() {
   const testimonials = [
     {
       quote:
-        "Balpro mengubah pernikahan kami menjadi pengalaman yang luar biasa. Setiap detailnya sempurna.",
-      couple: "Rina & Budi",
-      location: "Temanggung, Maret 2024",
+        "Terimakasihh banyakk atas bantuan mas rendi dan teman2 balpro, tanpa teman2 acara ini tidak akan berjalan dengan lancarr, sekali lagi terima kasihh mas rendi, senang sekali bisa bekerja sama dengan teman2 baplroo",
+      couple: "Putri Nila",
+      location: "Balakosa, March 2022",
     },
     {
       quote:
-        "Bekerja dengan Balpro adalah keputusan terbaik yang kami buat. Mereka menciptakan suasana elegan dan penuh sukacita.",
-      couple: "Dewi & Agus",
-      location: "Temanggung, November 2023",
+        "Dari lubuk hati yg paling dalam, kami keluarga besar Bp. Sunoto - Ibu Heny mengucapkan terimakasih dan penghargaan yang setinggi - tingginya atas seluruh bantuan, tenaga, ide, saran, dsb dari mulai perencanaan, pelaksanaan, dan penyelesaian hajat pernikahan putri kami. Semoga Team Balakosa Project senantiasa selalu kreatif, inovatif, dan kredibel . Semoga selalu dilimpahi kesehatan, kekuatan, dan umur panjang. Apabila dalam kerjasama kami selama ini ada salah dan khilaf, kami mohon maaf yang sebesar - besarnya. Sekali lagi terimakasih yang tiada terkira. Kami sangat puas dan terkesan dengan Team Balakosa Project.",
+      couple: "Lala's Mom",
+      location: "Temanggung, November 2021",
     },
     {
       quote:
-        "Perhatian terhadap detailnya luar biasa. Tamu-tamu kami masih membicarakan betapa indahnya semuanya.",
-      couple: "Siti & Joko",
-      location: "Temanggung, Juli 2022",
+        "terimakasih kasih banyak team dari balakosa project terutama mas sudah membatu dari prepare - selesai acara wedding kemarin: - team dari wo servicenya excelent & care semua. - dari dekorasi sesuai sama ekspetasi . - dari segi catering enak semua menunya, keluarga besar sampai tamu komen enak ,terutama bistiknya laris banget. - mas david mc juga gokill & fleksibel. - untuk tim foto & video good, fleksibel di timing - udah diberi kelonggaran waktu yg banyak",
+      couple: "Amy",
+      location: "Temanggung, September 2021",
+    },
+    {
+      quote:
+        "Oh ya mas, makasih banyaaaaaak yaa alhamdulillah hari ini udah selese dan lancar alhamdulillah. Dibantuin sm WO di hari H dan alhamdulillah sejauh ini good. Kami sangat terbantu apalagi tadi pas acara serah2an ituu. Pokoknya overall baik. Semoga tim balakosa semakin profesional lagi yaa dan semangat mas merintis karirnya",
+      couple: "Vina & Wahyu",
+      location: "Temanggung, July 2021",
+    },
+    {
+      quote:
+        "Mas, makasih ya atas kerjasamanya kemarin acara berjalan lancar. Salam untuk semua crew balakosa, sukses selalu",
+      couple: "Maghfira",
+      location: "Temanggung, Mei 2022",
     },
   ];
 
