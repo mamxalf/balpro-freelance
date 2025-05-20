@@ -3,7 +3,7 @@ title: "The Ultimate Wedding Planning Timeline: 12 Months to Your Big Day"
 date: "2025-05-04"
 excerpt: "Planning a wedding can be overwhelming, but with the right timeline, you can stay organized and stress-free. Here's our month-by-month guide to help you plan your perfect wedding day."
 category: "Wedding Planning"
-image: "/gallery/pexels-arjunadinata-30248254.jpg"
+image: "/gallery/Amy & Rizky.jpg"
 featured: true
 ---
 
