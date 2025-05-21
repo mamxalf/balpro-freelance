@@ -8,7 +8,7 @@ import { ArrowRight } from "lucide-react";
 import { BlogPost } from "@/lib/blog-types";
 import { fetchRecentPosts } from "@/lib/blog-client";
 
-export default function HomeBlogPosts() {
+export default function HomeBlogPosts({ onPostsLoaded }: { onPostsLoaded?: (hasPosts: boolean) => void } = {}) {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -18,7 +18,13 @@ export default function HomeBlogPosts() {
         setIsLoading(true);
         const allPosts = await fetchRecentPosts();
         // Get the 3 most recent posts
-        setPosts(allPosts.slice(0, 3));
+        const recentPosts = allPosts.slice(0, 3);
+        setPosts(recentPosts);
+        
+        // Notify parent component if there are posts
+        if (onPostsLoaded) {
+          onPostsLoaded(recentPosts.length > 0);
+        }
       } catch (error) {
         console.error("Error fetching blog posts for homepage:", error);
       } finally {

@@ -29,6 +29,7 @@ import {
 } from "lucide-react";
 import { portfolioItems } from "./portfolio/page";
 import HomeBlogPosts from "@/components/home-blog-posts";
+import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/Footer";
 import { WeddingPackages } from "./services/components/WeddingPackages";
 import { VenueCard } from "./services/components/VenueCard";
@@ -98,8 +99,13 @@ const SlidingLogos = ({ direction = "left" }) => {
 };
 
 export default function Home() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [hasBlogPosts, setHasBlogPosts] = useState(false);
+  
+  // Function to handle blog posts availability
+  const handleBlogPostsLoaded = (hasPosts: boolean) => {
+    setHasBlogPosts(hasPosts);
+  };
 
   // Get gallery photos from the actual files in public/gallery
   const galleryFiles = [
@@ -144,7 +150,7 @@ export default function Home() {
     {
       quote:
         "Dari lubuk hati yg paling dalam, kami keluarga besar Bp. Sunoto - Ibu Heny mengucapkan terimakasih dan penghargaan yang setinggi - tingginya atas seluruh bantuan, tenaga, ide, saran, dsb dari mulai perencanaan, pelaksanaan, dan penyelesaian hajat pernikahan putri kami. Semoga Team Balakosa Project senantiasa selalu kreatif, inovatif, dan kredibel . Semoga selalu dilimpahi kesehatan, kekuatan, dan umur panjang. Apabila dalam kerjasama kami selama ini ada salah dan khilaf, kami mohon maaf yang sebesar - besarnya. Sekali lagi terimakasih yang tiada terkira. Kami sangat puas dan terkesan dengan Team Balakosa Project.",
-      couple: "Lala's Mom",
+      couple: "Bu Henny",
       location: "November 2021",
     },
     {
@@ -195,249 +201,7 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
-      {/* Elegant Navigation */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-gray-900/95 via-black/95 to-gray-900/95 text-white backdrop-blur-md border-b border-gray-700/30 transition-all duration-300 shadow-lg">
-        {/* Top mini-bar with contact info */}
-        <div className="hidden lg:block py-1.5 bg-gradient-to-r from-gray-800 to-gray-900 text-xs text-gray-300">
-          <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
-            <div className="flex items-center space-x-6">
-              <div className="flex items-center space-x-1">
-                <PhoneIcon className="h-3 w-3 text-gray-400" />
-                <span className="hover:text-white transition-colors">
-                  +62 895 3233 51511
-                </span>
-              </div>
-              <div className="flex items-center space-x-1">
-                <Mail className="h-3 w-3 text-gray-400" />
-                <span className="hover:text-white transition-colors">
-                  info@balpro.id
-                </span>
-              </div>
-            </div>
-            <div className="flex items-center space-x-4">
-              <a
-                href="https://www.instagram.com/balpro__/"
-                className="text-gray-400 hover:text-white transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram className="h-3.5 w-3.5" />
-              </a>
-              <a
-                href="https://www.facebook.com/balakosaproject/"
-                className="text-gray-400 hover:text-white transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook className="h-3.5 w-3.5" />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* Main navbar */}
-        <div className="container mx-auto px-4 md:px-6 flex h-16 md:h-20 items-center justify-between relative">
-          {/* Decorative elements */}
-          <div className="absolute left-8 top-0 h-0.5 w-24 bg-gradient-to-r from-transparent via-gray-500 to-transparent hidden md:block"></div>
-          <div className="absolute right-8 top-0 h-0.5 w-24 bg-gradient-to-r from-transparent via-gray-500 to-transparent hidden md:block"></div>
-          <div className="absolute left-1/2 -translate-x-1/2 top-0 h-0.5 w-32 bg-gradient-to-r from-transparent via-gray-400/30 to-transparent hidden md:block"></div>
-
-          {/* Logo */}
-          <Link href="/" className="flex items-center group">
-            <motion.div
-              className="relative"
-              initial={{ opacity: 0, y: 5 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="h-40 w-auto">
-                <Image
-                  src="/BALPRO_NEWLOGO_NOBG.png"
-                  alt="Balpro Wedding Organizer"
-                  width={800}
-                  height={256}
-                  className="h-full w-auto object-contain"
-                  priority
-                />
-              </div>
-            </motion.div>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-1 lg:space-x-3">
-            {[
-              { name: "About", path: "#about" },
-              { name: "Services", path: "#services" },
-              { name: "Testimonials", path: "#testimonials" },
-              { name: "Partners", path: "#partners" },
-              { name: "Blog", path: "/blog" },
-              { name: "Contact", path: "#contact" },
-            ].map((item, index) => (
-              <motion.div
-                key={item.name}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Link
-                  href={item.path}
-                  className="text-sm font-medium text-gray-300 hover:text-white transition-all duration-300 relative group py-2 px-3 rounded-md hover:bg-gray-800"
-                >
-                  <span className="relative z-10">{item.name}</span>
-                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-gray-400 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
-                </Link>
-              </motion.div>
-            ))}
-          </nav>
-
-          <div className="flex items-center gap-2 lg:gap-4">
-            {/* Contact button with elegant styling */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-            >
-              <Link
-                href="#contact"
-                className="hidden md:inline-flex h-10 items-center justify-center rounded-full bg-gradient-to-r from-gray-200 to-white px-6 py-2 text-sm font-medium text-gray-900 shadow-md shadow-black/20 transition-all duration-300 hover:shadow-lg hover:shadow-black/30 hover:scale-105 hover:brightness-110 relative overflow-hidden group border border-white/50"
-              >
-                <span className="relative z-10">Get in Touch</span>
-                <span className="absolute inset-0 bg-gradient-to-r from-gray-100 to-white opacity-0 group-hover:opacity-30 transition-opacity duration-300"></span>
-              </Link>
-            </motion.div>
-
-            {/* Mobile menu button with elegant styling */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="relative md:hidden hover:bg-gray-800 transition-colors duration-300"
-              onClick={() => setIsMenuOpen(true)}
-            >
-              <Menu className="h-5 w-5 text-gray-300" />
-              <span className="sr-only">Toggle menu</span>
-            </Button>
-          </div>
-        </div>
-      </header>
-
-      {/* Mobile Navigation - Enhanced with wedding-themed styling */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            className="fixed inset-0 z-50 bg-gradient-to-br from-gray-900 via-black to-gray-900 flex flex-col p-6"
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-          >
-            {/* Mobile nav header with decorative elements */}
-            <div className="relative flex justify-between items-center mb-10 pb-4 border-b border-gray-700/30">
-              <div className="absolute top-0 left-0 h-px w-20 bg-gradient-to-r from-transparent via-gray-500 to-transparent"></div>
-
-              <Link
-                href="/"
-                className="flex items-center group"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <div className="h-32 w-auto">
-                  <Image
-                    src="/BALPRO_NEWLOGO_NOBG.png"
-                    alt="Balpro Wedding Organizer"
-                    width={640}
-                    height={48}
-                    className="h-full w-auto object-contain"
-                    priority
-                  />
-                </div>
-              </Link>
-
-              <Button
-                variant="ghost"
-                size="icon"
-                className="hover:bg-gray-800 transition-colors duration-300 rounded-full"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <X className="h-5 w-5 text-gray-300" />
-                <span className="sr-only">Close menu</span>
-              </Button>
-            </div>
-
-            {/* Mobile nav links with animations */}
-            <nav className="flex flex-col space-y-5">
-              {[
-                { name: "About", path: "#about", icon: "✨" },
-                { name: "Services", path: "#services", icon: "💍" },
-                { name: "Testimonials", path: "#testimonials", icon: "💬" },
-                { name: "Partners", path: "#partners", icon: "🤝" },
-                { name: "Blog", path: "/blog", icon: "📝" },
-                { name: "Contact", path: "#contact", icon: "📞" },
-              ].map((item, index) => (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.08 }}
-                >
-                  <Link
-                    href={item.path}
-                    className="text-xl font-medium text-gray-300 hover:text-white transition-colors flex items-center justify-between p-3 rounded-lg hover:bg-gray-800 group"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    <span className="flex items-center">
-                      <span className="mr-3 text-base opacity-70">
-                        {item.icon}
-                      </span>
-                      {item.name}
-                    </span>
-                    <motion.span
-                      whileHover={{ x: 5 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <ChevronRight className="h-5 w-5 text-gray-500 group-hover:text-white transition-colors" />
-                    </motion.span>
-                  </Link>
-                </motion.div>
-              ))}
-            </nav>
-
-            {/* Contact info section in mobile menu */}
-            <div className="mt-auto pt-8">
-              <div className="bg-gray-800/70 backdrop-blur-sm rounded-xl p-4 mb-6 shadow-sm border border-gray-700/30">
-                <h3 className="text-sm font-medium text-gray-300 mb-3 flex items-center">
-                  <MessageCircle className="h-3.5 w-3.5 mr-2 text-gray-400" />
-                  Contact Information
-                </h3>
-                <div className="space-y-2 text-sm text-gray-300">
-                  <div className="flex items-center">
-                    <PhoneIcon className="h-3.5 w-3.5 text-gray-400 mr-2" />
-                    <span>+62 895 3233 51511</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Mail className="h-3.5 w-3.5 text-gray-400 mr-2" />
-                    <span>info@balpro.id</span>
-                  </div>
-                </div>
-              </div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-              >
-                <Link
-                  href="#contact"
-                  className="flex w-full items-center justify-center rounded-full bg-gradient-to-r from-gray-200 to-white px-6 py-3.5 text-base font-medium text-gray-900 shadow-lg shadow-black/20 transition-all duration-300 hover:shadow-xl hover:shadow-black/30 hover:scale-105 hover:brightness-110 relative overflow-hidden group border border-white/50"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <span className="relative z-10 flex items-center">
-                    Get in Touch
-                    <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                  </span>
-                  <span className="absolute inset-0 bg-gradient-to-r from-gray-100 to-white opacity-0 group-hover:opacity-30 transition-opacity duration-300"></span>
-                </Link>
-              </motion.div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <Navbar />
 
       <main className="flex-1 pt-16">
         {/* Hero Section */}
@@ -873,49 +637,51 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Blog Section */}
-        <section className="py-24 md:py-32 bg-slate-50 overflow-hidden">
-          <div className="container mx-auto px-4 md:px-6">
-            <motion.div
-              className="text-center max-w-3xl mx-auto mb-16"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="inline-block mb-4">
-                <span className="text-xs uppercase tracking-widest text-primary font-medium">
-                  Our Blog
-                </span>
-                <div className="h-px w-20 bg-primary mt-1 mx-auto"></div>
-              </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                Wedding Inspiration
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                Discover wedding tips, inspiration, and real wedding stories on
-                our blog.
-              </p>
-            </motion.div>
-
-            <HomeBlogPosts />
-
-            <motion.div
-              className="text-center mt-12"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              <Link
-                href="/blog"
-                className="inline-flex h-12 items-center justify-center rounded-full border border-primary bg-white px-8 text-sm font-medium text-primary shadow-sm transition-all duration-300 hover:bg-primary/5 hover:-translate-y-1"
+        {/* Blog Section - Only shown if blog posts exist */}
+        {hasBlogPosts && (
+          <section className="py-24 md:py-32 bg-slate-50 overflow-hidden">
+            <div className="container mx-auto px-4 md:px-6">
+              <motion.div
+                className="text-center max-w-3xl mx-auto mb-16"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
               >
-                View All Posts
-              </Link>
-            </motion.div>
-          </div>
-        </section>
+                <div className="inline-block mb-4">
+                  <span className="text-xs uppercase tracking-widest text-primary font-medium">
+                    Our Blog
+                  </span>
+                  <div className="h-px w-20 bg-primary mt-1 mx-auto"></div>
+                </div>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                  Wedding Inspiration
+                </h2>
+                <p className="text-lg text-muted-foreground">
+                  Discover wedding tips, inspiration, and real wedding stories on
+                  our blog.
+                </p>
+              </motion.div>
+
+              <HomeBlogPosts onPostsLoaded={handleBlogPostsLoaded} />
+
+              <motion.div
+                className="text-center mt-12"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
+                <Link
+                  href="/blog"
+                  className="inline-flex h-12 items-center justify-center rounded-full border border-primary bg-white px-8 text-sm font-medium text-primary shadow-sm transition-all duration-300 hover:bg-primary/5 hover:-translate-y-1"
+                >
+                  View All Posts
+                </Link>
+              </motion.div>
+            </div>
+          </section>
+        )}
 
         {/* Contact Section */}
         <section

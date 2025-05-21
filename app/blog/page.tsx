@@ -7,12 +7,6 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
-  PhoneIcon,
-  Mail,
-  MapPin,
-  Menu,
-  X,
-  ChevronRight,
   Search,
   ArrowRight,
 } from "lucide-react";
@@ -23,9 +17,9 @@ import {
 } from "@/lib/blog-client";
 import { BlogPost } from "@/lib/blog-types";
 import { Footer } from "@/components/Footer";
+import { Navbar } from "@/components/navbar";
 
 export default function BlogPage() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [categories, setCategories] = useState<string[]>([]);
   const [featuredPosts, setFeaturedPosts] = useState<BlogPost[]>([]);
@@ -89,172 +83,93 @@ export default function BlogPage() {
     console.log("Current posts:", currentPosts.length);
   }, [currentPage, indexOfFirstPost, indexOfLastPost, currentPosts.length]);
 
+  if (!featuredPosts.length && !recentPosts.length) {
+    return (
+      <div className="flex min-h-screen flex-col bg-white">
+        <Navbar />
+        <main className="flex-1 pt-16">
+          <section className="py-20 md:py-32 bg-gradient-to-b from-white to-gray-50">
+            <div className="container mx-auto px-4 md:px-6">
+              <motion.div
+                className="max-w-4xl mx-auto text-center"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                <div className="inline-block mb-6">
+                  <span className="text-xs uppercase tracking-widest text-primary font-medium">
+                    Coming Soon
+                  </span>
+                  <div className="h-px w-20 bg-primary mt-1 mx-auto"></div>
+                </div>
+                
+                <h1 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
+                  Our Blog is Being Crafted
+                </h1>
+                
+                <div className="relative w-full max-w-md mx-auto mb-12">
+                  {/* Enhanced background glow */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-gray-700/50 via-gray-800/60 to-gray-700/50 rounded-full blur-3xl transform scale-110"></div>
+                  
+                  {/* Dark backdrop to make the white logo visible */}
+                  <div className="relative z-10 bg-gradient-to-r from-gray-700 to-gray-900 p-6 rounded-full shadow-lg border border-gray-600/50 w-64 h-64 mx-auto flex items-center justify-center">
+                    <Image 
+                      src="/BALPRO_NEWLOGO_NOBG.png" 
+                      alt="Balpro Wedding Organizer" 
+                      width={220} 
+                      height={220} 
+                      className="object-contain brightness-110"
+                    />
+                  </div>
+                </div>
+                
+                <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+                  We're currently preparing beautiful wedding stories, planning tips, and inspiration 
+                  for your special day. Check back soon for updates!                  
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                  <Link
+                    href="/"
+                    className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-gray-800 to-gray-900 px-6 py-3 text-base font-medium text-white shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105 relative overflow-hidden group"
+                  >
+                    <span className="relative z-10 flex items-center">
+                      Return to Home
+                      <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                    </span>
+                    <span className="absolute inset-0 bg-gradient-to-r from-gray-700 to-gray-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  </Link>
+                  
+                  <Link
+                    href="https://www.instagram.com/balpro__/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-gray-200 to-white px-6 py-3 text-base font-medium text-gray-900 shadow-md border border-gray-200 transition-all duration-300 hover:shadow-lg hover:scale-105 relative overflow-hidden group"
+                  >
+                    <span className="relative z-10 flex items-center">
+                      Follow Our Instagram
+                    </span>
+                    <span className="absolute inset-0 bg-gradient-to-r from-gray-100 to-white opacity-0 group-hover:opacity-30 transition-opacity duration-300"></span>
+                  </Link>
+                </div>
+                
+                <div className="mt-16 pt-8 border-t border-gray-200 max-w-2xl mx-auto">
+                  <p className="text-sm text-gray-500">
+                    Want to be notified when our blog launches? Contact us at <span className="text-primary">info@balpro.id</span>
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+          </section>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
   return (
     <div className="flex min-h-screen flex-col bg-white">
-      {/* Navigation */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-black/5">
-        <div className="container mx-auto px-4 md:px-6 flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center">
-            <span className="text-xl font-semibold tracking-wider text-primary">
-              Balpro
-            </span>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link
-              href="/#about"
-              className="text-sm font-medium hover:text-primary transition-all duration-300 relative group"
-            >
-              About
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-            <Link
-              href="/#services"
-              className="text-sm font-medium hover:text-primary transition-all duration-300 relative group"
-            >
-              Services
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-            <Link
-              href="/#testimonials"
-              className="text-sm font-medium hover:text-primary transition-all duration-300 relative group"
-            >
-              Testimonials
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-            <Link
-              href="/#partners"
-              className="text-sm font-medium hover:text-primary transition-all duration-300 relative group"
-            >
-              Partners
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-            <Link
-              href="/blog"
-              className="text-sm font-medium text-primary transition-all duration-300 relative group"
-            >
-              Blog
-              <span className="absolute -bottom-1 left-0 w-full h-px bg-primary"></span>
-            </Link>
-            <Link
-              href="/#contact"
-              className="text-sm font-medium hover:text-primary transition-all duration-300 relative group"
-            >
-              Contact
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-          </nav>
-
-          <div className="flex items-center gap-4">
-            <Link
-              href="/#contact"
-              className="hidden md:inline-flex h-9 items-center justify-center rounded-full bg-primary px-6 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-primary/90"
-            >
-              Get in Touch
-            </Link>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden"
-              onClick={() => setIsMenuOpen(true)}
-            >
-              <Menu className="h-6 w-6" />
-              <span className="sr-only">Toggle menu</span>
-            </Button>
-          </div>
-        </div>
-      </header>
-
-      {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <motion.div
-          className="fixed inset-0 z-50 bg-white flex flex-col p-6"
-          initial={{ opacity: 0, x: "100%" }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: "100%" }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-        >
-          <div className="flex justify-between items-center mb-10">
-            <Link
-              href="/"
-              className="flex items-center"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <span className="text-xl font-semibold tracking-wider text-primary">
-                Balpro
-              </span>
-            </Link>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <X className="h-6 w-6" />
-              <span className="sr-only">Close menu</span>
-            </Button>
-          </div>
-          <nav className="flex flex-col space-y-6">
-            <Link
-              href="/#about"
-              className="text-2xl font-medium hover:text-primary transition-colors flex items-center justify-between"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <span>About</span>
-              <ChevronRight className="h-5 w-5" />
-            </Link>
-            <Link
-              href="/#services"
-              className="text-2xl font-medium hover:text-primary transition-colors flex items-center justify-between"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <span>Services</span>
-              <ChevronRight className="h-5 w-5" />
-            </Link>
-            <Link
-              href="/#testimonials"
-              className="text-2xl font-medium hover:text-primary transition-colors flex items-center justify-between"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <span>Testimonials</span>
-              <ChevronRight className="h-5 w-5" />
-            </Link>
-            <Link
-              href="/#partners"
-              className="text-2xl font-medium hover:text-primary transition-colors flex items-center justify-between"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <span>Partners</span>
-              <ChevronRight className="h-5 w-5" />
-            </Link>
-            <Link
-              href="/blog"
-              className="text-2xl font-medium text-primary transition-colors flex items-center justify-between"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <span>Blog</span>
-              <ChevronRight className="h-5 w-5" />
-            </Link>
-            <Link
-              href="/#contact"
-              className="text-2xl font-medium hover:text-primary transition-colors flex items-center justify-between"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <span>Contact</span>
-              <ChevronRight className="h-5 w-5" />
-            </Link>
-          </nav>
-          <div className="mt-auto pt-10">
-            <Link
-              href="/#contact"
-              className="flex w-full items-center justify-center rounded-full bg-primary px-6 py-3 text-base font-medium text-white shadow transition-colors hover:bg-primary/90"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Get in Touch
-            </Link>
-          </div>
-        </motion.div>
-      )}
+      <Navbar />
 
       <main className="flex-1 pt-16">
         {/* Blog Header */}
