@@ -23,17 +23,22 @@ export default function HomeBlogPosts({ onPostsLoaded }: { onPostsLoaded?: (hasP
         
         // Notify parent component if there are posts
         if (onPostsLoaded) {
+          console.log('Blog posts loaded:', recentPosts.length > 0 ? 'Has posts' : 'No posts');
           onPostsLoaded(recentPosts.length > 0);
         }
       } catch (error) {
         console.error("Error fetching blog posts for homepage:", error);
+        // Even on error, notify parent with no posts
+        if (onPostsLoaded) {
+          onPostsLoaded(false);
+        }
       } finally {
         setIsLoading(false);
       }
     };
 
     fetchPosts();
-  }, []);
+  }, [onPostsLoaded]); // Add onPostsLoaded as a dependency
 
   if (isLoading) {
     return (

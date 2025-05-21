@@ -637,6 +637,11 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Blog Posts Loader - Hidden component to initialize blog posts */}
+        <div className="hidden">
+          <HomeBlogPosts onPostsLoaded={handleBlogPostsLoaded} />
+        </div>
+        
         {/* Blog Section - Only shown if blog posts exist */}
         {hasBlogPosts && (
           <section className="py-24 md:py-32 bg-slate-50 overflow-hidden">
