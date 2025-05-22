@@ -38,6 +38,7 @@ import {
   generatePortfolioItems,
   selectFeaturedItems,
 } from "@/components/portfolio";
+import { testimonials } from "./lib/data";
 
 const SlidingLogos = ({ direction = "left" }) => {
   const duration = 20;
@@ -101,7 +102,7 @@ const SlidingLogos = ({ direction = "left" }) => {
 export default function Home() {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [hasBlogPosts, setHasBlogPosts] = useState(false);
-  
+
   // Function to handle blog posts availability
   const handleBlogPostsLoaded = (hasPosts: boolean) => {
     setHasBlogPosts(hasPosts);
@@ -139,39 +140,6 @@ export default function Home() {
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
   const y = useTransform(scrollYProgress, [0, 1], [0, 100]);
-
-  const testimonials = [
-    {
-      quote:
-        "Terimakasihh banyakk atas bantuan mas rendi dan teman2 balpro, tanpa teman2 acara ini tidak akan berjalan dengan lancarr, sekali lagi terima kasihh mas rendi, senang sekali bisa bekerja sama dengan teman2 baplroo",
-      couple: "Putri Nila",
-      location: "March 2022",
-    },
-    {
-      quote:
-        "Dari lubuk hati yg paling dalam, kami keluarga besar Bp. Sunoto - Ibu Heny mengucapkan terimakasih dan penghargaan yang setinggi - tingginya atas seluruh bantuan, tenaga, ide, saran, dsb dari mulai perencanaan, pelaksanaan, dan penyelesaian hajat pernikahan putri kami. Semoga Team Balakosa Project senantiasa selalu kreatif, inovatif, dan kredibel . Semoga selalu dilimpahi kesehatan, kekuatan, dan umur panjang. Apabila dalam kerjasama kami selama ini ada salah dan khilaf, kami mohon maaf yang sebesar - besarnya. Sekali lagi terimakasih yang tiada terkira. Kami sangat puas dan terkesan dengan Team Balakosa Project.",
-      couple: "Bu Henny",
-      location: "November 2021",
-    },
-    {
-      quote:
-        "terimakasih kasih banyak team dari balakosa project terutama mas sudah membatu dari prepare - selesai acara wedding kemarin: - team dari wo servicenya excelent & care semua. - dari dekorasi sesuai sama ekspetasi . - dari segi catering enak semua menunya, keluarga besar sampai tamu komen enak ,terutama bistiknya laris banget. - mas david mc juga gokill & fleksibel. - untuk tim foto & video good, fleksibel di timing - udah diberi kelonggaran waktu yg banyak",
-      couple: "Amy",
-      location: "September 2021",
-    },
-    {
-      quote:
-        "Oh ya mas, makasih banyaaaaaak yaa alhamdulillah hari ini udah selese dan lancar alhamdulillah. Dibantuin sm WO di hari H dan alhamdulillah sejauh ini good. Kami sangat terbantu apalagi tadi pas acara serah2an ituu. Pokoknya overall baik. Semoga tim balakosa semakin profesional lagi yaa dan semangat mas merintis karirnya",
-      couple: "Vina & Wahyu",
-      location: "July 2021",
-    },
-    {
-      quote:
-        "Mas, makasih ya atas kerjasamanya kemarin acara berjalan lancar. Salam untuk semua crew balakosa, sukses selalu",
-      couple: "Maghfira",
-      location: "Mei 2022",
-    },
-  ];
 
   useEffect(() => {
     // Testimonial rotation
@@ -641,7 +609,7 @@ export default function Home() {
         <div className="hidden">
           <HomeBlogPosts onPostsLoaded={handleBlogPostsLoaded} />
         </div>
-        
+
         {/* Blog Section - Only shown if blog posts exist */}
         {hasBlogPosts && (
           <section className="py-24 md:py-32 bg-slate-50 overflow-hidden">
@@ -663,8 +631,8 @@ export default function Home() {
                   Wedding Inspiration
                 </h2>
                 <p className="text-lg text-muted-foreground">
-                  Discover wedding tips, inspiration, and real wedding stories on
-                  our blog.
+                  Discover wedding tips, inspiration, and real wedding stories
+                  on our blog.
                 </p>
               </motion.div>
 
