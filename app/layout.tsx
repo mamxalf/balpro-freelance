@@ -3,6 +3,7 @@ import "@/app/globals.css";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { GoogleAnalytics } from "@/app/lib/analytics";
+import { MusicPlayer } from "@/components/MusicPlayer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -82,6 +83,7 @@ export default function RootLayout({
         >
           <GoogleAnalytics />
           {children}
+          <MusicPlayer />
         </ThemeProvider>
       </body>
     </html>

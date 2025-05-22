@@ -57,17 +57,17 @@ export default function PortfolioPage() {
               Portfolio
             </span>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Our Wedding Moments
+              Momen Pernikahan Kami
             </h1>
             <p className="text-lg text-muted-foreground mb-8">
-              Discover a gallery of magical weddings and love stories we've had
-              the honor to craft for our couples.
+              Temukan galeri pernikahan ajaib dan kisah cinta yang telah kami
+              buat untuk pasangan-pasangan kami.
             </p>
             <Link
               href="/"
               className="inline-flex items-center text-primary font-medium group"
             >
-              <span>Back to Home</span>
+              <span>Kembali ke Beranda</span>
               <svg
                 className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
                 fill="none"

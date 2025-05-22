@@ -9,23 +9,23 @@ export function TermsAndConditions() {
           <div className="text-center mb-12">
             <div className="inline-block mb-4">
               <span className="text-xs uppercase tracking-widest text-primary font-medium">
-                Important Information
+                Informasi Penting
               </span>
               <div className="h-px w-20 bg-primary mt-1 mx-auto"></div>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Terms & Conditions
+              Syarat & Ketentuan
             </h2>
           </div>
 
           <div className="space-y-8">
             <div className="bg-slate-50 p-6 rounded-xl">
-              <h3 className="text-xl font-bold mb-4">Payment Terms</h3>
+              <h3 className="text-xl font-bold mb-4">Syarat Pembayaran</h3>
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary mr-2 mt-0.5" />
                   <span>
-                    Down Payment is Rp 500.000 for Consultation Package
+                    Uang Muka sebesar Rp 500.000 untuk Paket Konsultasi
                   </span>
                 </li>
                 <li className="flex items-start">
@@ -37,8 +37,8 @@ export function TermsAndConditions() {
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary mr-2 mt-0.5" />
                   <span>
-                    Additional transport fee of Rp 500.000 if the event is
-                    outside of Temanggung
+                    Biaya transportasi tambahan Rp 500.000 jika acara
+                    diluar wilayah Temanggung
                   </span>
                 </li>
               </ul>

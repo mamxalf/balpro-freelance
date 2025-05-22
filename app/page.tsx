@@ -72,7 +72,11 @@ const SlidingLogos = ({ direction = "left" }) => {
             <motion.div
               key={`${filename}-${idx}`}
               className="mx-6 w-[280px] h-[180px] bg-slate-900 rounded-2xl overflow-hidden p-6 flex-shrink-0 shadow-lg hover:shadow-2xl transition-all duration-300"
-              whileHover={{ scale: 1.05, zIndex: 10, boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)' }}
+              whileHover={{
+                scale: 1.05,
+                zIndex: 10,
+                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+              }}
             >
               <div className="relative w-full h-full">
                 <Image
@@ -84,7 +88,9 @@ const SlidingLogos = ({ direction = "left" }) => {
                 />
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                <h3 className="text-white font-semibold text-lg mb-1">{name}</h3>
+                <h3 className="text-white font-semibold text-lg mb-1">
+                  {name}
+                </h3>
                 <p className="text-white/90 text-sm">Partner Resmi</p>
               </div>
             </motion.div>
@@ -222,7 +228,7 @@ export default function Home() {
               transition={{ delay: 1, duration: 1 }}
             >
               <span className="text-white text-sm mb-2">
-                Scroll to discover
+                Gulir ke bawah untuk mengetahui lebih lanjut
               </span>
               <motion.div
                 className="w-6 h-10 border-2 border-white rounded-full flex justify-center pt-2"
@@ -269,7 +275,7 @@ export default function Home() {
                   Enterprise akan terus memberikan pelayanan terbaik untuk
                   pernikahan Impian Anda.
                 </p>
-                <div className="pt-4">
+                {/* <div className="pt-4">
                   <Link
                     href="#services"
                     className="group inline-flex items-center text-primary font-medium"
@@ -277,7 +283,7 @@ export default function Home() {
                     <span>Discover Our Approach</span>
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </Link>
-                </div>
+                </div> */}
               </motion.div>
 
               <motion.div
@@ -966,8 +972,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <p className="text-lg">
-                Prefer immediate assistance? Reach out via WhatsApp for a quick
-                response.
+                Butuh bantuan segera? Hubungi kami melalui WhatsApp untuk respon cepat.
               </p>
               <motion.div
                 className="mt-6 inline-block"
@@ -981,7 +986,7 @@ export default function Home() {
                   className="inline-flex items-center gap-2 bg-[#25D366] text-white px-6 py-3 rounded-full hover:shadow-lg transition-all duration-300"
                 >
                   <MessageCircle className="h-5 w-5" />
-                  <span className="font-medium">Chat on WhatsApp</span>
+                  <span className="font-medium">Chat via WhatsApp</span>
                 </Link>
               </motion.div>
             </motion.div>
@@ -990,7 +995,7 @@ export default function Home() {
 
         {/* WhatsApp Button */}
         <motion.div
-          className="fixed bottom-6 right-6 z-40"
+          className="fixed bottom-28 right-6 z-40"
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{

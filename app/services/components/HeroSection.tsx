@@ -15,11 +15,11 @@ export function HeroSection() {
             <span>Back to Home</span>
           </Link>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Our Services
+            Layanan Kami
           </h1>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Discover our comprehensive wedding planning services and venue
-            packages tailored to make your special day perfect.
+            Temukan layanan perencanaan pernikahan dan paket venue komprehensif kami
+            yang dirancang untuk menjadikan hari istimewa Anda sempurna.
           </p>
         </div>
       </div>
