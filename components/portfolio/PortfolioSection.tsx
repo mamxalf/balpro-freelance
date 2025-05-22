@@ -29,7 +29,7 @@ export function PortfolioSection({ items }: PortfolioSectionProps) {
             <div className="h-px w-20 bg-primary mt-1 mx-auto"></div>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            Momen Indah yang Kami Ciptakan
+            {marketingPhrases.portfolioSubtitle}
           </h2>
           <p className="text-lg text-muted-foreground">
             {marketingPhrases.portfolioSubtitle}

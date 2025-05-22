@@ -2,8 +2,16 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ChevronRight, MessageCircle, PhoneIcon, Mail, ArrowRight } from "lucide-react";
+import {
+  X,
+  ChevronRight,
+  MessageCircle,
+  PhoneIcon,
+  Mail,
+  ArrowRight,
+} from "lucide-react";
 import { Button } from "../ui/button";
+import { marketingPhrases, contactInfo } from "@/app/lib/data";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -113,16 +121,16 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             <div className="bg-gray-800/70 backdrop-blur-sm rounded-xl p-4 mb-6 shadow-sm border border-gray-700/30">
               <h3 className="text-sm font-medium text-gray-300 mb-3 flex items-center">
                 <MessageCircle className="h-3.5 w-3.5 mr-2 text-gray-400" />
-                Contact Information
+                {marketingPhrases.contactInformation}
               </h3>
               <div className="space-y-2 text-sm text-gray-300">
                 <div className="flex items-center">
-                  <PhoneIcon className="h-3.5 w-3.5 text-gray-400 mr-2" />
-                  <span>+62 895 3233 51511</span>
+                  <PhoneIcon className="h-3.5 w-3.5 mr-2 text-gray-400" />
+                  <span>{contactInfo.phone}</span>
                 </div>
                 <div className="flex items-center">
                   <Mail className="h-3.5 w-3.5 text-gray-400 mr-2" />
-                  <span>info@balpro.id</span>
+                  <span>{contactInfo.email}</span>
                 </div>
               </div>
             </div>
@@ -137,11 +145,10 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 className="flex w-full items-center justify-center rounded-full bg-gradient-to-r from-gray-200 to-white px-6 py-3.5 text-base font-medium text-gray-900 shadow-lg shadow-black/20 transition-all duration-300 hover:shadow-xl hover:shadow-black/30 hover:scale-105 hover:brightness-110 relative overflow-hidden group border border-white/50"
                 onClick={handleNavigation}
               >
-                <span className="relative z-10 flex items-center">
-                  Get in Touch
-                  <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                </span>
-                <span className="absolute inset-0 bg-gradient-to-r from-gray-100 to-white opacity-0 group-hover:opacity-30 transition-opacity duration-300"></span>
+                <Button className="w-full mt-6 bg-primary hover:bg-primary/90">
+                  {marketingPhrases.contactCta}
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
               </Link>
             </motion.div>
           </div>

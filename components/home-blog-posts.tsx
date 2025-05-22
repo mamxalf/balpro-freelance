@@ -7,8 +7,11 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { BlogPost } from "@/lib/blog-types";
 import { fetchRecentPosts } from "@/lib/blog-client";
+import { marketingPhrases } from "@/app/lib/data";
 
-export default function HomeBlogPosts({ onPostsLoaded }: { onPostsLoaded?: (hasPosts: boolean) => void } = {}) {
+export default function HomeBlogPosts({
+  onPostsLoaded,
+}: { onPostsLoaded?: (hasPosts: boolean) => void } = {}) {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -20,10 +23,13 @@ export default function HomeBlogPosts({ onPostsLoaded }: { onPostsLoaded?: (hasP
         // Get the 3 most recent posts
         const recentPosts = allPosts.slice(0, 3);
         setPosts(recentPosts);
-        
+
         // Notify parent component if there are posts
         if (onPostsLoaded) {
-          console.log('Blog posts loaded:', recentPosts.length > 0 ? 'Has posts' : 'No posts');
+          console.log(
+            "Blog posts loaded:",
+            recentPosts.length > 0 ? "Has posts" : "No posts"
+          );
           onPostsLoaded(recentPosts.length > 0);
         }
       } catch (error) {
@@ -44,7 +50,10 @@ export default function HomeBlogPosts({ onPostsLoaded }: { onPostsLoaded?: (hasP
     return (
       <div className="grid md:grid-cols-3 gap-8">
         {[1, 2, 3].map((i) => (
-          <div key={i} className="bg-white rounded-xl overflow-hidden shadow-sm animate-pulse">
+          <div
+            key={i}
+            className="bg-white rounded-xl overflow-hidden shadow-sm animate-pulse"
+          >
             <div className="h-60 bg-slate-200"></div>
             <div className="p-6">
               <div className="h-4 bg-slate-200 rounded w-2/3 mb-4"></div>
@@ -64,10 +73,10 @@ export default function HomeBlogPosts({ onPostsLoaded }: { onPostsLoaded?: (hasP
   // Format date to be more readable
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     });
   };
 
@@ -84,7 +93,10 @@ export default function HomeBlogPosts({ onPostsLoaded }: { onPostsLoaded?: (hasP
         >
           <div className="relative h-60">
             <Image
-              src={post.image || `/placeholder.svg?height=400&width=600&text=Blog+${index + 1}`}
+              src={
+                post.image ||
+                `/placeholder.svg?height=400&width=600&text=Blog+${index + 1}`
+              }
               alt={post.title}
               fill
               className="object-cover"
@@ -106,7 +118,7 @@ export default function HomeBlogPosts({ onPostsLoaded }: { onPostsLoaded?: (hasP
               href={`/blog/${post.slug}`}
               className="inline-flex items-center text-primary text-sm font-medium"
             >
-              <span>Read More</span>
+              <span>{marketingPhrases.readMore}</span>
               <ArrowRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </div>

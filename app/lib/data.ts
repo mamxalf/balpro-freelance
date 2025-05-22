@@ -63,12 +63,13 @@ export const weddingPackages = [
     id: "wedding-consultation",
     title: "Konsultasi Pernikahan",
     price: "Rp 2.000.000",
-    description: "Konsultasi untuk membantu merencanakan pernikahan impian Anda.",
+    description:
+      "Konsultasi untuk membantu merencanakan pernikahan impian Anda.",
     features: [
       "Konsultasi perencanaan acara",
       "Saran vendor",
       "Tips penganggaran",
-      "Panduan timeline"
+      "Panduan timeline",
     ],
     color: "from-blue-500 to-purple-500",
     popular: false,
@@ -78,13 +79,14 @@ export const weddingPackages = [
     title: "Wedding Organizer (S)",
     subtitle: "Paket Standar",
     price: "Rp 4.500.000",
-    description: "Paket dasar untuk wedding organizer dengan semua kebutuhan utama.",
+    description:
+      "Paket dasar untuk wedding organizer dengan semua kebutuhan utama.",
     features: [
       "Koordinasi di hari H",
       "Konsultasi perencanaan",
       "Koordinasi dengan vendor",
       "Manajemen acara",
-      "Timeline acara"
+      "Timeline acara",
     ],
     color: "from-amber-500 to-pink-500",
     popular: true,
@@ -94,14 +96,15 @@ export const weddingPackages = [
     title: "Wedding Organizer (C)",
     subtitle: "Paket Lengkap",
     price: "Rp 6.500.000",
-    description: "Paket lengkap dengan semua yang Anda butuhkan untuk pernikahan sempurna.",
+    description:
+      "Paket lengkap dengan semua yang Anda butuhkan untuk pernikahan sempurna.",
     features: [
       "Semua fitur paket standar",
       "Koordinasi sebelum hari H",
       "Bantuan pemilihan vendor",
       "Pengaturan dekorasi",
       "Manajemen tamu",
-      "Pendampingan penuh"
+      "Pendampingan penuh",
     ],
     color: "from-emerald-500 to-blue-500",
     popular: false,
@@ -113,7 +116,8 @@ export const venuePackages = [
   {
     id: "balakosa",
     name: "Balakosa",
-    description: "Paket lengkap pernikahan di venue Balakosa dengan pemandangan indah.",
+    description:
+      "Paket lengkap pernikahan di venue Balakosa dengan pemandangan indah.",
     price: "Rp 57.000.000",
     capacity: "300 tamu",
     image: "/venues/balakosa.jpg",
@@ -122,13 +126,14 @@ export const venuePackages = [
       "Katering untuk 300 tamu",
       "Sound system",
       "Dokumentasi foto & video",
-      "Wedding organizer"
-    ]
+      "Wedding organizer",
+    ],
   },
   {
     id: "gd-juang",
     name: "Gedung Juang",
-    description: "Paket pernikahan di Gedung Juang dengan nuansa klasik dan elegan.",
+    description:
+      "Paket pernikahan di Gedung Juang dengan nuansa klasik dan elegan.",
     price: "Rp 62.000.000",
     capacity: "400 tamu",
     image: "/venues/gd-juang.jpg",
@@ -137,9 +142,9 @@ export const venuePackages = [
       "Katering untuk 400 tamu",
       "Sound system professional",
       "Dokumentasi foto & video HD",
-      "Wedding organizer full service"
-    ]
-  }
+      "Wedding organizer full service",
+    ],
+  },
 ];
 
 // Informasi kontak
@@ -150,33 +155,36 @@ export const contactInfo = {
   address: "Jl. Gilingsari KM. 2 (Angkringan Balakosa Temanggung)",
   social: {
     instagram: "https://instagram.com/balpro_wedding",
-    facebook: "https://facebook.com/balproofficial"
+    facebook: "https://facebook.com/balproofficial",
   },
   officeHours: [
     {
       days: "Senin - Jumat",
-      hours: "9:00 - 18:00"
+      hours: "9:00 - 18:00",
     },
     {
       days: "Sabtu",
-      hours: "10:00 - 16:00"
+      hours: "10:00 - 16:00",
     },
     {
       days: "Minggu",
-      hours: "Tutup"
-    }
-  ]
+      hours: "Tutup",
+    },
+  ],
 };
 
 // Tagline dan frasa pemasaran
 export const marketingPhrases = {
   tagline: "#semuabisamenikah",
   heroTitle: "Wujudkan Pernikahan Impian Anda",
-  heroSubtitle: "Balpro membantu mewujudkan pernikahan yang tak terlupakan dengan layanan profesional dan terjangkau.",
+  heroSubtitle:
+    "Balpro membantu mewujudkan pernikahan yang tak terlupakan dengan layanan profesional dan terjangkau.",
   aboutTitle: "Tentang Balpro",
-  aboutDescription: "Balpro adalah perusahaan wedding planner dan organizer di Temanggung yang berkomitmen memberikan layanan pernikahan berkualitas dengan harga terjangkau. Dengan pengalaman dan tim profesional, kami memastikan pernikahan Anda berjalan sempurna.",
+  aboutDescription:
+    "Balpro adalah perusahaan wedding planner dan organizer di Temanggung yang berkomitmen memberikan layanan pernikahan berkualitas dengan harga terjangkau. Dengan pengalaman dan tim profesional, kami memastikan pernikahan Anda berjalan sempurna.",
   servicesTitle: "Layanan Kami",
-  servicesSubtitle: "Kami menawarkan berbagai layanan untuk memenuhi kebutuhan pernikahan Anda",
+  servicesSubtitle:
+    "Kami menawarkan berbagai layanan untuk memenuhi kebutuhan pernikahan Anda",
   portfolioTitle: "Portofolio",
   portfolioSubtitle: "Momen bahagia yang telah kami ciptakan bersama klien",
   testimonialsTitle: "Testimoni",
@@ -187,6 +195,8 @@ export const marketingPhrases = {
   contactSubtitle: "Siap membantu mewujudkan pernikahan impian Anda",
   contactCta: "Konsultasi Gratis",
   whatsappCta: "Chat di WhatsApp",
-  formSubmitButton: "Kirim Pesan"
+  formSubmitButton: "Kirim Pesan",
+  tableOfContents: "Table of Contents",
+  contactInformation: "Informasi Kontak",
+  readMore: "Baca Lebih Lanjut",
 };
-

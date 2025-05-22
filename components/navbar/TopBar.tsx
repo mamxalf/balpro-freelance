@@ -1,5 +1,6 @@
 import { PhoneIcon } from "lucide-react";
 import { Mail, Instagram, Facebook } from "lucide-react";
+import { contactInfo } from "@/app/lib/data";
 
 export function TopBar() {
   return (
@@ -9,26 +10,26 @@ export function TopBar() {
           <div className="flex items-center space-x-1">
             <PhoneIcon className="h-3 w-3 text-gray-400" />
             <span className="hover:text-white transition-colors">
-              +62 895 3233 51511
+              {contactInfo.phone}
             </span>
           </div>
           <div className="flex items-center space-x-1">
             <Mail className="h-3 w-3 text-gray-400" />
             <span className="hover:text-white transition-colors">
-              info@balpro.id
+              {contactInfo.email}
             </span>
           </div>
         </div>
         <div className="flex items-center space-x-4">
           <a
-            href="https://www.instagram.com/balpro__/"
+            href={contactInfo.social.instagram}
             className="text-gray-400 hover:text-white transition-colors"
             aria-label="Instagram"
           >
             <Instagram className="h-3.5 w-3.5" />
           </a>
           <a
-            href="https://www.facebook.com/balakosaproject/"
+            href={contactInfo.social.facebook}
             className="text-gray-400 hover:text-white transition-colors"
             aria-label="Facebook"
           >

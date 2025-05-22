@@ -18,6 +18,7 @@ import {
 import { BlogPost } from "@/lib/blog-types";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/navbar";
+import { marketingPhrases } from "@/app/lib/data";
 
 export default function BlogPage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -104,7 +105,7 @@ export default function BlogPage() {
                 </div>
                 
                 <h1 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
-                  Our Blog is Being Crafted
+                  Blog Kami Sedang Dalam Proses Pembuatan
                 </h1>
                 
                 <div className="relative w-full max-w-md mx-auto mb-12">
@@ -124,8 +125,8 @@ export default function BlogPage() {
                 </div>
                 
                 <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
-                  We're currently preparing beautiful wedding stories, planning tips, and inspiration 
-                  for your special day. Check back soon for updates!                  
+                  Kami sedang menyiapkan cerita pernikahan yang indah, tips perencanaan, dan inspirasi
+                  untuk hari spesial Anda. Silakan kembali lagi nanti untuk pembaruan!
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -134,7 +135,7 @@ export default function BlogPage() {
                     className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-gray-800 to-gray-900 px-6 py-3 text-base font-medium text-white shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105 relative overflow-hidden group"
                   >
                     <span className="relative z-10 flex items-center">
-                      Return to Home
+                      Kembali ke Beranda
                       <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                     </span>
                     <span className="absolute inset-0 bg-gradient-to-r from-gray-700 to-gray-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
@@ -147,7 +148,7 @@ export default function BlogPage() {
                     className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-gray-200 to-white px-6 py-3 text-base font-medium text-gray-900 shadow-md border border-gray-200 transition-all duration-300 hover:shadow-lg hover:scale-105 relative overflow-hidden group"
                   >
                     <span className="relative z-10 flex items-center">
-                      Follow Our Instagram
+                      Ikuti Instagram Kami
                     </span>
                     <span className="absolute inset-0 bg-gradient-to-r from-gray-100 to-white opacity-0 group-hover:opacity-30 transition-opacity duration-300"></span>
                   </Link>
