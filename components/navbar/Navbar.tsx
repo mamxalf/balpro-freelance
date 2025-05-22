@@ -48,12 +48,12 @@ export function Navbar() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-1 lg:space-x-3">
             {[
-              { name: "Tentang", path: "#about" },
-              { name: "Layanan", path: "#services" },
-              { name: "Testimoni", path: "#testimonials" },
-              { name: "Partner", path: "#partners" },
+              { name: "Tentang", path: "/#about" },
+              { name: "Layanan", path: "/#services" },
+              { name: "Testimoni", path: "/#testimonials" },
+              { name: "Partner", path: "/#partners" },
               { name: "Blog", path: "/blog" },
-              { name: "Kontak", path: "#contact" },
+              { name: "Kontak", path: "/#contact" },
             ].map((item, index) => (
               <motion.div
                 key={item.name}

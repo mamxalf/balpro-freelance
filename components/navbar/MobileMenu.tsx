@@ -81,12 +81,12 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           {/* Mobile nav links with animations */}
           <nav className="flex flex-col space-y-5">
             {[
-              { name: "Tentang", path: "#about", icon: "✨" },
-              { name: "Layanan", path: "#services", icon: "💍" },
-              { name: "Testimoni", path: "#testimonials", icon: "💬" },
-              { name: "Partner", path: "#partners", icon: "🤝" },
+              { name: "Tentang", path: "/#about", icon: "✨" },
+              { name: "Layanan", path: "/#services", icon: "💍" },
+              { name: "Testimoni", path: "/#testimonials", icon: "💬" },
+              { name: "Partner", path: "/#partners", icon: "🤝" },
               { name: "Blog", path: "/blog", icon: "📝" },
-              { name: "Kontak", path: "#contact", icon: "📞" },
+              { name: "Kontak", path: "/#contact", icon: "📞" },
             ].map((item, index) => (
               <motion.div
                 key={item.name}
@@ -141,7 +141,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               transition={{ duration: 0.5, delay: 0.5 }}
             >
               <Link
-                href="#contact"
+                href="/#contact"
                 className="flex w-full items-center justify-center rounded-full bg-gradient-to-r from-gray-200 to-white px-6 py-3.5 text-base font-medium text-gray-900 shadow-lg shadow-black/20 transition-all duration-300 hover:shadow-xl hover:shadow-black/30 hover:scale-105 hover:brightness-110 relative overflow-hidden group border border-white/50"
                 onClick={handleNavigation}
               >
