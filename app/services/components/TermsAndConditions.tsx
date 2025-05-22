@@ -69,7 +69,7 @@ export function TermsAndConditions() {
                 href="/#contact"
                 className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-8 text-sm font-medium text-white shadow transition-all duration-300 hover:bg-primary/90 hover:translate-y-[-2px] hover:shadow-lg"
               >
-                Contact Us For More Information
+                Hubungi Kami Untuk Informasi Lebih Lanjut
               </Link>
             </div>
           </div>

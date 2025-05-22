@@ -177,7 +177,7 @@ export function VenueCard({
           target="_blank"
           rel="noopener noreferrer"
         >
-          Book This Package
+          Pesan Paket Ini
         </Link>
       </div>
     </div>

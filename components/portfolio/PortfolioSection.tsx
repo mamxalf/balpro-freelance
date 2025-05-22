@@ -49,7 +49,7 @@ export function PortfolioSection({ items }: PortfolioSectionProps) {
             href="/portfolio"
             className="inline-flex items-center text-primary font-medium"
           >
-            <span>View Full Portfolio</span>
+            <span>Lihat Portfolio Lengkap</span>
             <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </motion.div>

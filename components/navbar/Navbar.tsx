@@ -48,12 +48,12 @@ export function Navbar() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-1 lg:space-x-3">
             {[
-              { name: "About", path: "#about" },
-              { name: "Services", path: "#services" },
-              { name: "Testimonials", path: "#testimonials" },
-              { name: "Partners", path: "#partners" },
+              { name: "Tentang", path: "#about" },
+              { name: "Layanan", path: "#services" },
+              { name: "Testimoni", path: "#testimonials" },
+              { name: "Partner", path: "#partners" },
               { name: "Blog", path: "/blog" },
-              { name: "Contact", path: "#contact" },
+              { name: "Kontak", path: "#contact" },
             ].map((item, index) => (
               <motion.div
                 key={item.name}
@@ -83,7 +83,7 @@ export function Navbar() {
                 href="#contact"
                 className="hidden md:inline-flex h-10 items-center justify-center rounded-full bg-gradient-to-r from-gray-200 to-white px-6 py-2 text-sm font-medium text-gray-900 shadow-md shadow-black/20 transition-all duration-300 hover:shadow-lg hover:shadow-black/30 hover:scale-105 hover:brightness-110 relative overflow-hidden group border border-white/50"
               >
-                <span className="relative z-10">Get in Touch</span>
+                <span className="relative z-10">Hubungi Kami</span>
                 <span className="absolute inset-0 bg-gradient-to-r from-gray-100 to-white opacity-0 group-hover:opacity-30 transition-opacity duration-300"></span>
               </Link>
             </motion.div>

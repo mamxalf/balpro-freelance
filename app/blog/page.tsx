@@ -99,7 +99,7 @@ export default function BlogPage() {
               >
                 <div className="inline-block mb-6">
                   <span className="text-xs uppercase tracking-widest text-primary font-medium">
-                    Coming Soon
+                    Segera Hadir
                   </span>
                   <div className="h-px w-20 bg-primary mt-1 mx-auto"></div>
                 </div>
@@ -156,7 +156,7 @@ export default function BlogPage() {
                 
                 <div className="mt-16 pt-8 border-t border-gray-200 max-w-2xl mx-auto">
                   <p className="text-sm text-gray-500">
-                    Want to be notified when our blog launches? Contact us at <span className="text-primary">info@balpro.id</span>
+                    Ingin mendapatkan notifikasi saat blog kami diluncurkan? Hubungi kami di <span className="text-primary">info@balpro.id</span>
                   </p>
                 </div>
               </motion.div>

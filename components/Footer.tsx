@@ -22,7 +22,7 @@ export function Footer() {
               />
             </Link>
             <p className="text-slate-300 mb-6">
-              {marketingPhrases.aboutDescription.substring(0, 120)}...
+              {marketingPhrases.aboutDescription}
             </p>
             <div className="flex space-x-4">
               <Link
@@ -65,7 +65,9 @@ export function Footer() {
                   <span className="block text-slate-300 group-hover:text-white transition-colors">
                     Email
                   </span>
-                  <span className="text-white font-medium">{contactInfo.email}</span>
+                  <span className="text-white font-medium">
+                    {contactInfo.email}
+                  </span>
                 </div>
               </li>
               <li className="flex items-start group">
@@ -86,12 +88,10 @@ export function Footer() {
         <div className="pt-8 flex justify-center">
           <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6 text-center">
             <p className="text-slate-400 text-sm">
-              &copy; {new Date().getFullYear()} Balpro. All rights reserved.
+              &copy; {new Date().getFullYear()} Balpro. Hak cipta dilindungi.
             </p>
             <span className="hidden md:inline text-slate-600">•</span>
-            <p className="text-slate-400 text-sm">
-              {marketingPhrases.tagline}
-            </p>
+            <p className="text-slate-400 text-sm">{marketingPhrases.tagline}</p>
           </div>
         </div>
       </div>

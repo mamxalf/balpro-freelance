@@ -201,13 +201,13 @@ export default function Home() {
                   href="#services"
                   className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-8 text-sm font-medium text-white shadow transition-all duration-300 hover:bg-primary/90 hover:translate-y-[-2px] hover:shadow-lg"
                 >
-                  Explore Our Services
+                  Jelajahi Layanan Kami
                 </Link>
                 <Link
                   href="#contact"
                   className="inline-flex h-12 items-center justify-center rounded-full border border-white bg-transparent px-8 text-sm font-medium text-white shadow transition-all duration-300 hover:bg-white/10 hover:translate-y-[-2px]"
                 >
-                  Contact Us
+                  Hubungi Kami
                 </Link>
               </motion.div>
             </div>
@@ -248,7 +248,7 @@ export default function Home() {
                 <div className="space-y-4">
                   <div className="inline-block">
                     <span className="text-xs uppercase tracking-widest text-primary font-medium">
-                      Our Story
+                      Cerita Kami
                     </span>
                     <div className="h-px w-20 bg-primary mt-1"></div>
                   </div>
@@ -329,7 +329,7 @@ export default function Home() {
               >
                 <div className="inline-block mb-4">
                   <span className="text-xs uppercase tracking-widest text-primary font-medium">
-                    SPECIAL PACKAGES
+                    PAKET SPESIAL
                   </span>
                   <div className="h-px w-20 bg-primary mt-1 mx-auto"></div>
                 </div>
@@ -337,7 +337,7 @@ export default function Home() {
                   #semuabisamenikah
                 </h2>
                 <p className="text-lg text-muted-foreground mb-6">
-                  Choose from our premium wedding venues for your special day
+                  Pilih dari venue pernikahan premium kami untuk hari spesial Anda
                 </p>
                 <a
                   href="https://wa.me/62895323351511?text=Halo%20saya%20dari%20web%2C%20mau%20konsultasi%20wedding%20Impian%20mulai%2030%20juta.%20Mohon%20info%20lebih%20lanjut."
@@ -441,7 +441,7 @@ export default function Home() {
                     href="/services"
                     className="inline-flex items-center gap-2 bg-white border border-primary/20 text-primary px-6 py-3 rounded-xl hover:bg-primary/5 transition-all duration-300"
                   >
-                    <span>Explore All Our Services</span>
+                    <span>Jelajahi Semua Layanan Kami</span>
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </motion.div>
@@ -629,7 +629,7 @@ export default function Home() {
                   href="/blog"
                   className="inline-flex h-12 items-center justify-center rounded-full border border-primary bg-white px-8 text-sm font-medium text-primary shadow-sm transition-all duration-300 hover:bg-primary/5 hover:-translate-y-1"
                 >
-                  View All Posts
+                  Lihat Semua Artikel
                 </Link>
               </motion.div>
             </div>
@@ -677,7 +677,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
               >
-                <h3 className="text-2xl font-bold mb-6">Send Us a Message</h3>
+                <h3 className="text-2xl font-bold mb-6">Kirim Pesan kepada Kami</h3>
                 <form className="space-y-6">
                   <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                     <motion.div
@@ -688,11 +688,11 @@ export default function Home() {
                       transition={{ delay: 0.1 }}
                     >
                       <label htmlFor="name" className="text-sm font-medium">
-                        Your Name <span className="text-primary">*</span>
+                        Nama Anda <span className="text-primary">*</span>
                       </label>
                       <Input
                         id="name"
-                        placeholder="Enter your name"
+                        placeholder="Masukkan nama Anda"
                         className="rounded-lg border-slate-200 focus:border-primary focus:ring-primary"
                         required
                       />
@@ -705,11 +705,11 @@ export default function Home() {
                       transition={{ delay: 0.2 }}
                     >
                       <label htmlFor="phone" className="text-sm font-medium">
-                        Phone Number <span className="text-primary">*</span>
+                        Nomor Telepon <span className="text-primary">*</span>
                       </label>
                       <Input
                         id="phone"
-                        placeholder="Enter your phone number"
+                        placeholder="Masukkan nomor telepon Anda"
                         className="rounded-lg border-slate-200 focus:border-primary focus:ring-primary"
                         required
                       />
@@ -724,12 +724,12 @@ export default function Home() {
                     transition={{ delay: 0.3 }}
                   >
                     <label htmlFor="email" className="text-sm font-medium">
-                      Email Address <span className="text-primary">*</span>
+                      Alamat Email <span className="text-primary">*</span>
                     </label>
                     <Input
                       id="email"
                       type="email"
-                      placeholder="Enter your email"
+                      placeholder="Masukkan alamat email Anda"
                       className="rounded-lg border-slate-200 focus:border-primary focus:ring-primary"
                       required
                     />
@@ -746,7 +746,7 @@ export default function Home() {
                       htmlFor="wedding-date"
                       className="text-sm font-medium"
                     >
-                      Wedding Date (if known)
+                      Tanggal Pernikahan (jika sudah ditentukan)
                     </label>
                     <Input
                       id="wedding-date"
@@ -763,12 +763,12 @@ export default function Home() {
                     transition={{ delay: 0.5 }}
                   >
                     <label htmlFor="message" className="text-sm font-medium">
-                      Tell Us About Your Wedding{" "}
+                      Ceritakan Tentang Pernikahan Anda{" "}
                       <span className="text-primary">*</span>
                     </label>
                     <Textarea
                       id="message"
-                      placeholder="Share your vision, questions, or requirements"
+                      placeholder="Bagikan visi, pertanyaan, atau kebutuhan Anda"
                       className="min-h-[120px] rounded-lg border-slate-200 focus:border-primary focus:ring-primary"
                       required
                     />
@@ -785,10 +785,10 @@ export default function Home() {
                       type="submit"
                       className="w-full rounded-lg h-12 bg-primary hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
                     >
-                      Send Message
+                      Kirim Pesan
                     </Button>
                     <p className="text-xs text-center text-muted-foreground mt-3">
-                      We'll get back to you within 24 hours
+                      Kami akan menghubungi Anda dalam waktu 24 jam
                     </p>
                   </motion.div>
                 </form>
@@ -873,7 +873,7 @@ export default function Home() {
                           target="_blank"
                           className="text-primary text-sm inline-flex items-center mt-1 hover:underline"
                         >
-                          <span>View on map</span>
+                          <span>Lihat di peta</span>
                           <ArrowRight className="ml-1 h-3 w-3" />
                         </Link>
                       </div>
@@ -882,7 +882,7 @@ export default function Home() {
                 </div>
 
                 <div className="pt-6">
-                  <h4 className="font-medium text-lg mb-4">Connect With Us</h4>
+                  <h4 className="font-medium text-lg mb-4">Hubungi Kami</h4>
                   <div className="flex space-x-4">
                     <motion.div
                       whileHover={{ scale: 1.1 }}
@@ -1008,7 +1008,7 @@ export default function Home() {
             </div>
           </Link>
           <div className="absolute top-1/2 right-full -translate-y-1/2 mr-3 bg-white px-3 py-1.5 rounded-lg shadow-md text-sm font-medium whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-            Chat with us
+            Chat dengan kami
           </div>
         </motion.div>
       </main>

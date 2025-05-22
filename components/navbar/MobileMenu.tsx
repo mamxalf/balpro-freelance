@@ -81,12 +81,12 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           {/* Mobile nav links with animations */}
           <nav className="flex flex-col space-y-5">
             {[
-              { name: "About", path: "#about", icon: "✨" },
-              { name: "Services", path: "#services", icon: "💍" },
-              { name: "Testimonials", path: "#testimonials", icon: "💬" },
-              { name: "Partners", path: "#partners", icon: "🤝" },
+              { name: "Tentang", path: "#about", icon: "✨" },
+              { name: "Layanan", path: "#services", icon: "💍" },
+              { name: "Testimoni", path: "#testimonials", icon: "💬" },
+              { name: "Partner", path: "#partners", icon: "🤝" },
               { name: "Blog", path: "/blog", icon: "📝" },
-              { name: "Contact", path: "#contact", icon: "📞" },
+              { name: "Kontak", path: "#contact", icon: "📞" },
             ].map((item, index) => (
               <motion.div
                 key={item.name}
