@@ -95,20 +95,11 @@ export function WeddingPackages() {
           </motion.p>
         </motion.div>
 
-        <motion.div
-          className="grid md:grid-cols-3 gap-8"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{
-            duration: 0.5,
-            staggerChildren: 0.2,
-            when: "beforeChildren",
-          }}
-        >
+        <div className="grid md:grid-cols-3 gap-8">
           {packages.map((pkg, index) => (
             <motion.div
               key={index}
+              className="flex flex-col h-full"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -117,7 +108,7 @@ export function WeddingPackages() {
               <PackageCard {...pkg} />
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
