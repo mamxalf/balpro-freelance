@@ -105,6 +105,7 @@ export const weddingPackages = [
       "Pengaturan dekorasi",
       "Manajemen tamu",
       "Pendampingan penuh",
+      "Free Honeymoon worth 1jt.",
     ],
     color: "from-emerald-500 to-blue-500",
     popular: false,
@@ -127,6 +128,7 @@ export const venuePackages = [
       "Sound system",
       "Dokumentasi foto & video",
       "Wedding organizer",
+      "Free Honeymoon worth 1jt.",
     ],
   },
   {
@@ -143,6 +145,7 @@ export const venuePackages = [
       "Sound system professional",
       "Dokumentasi foto & video HD",
       "Wedding organizer full service",
+      "Free Honeymoon worth 1jt.",
     ],
   },
 ];
