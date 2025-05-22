@@ -49,9 +49,9 @@ const SlidingLogos = ({ direction = "left" }) => {
   const duplicatedLogos = [...vendorLogos, ...vendorLogos];
 
   return (
-    <div className="flex">
+    <div className="flex py-8">
       <motion.div
-        className="flex"
+        className="flex items-center"
         initial={{ x: direction === "left" ? "0%" : "-100%" }}
         animate={{
           x: direction === "left" ? "-100%" : "0%",
@@ -71,20 +71,21 @@ const SlidingLogos = ({ direction = "left" }) => {
           return (
             <motion.div
               key={`${filename}-${idx}`}
-              className="mx-4 w-[200px] h-[120px] bg-slate-900 rounded-xl overflow-hidden p-4 flex-shrink-0"
-              whileHover={{ scale: 1.05, zIndex: 10 }}
+              className="mx-6 w-[280px] h-[180px] bg-slate-900 rounded-2xl overflow-hidden p-6 flex-shrink-0 shadow-lg hover:shadow-2xl transition-all duration-300"
+              whileHover={{ scale: 1.05, zIndex: 10, boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)' }}
             >
               <div className="relative w-full h-full">
                 <Image
                   src={`/vendor/${filename}`}
                   alt={`Partner ${name}`}
                   fill
-                  className="object-contain"
+                  className="object-contain p-2"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                <h3 className="text-white font-medium text-sm">{name}</h3>
-                <p className="text-white/80 text-xs">Partner</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                <h3 className="text-white font-semibold text-lg mb-1">{name}</h3>
+                <p className="text-white/90 text-sm">Partner Resmi</p>
               </div>
             </motion.div>
           );
@@ -337,7 +338,8 @@ export default function Home() {
                   #semuabisamenikah
                 </h2>
                 <p className="text-lg text-muted-foreground mb-6">
-                  Pilih dari venue pernikahan premium kami untuk hari spesial Anda
+                  Pilih dari venue pernikahan premium kami untuk hari spesial
+                  Anda
                 </p>
                 <a
                   href="https://wa.me/62895323351511?text=Halo%20saya%20dari%20web%2C%20mau%20konsultasi%20wedding%20Impian%20mulai%2030%20juta.%20Mohon%20info%20lebih%20lanjut."
@@ -476,7 +478,8 @@ export default function Home() {
                 {marketingPhrases.testimonialsSubtitle}
               </h2>
               <p className="text-lg text-muted-foreground">
-                Lihat apa yang dikatakan pasangan yang telah mempercayakan pernikahan mereka kepada kami
+                Lihat apa yang dikatakan pasangan yang telah mempercayakan
+                pernikahan mereka kepada kami
               </p>
             </motion.div>
 
@@ -576,10 +579,6 @@ export default function Home() {
                 <div className="flex mb-8">
                   <SlidingLogos direction="left" />
                 </div>
-                {/* Second row - reversed direction */}
-                <div className="flex">
-                  <SlidingLogos direction="right" />
-                </div>
               </div>
             </div>
           </div>
@@ -677,7 +676,9 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
               >
-                <h3 className="text-2xl font-bold mb-6">Kirim Pesan kepada Kami</h3>
+                <h3 className="text-2xl font-bold mb-6">
+                  Kirim Pesan kepada Kami
+                </h3>
                 <form className="space-y-6">
                   <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                     <motion.div
@@ -825,7 +826,8 @@ export default function Home() {
                           {contactInfo.phone}
                         </p>
                         <p className="text-sm text-muted-foreground mt-1">
-                          {contactInfo.officeHours[0].days}, {contactInfo.officeHours[0].hours}
+                          {contactInfo.officeHours[0].days},{" "}
+                          {contactInfo.officeHours[0].hours}
                         </p>
                       </div>
                     </motion.li>
@@ -844,7 +846,9 @@ export default function Home() {
                       </div>
                       <div>
                         <h4 className="font-medium text-lg">Email</h4>
-                        <p className="text-muted-foreground">{contactInfo.email}</p>
+                        <p className="text-muted-foreground">
+                          {contactInfo.email}
+                        </p>
                         <p className="text-sm text-muted-foreground mt-1">
                           Kami akan merespon dalam 24 jam
                         </p>
@@ -937,11 +941,15 @@ export default function Home() {
                         <span>{contactInfo.officeHours[0].hours}</span>
                       </li>
                       <li className="flex justify-between">
-                        <span className="text-muted-foreground">{contactInfo.officeHours[1].days}</span>
+                        <span className="text-muted-foreground">
+                          {contactInfo.officeHours[1].days}
+                        </span>
                         <span>{contactInfo.officeHours[1].hours}</span>
                       </li>
                       <li className="flex justify-between">
-                        <span className="text-muted-foreground">{contactInfo.officeHours[2].days}</span>
+                        <span className="text-muted-foreground">
+                          {contactInfo.officeHours[2].days}
+                        </span>
                         <span>{contactInfo.officeHours[2].hours}</span>
                       </li>
                     </ul>
