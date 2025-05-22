@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { PortfolioGrid } from "./PortfolioGrid";
 import { PortfolioItem } from "./types";
+import { marketingPhrases } from "@/app/lib/data";
 
 interface PortfolioSectionProps {
   items: PortfolioItem[];
@@ -23,16 +24,15 @@ export function PortfolioSection({ items }: PortfolioSectionProps) {
         >
           <div className="inline-block mb-4">
             <span className="text-xs uppercase tracking-widest text-primary font-medium">
-              Our Portfolio
+              {marketingPhrases.portfolioTitle}
             </span>
             <div className="h-px w-20 bg-primary mt-1 mx-auto"></div>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            Moments We've Crafted
+            Momen Indah yang Kami Ciptakan
           </h2>
           <p className="text-lg text-muted-foreground">
-            Explore some of our most memorable weddings and the beautiful
-            stories behind them.
+            {marketingPhrases.portfolioSubtitle}
           </p>
         </motion.div>
 

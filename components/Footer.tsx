@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PhoneIcon, Mail, MapPin, Instagram, Facebook } from "lucide-react";
+import { contactInfo, marketingPhrases } from "@/app/lib/data";
 
 export function Footer() {
   return (
@@ -21,19 +22,18 @@ export function Footer() {
               />
             </Link>
             <p className="text-slate-300 mb-6">
-              Creating magical moments and unforgettable wedding experiences
-              with creativity, elegance, and attention to detail.
+              {marketingPhrases.aboutDescription.substring(0, 120)}...
             </p>
             <div className="flex space-x-4">
               <Link
-                href="https://www.instagram.com/balpro__/"
+                href={contactInfo.social.instagram}
                 aria-label="Instagram"
                 className="bg-white/10 hover:bg-primary/20 p-2.5 rounded-full transition-all duration-300 hover:scale-110"
               >
                 <Instagram className="h-5 w-5 text-white" />
               </Link>
               <Link
-                href="https://www.facebook.com/balakosaproject"
+                href={contactInfo.social.facebook}
                 aria-label="Facebook"
                 className="bg-white/10 hover:bg-primary/20 p-2.5 rounded-full transition-all duration-300 hover:scale-110"
               >
@@ -45,17 +45,17 @@ export function Footer() {
           {/* Contact info */}
           <div className="md:max-w-xs">
             <h3 className="font-medium text-lg mb-4 text-primary/80">
-              Say Hello
+              Hubungi Kami
             </h3>
             <ul className="space-y-4">
               <li className="flex items-start group">
                 <PhoneIcon className="h-5 w-5 text-primary/80 mr-3 mt-0.5 group-hover:text-primary transition-colors" />
                 <div>
                   <span className="block text-slate-300 group-hover:text-white transition-colors">
-                    Give us a call
+                    Telepon
                   </span>
                   <span className="text-white font-medium">
-                    +62 895 3233 51511
+                    {contactInfo.phone}
                   </span>
                 </div>
               </li>
@@ -63,19 +63,19 @@ export function Footer() {
                 <Mail className="h-5 w-5 text-primary/80 mr-3 mt-0.5 group-hover:text-primary transition-colors" />
                 <div>
                   <span className="block text-slate-300 group-hover:text-white transition-colors">
-                    Email us
+                    Email
                   </span>
-                  <span className="text-white font-medium">info@balpro.id</span>
+                  <span className="text-white font-medium">{contactInfo.email}</span>
                 </div>
               </li>
               <li className="flex items-start group">
                 <MapPin className="h-5 w-5 text-primary/80 mr-3 mt-0.5 group-hover:text-primary transition-colors" />
                 <div>
                   <span className="block text-slate-300 group-hover:text-white transition-colors">
-                    Find us
+                    Alamat
                   </span>
                   <span className="text-white font-medium">
-                    Jl. Gilingsari KM. 2 (Angkringan Balakosa Temanggung)
+                    {contactInfo.address}
                   </span>
                 </div>
               </li>
@@ -90,7 +90,7 @@ export function Footer() {
             </p>
             <span className="hidden md:inline text-slate-600">•</span>
             <p className="text-slate-400 text-sm">
-              Crafting dream weddings since 2021
+              {marketingPhrases.tagline}
             </p>
           </div>
         </div>

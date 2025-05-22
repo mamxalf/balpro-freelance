@@ -38,20 +38,15 @@ import {
   generatePortfolioItems,
   selectFeaturedItems,
 } from "@/components/portfolio";
-import { testimonials } from "./lib/data";
+import { testimonials, marketingPhrases, contactInfo } from "./lib/data";
 
 const SlidingLogos = ({ direction = "left" }) => {
   const duration = 20;
-  const logos = [
-    "LOGO_VENDOR_BALPRO_SEMUABISAMENIKAH_AILSA.png",
-    "LOGO_VENDOR_BALPRO_SEMUABISAMENIKAH_FRISMA.png",
-    "LOGO_VENDOR_BALPRO_SEMUABISAMENIKAH_MEREKAMKENANG.png",
-    "LOGO_VENDOR_BALPRO_SEMUABISAMENIKAH_STARGROOVE.png",
-    "LOGO_VENDOR_BALPRO_SEMUABISAMENIKAH_ULTRA.png",
-  ];
+  // Menggunakan data logo dari data.ts
+  const { vendorLogos } = require("./lib/data");
 
   // Duplicate the logos array to ensure smooth infinite loop
-  const duplicatedLogos = [...logos, ...logos];
+  const duplicatedLogos = [...vendorLogos, ...vendorLogos];
 
   return (
     <div className="flex">
@@ -108,21 +103,8 @@ export default function Home() {
     setHasBlogPosts(hasPosts);
   };
 
-  // Get gallery photos from the actual files in public/gallery
-  const galleryFiles = [
-    "Alfon & Desy.webp",
-    "Amy & Rizky.jpg",
-    "Edwin & Rani.jpg",
-    "Kintan & Dzikri.jpg",
-    "Maghfira & Fajar.jpg",
-    "Mega & Mirza.jpg",
-    "Putri & Habib.webp",
-    "Reza & Dian.webp",
-    "Satria & Nisa.webp",
-    "Tiara & Mufti.webp",
-    "Vina & Wahyu.jpg",
-    "Yoshua & Hana.jpg",
-  ];
+  // Menggunakan data galleryFiles dari data.ts
+  const { galleryFiles } = require("./lib/data");
 
   // Generate portfolio items from the gallery files
   const galleryPortfolioItems = generatePortfolioItems(galleryFiles);
@@ -486,16 +468,15 @@ export default function Home() {
             >
               <div className="inline-block mb-4">
                 <span className="text-xs uppercase tracking-widest text-primary font-medium">
-                  Testimonials
+                  {marketingPhrases.testimonialsTitle}
                 </span>
                 <div className="h-px w-20 bg-primary mt-1 mx-auto"></div>
               </div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                What Our Couples Say
+                {marketingPhrases.testimonialsSubtitle}
               </h2>
               <p className="text-lg text-muted-foreground">
-                Hear from couples who trusted us to bring their wedding dreams
-                to life.
+                Lihat apa yang dikatakan pasangan yang telah mempercayakan pernikahan mereka kepada kami
               </p>
             </motion.div>
 
@@ -577,16 +558,15 @@ export default function Home() {
             >
               <div className="inline-block mb-4">
                 <span className="text-xs uppercase tracking-widest text-primary font-medium">
-                  Our Partners
+                  {marketingPhrases.partnersTitle}
                 </span>
                 <div className="h-px w-20 bg-primary mt-1 mx-auto"></div>
               </div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                Trusted Collaborators
+                Partner Terpercaya Kami
               </h2>
               <p className="text-lg text-muted-foreground">
-                We collaborate with the best vendors in the industry to ensure
-                your special day is perfect.
+                {marketingPhrases.partnersSubtitle}
               </p>
             </motion.div>
 
@@ -676,16 +656,15 @@ export default function Home() {
             >
               <div className="inline-block mb-4">
                 <span className="text-xs uppercase tracking-widest text-primary font-medium">
-                  Get In Touch
+                  {marketingPhrases.contactTitle}
                 </span>
                 <div className="h-px w-20 bg-primary mt-1 mx-auto"></div>
               </div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                Let's Create Your Dream Wedding
+                Wujudkan Pernikahan Impian Anda
               </h2>
               <p className="text-lg text-muted-foreground">
-                Ready to start planning your perfect day? We'd love to hear
-                about your vision and help bring it to life.
+                {marketingPhrases.contactSubtitle}
               </p>
             </motion.div>
 
@@ -825,7 +804,7 @@ export default function Home() {
               >
                 <div>
                   <h3 className="text-2xl font-bold mb-6">
-                    Contact Information
+                    {marketingPhrases.contactTitle}
                   </h3>
                   <ul className="space-y-6">
                     <motion.li
@@ -841,12 +820,12 @@ export default function Home() {
                         <PhoneIcon className="h-6 w-6 text-primary" />
                       </div>
                       <div>
-                        <h4 className="font-medium text-lg">Phone</h4>
+                        <h4 className="font-medium text-lg">Telepon</h4>
                         <p className="text-muted-foreground">
-                          +62 895 3233 51511
+                          {contactInfo.phone}
                         </p>
                         <p className="text-sm text-muted-foreground mt-1">
-                          Available Mon-Fri, 9am-6pm
+                          {contactInfo.officeHours[0].days}, {contactInfo.officeHours[0].hours}
                         </p>
                       </div>
                     </motion.li>
@@ -865,9 +844,9 @@ export default function Home() {
                       </div>
                       <div>
                         <h4 className="font-medium text-lg">Email</h4>
-                        <p className="text-muted-foreground">info@balpro.id</p>
+                        <p className="text-muted-foreground">{contactInfo.email}</p>
                         <p className="text-sm text-muted-foreground mt-1">
-                          We'll respond within 24 hours
+                          Kami akan merespon dalam 24 jam
                         </p>
                       </div>
                     </motion.li>
@@ -885,9 +864,9 @@ export default function Home() {
                         <MapPin className="h-6 w-6 text-primary" />
                       </div>
                       <div>
-                        <h4 className="font-medium text-lg">Office</h4>
+                        <h4 className="font-medium text-lg">Kantor</h4>
                         <p className="text-muted-foreground">
-                          Jl. Gilingsari KM. 2 (Angkringan Balakosa Temanggung)
+                          {contactInfo.address}
                         </p>
                         <Link
                           href="https://maps.app.goo.gl/tKXZYuu28g6NgiSJ7"
@@ -910,7 +889,7 @@ export default function Home() {
                       whileTap={{ scale: 0.95 }}
                     >
                       <Link
-                        href="https://www.instagram.com/balpro__/"
+                        href={contactInfo.social.instagram}
                         aria-label="Instagram"
                         className="bg-gradient-to-br from-amber-500 via-pink-500 to-violet-500 rounded-full p-3 flex items-center justify-center text-white hover:shadow-lg transition-all duration-300"
                       >
@@ -922,7 +901,7 @@ export default function Home() {
                       whileTap={{ scale: 0.95 }}
                     >
                       <Link
-                        href="https://www.facebook.com/balakosaproject"
+                        href={contactInfo.social.facebook}
                         aria-label="Facebook"
                         className="bg-[#1877F2] rounded-full p-3 flex items-center justify-center text-white hover:shadow-lg transition-all duration-300"
                       >
@@ -934,7 +913,7 @@ export default function Home() {
                       whileTap={{ scale: 0.95 }}
                     >
                       <Link
-                        href="https://wa.me/62895323351511"
+                        href={contactInfo.whatsapp}
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="WhatsApp"
@@ -948,22 +927,22 @@ export default function Home() {
                   <div className="mt-8 p-6 bg-gradient-to-r from-primary/10 to-primary/5 rounded-xl">
                     <div className="flex items-center mb-3">
                       <Clock className="h-5 w-5 text-primary mr-2" />
-                      <h4 className="font-medium">Office Hours</h4>
+                      <h4 className="font-medium">Jam Operasional</h4>
                     </div>
                     <ul className="space-y-1 text-sm">
                       <li className="flex justify-between">
                         <span className="text-muted-foreground">
-                          Monday - Friday
+                          {contactInfo.officeHours[0].days}
                         </span>
-                        <span>9:00 AM - 6:00 PM</span>
+                        <span>{contactInfo.officeHours[0].hours}</span>
                       </li>
                       <li className="flex justify-between">
-                        <span className="text-muted-foreground">Saturday</span>
-                        <span>10:00 AM - 4:00 PM</span>
+                        <span className="text-muted-foreground">{contactInfo.officeHours[1].days}</span>
+                        <span>{contactInfo.officeHours[1].hours}</span>
                       </li>
                       <li className="flex justify-between">
-                        <span className="text-muted-foreground">Sunday</span>
-                        <span>Closed</span>
+                        <span className="text-muted-foreground">{contactInfo.officeHours[2].days}</span>
+                        <span>{contactInfo.officeHours[2].hours}</span>
                       </li>
                     </ul>
                   </div>
