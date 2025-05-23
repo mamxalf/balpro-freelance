@@ -484,8 +484,7 @@ export default function Home() {
                 {marketingPhrases.testimonialsSubtitle}
               </h2>
               <p className="text-lg text-muted-foreground">
-                Lihat apa yang dikatakan pasangan yang telah mempercayakan
-                pernikahan mereka kepada kami
+                {marketingPhrases.testimonialsDescription}
               </p>
             </motion.div>
 
@@ -972,7 +971,8 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <p className="text-lg">
-                Butuh bantuan segera? Hubungi kami melalui WhatsApp untuk respon cepat.
+                Butuh bantuan segera? Hubungi kami melalui WhatsApp untuk respon
+                cepat.
               </p>
               <motion.div
                 className="mt-6 inline-block"
@@ -980,7 +980,7 @@ export default function Home() {
                 whileTap={{ scale: 0.95 }}
               >
                 <Link
-                  href="https://wa.me/62895323351511"
+                  href={`https://wa.me/62895323351511?text=Halo%20saya%20dari%20web%20Balpro,%20ingin%20info%20lebih%20detil%20layananannya`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-[#25D366] text-white px-6 py-3 rounded-full hover:shadow-lg transition-all duration-300"
@@ -1008,7 +1008,7 @@ export default function Home() {
           whileTap={{ scale: 0.9 }}
         >
           <Link
-            href="https://wa.me/62895323351511"
+            href={`https://wa.me/62895323351511?text=Halo%20saya%20dari%20web%20Balpro,%20ingin%20info%20lebih%20detil%20layananannya`}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center w-16 h-16 bg-[#25D366] rounded-full shadow-lg hover:shadow-xl transition-all duration-300"

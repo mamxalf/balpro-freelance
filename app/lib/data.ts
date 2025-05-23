@@ -189,9 +189,13 @@ export const marketingPhrases = {
   servicesSubtitle:
     "Kami menawarkan berbagai layanan untuk memenuhi kebutuhan pernikahan Anda",
   portfolioTitle: "Portofolio",
-  portfolioSubtitle: "Momen bahagia yang telah kami ciptakan bersama klien",
+  portfolioSubtitle: "Momen Manis Bersama Balpro's Couple",
+  portfolioDescription:
+    "Secuplik momen-momen bahagia yang Balpro ciptakan bersama Pengantin kami ❤",
   testimonialsTitle: "Testimoni",
-  testimonialsSubtitle: "Apa kata klien kami",
+  testimonialsSubtitle: "Kata Mereka",
+  testimonialsDescription:
+    "Tulisan asli dari Pengantin maupun kerabat yang telah mempercayakan Balpro",
   partnersTitle: "Partner Kami",
   partnersSubtitle: "Vendor terpercaya yang bekerja sama dengan kami",
   contactTitle: "Hubungi Kami",

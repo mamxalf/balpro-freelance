@@ -32,7 +32,7 @@ export function PortfolioSection({ items }: PortfolioSectionProps) {
             {marketingPhrases.portfolioSubtitle}
           </h2>
           <p className="text-lg text-muted-foreground">
-            {marketingPhrases.portfolioSubtitle}
+            {marketingPhrases.portfolioDescription}
           </p>
         </motion.div>
 
