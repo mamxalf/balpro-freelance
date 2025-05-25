@@ -205,10 +205,10 @@ export default function Home() {
                   Jelajahi Layanan Kami
                 </Link>
                 <Link
-                  href="#contact"
+                  href="#packages"
                   className="inline-flex h-12 items-center justify-center rounded-full border border-white bg-transparent px-8 text-sm font-medium text-white shadow transition-all duration-300 hover:bg-white/10 hover:translate-y-[-2px]"
                 >
-                  Hubungi Kami
+                  Paket Nikah Mulai 30 Juta
                 </Link>
               </motion.div>
             </div>
@@ -319,7 +319,7 @@ export default function Home() {
           <WeddingPackages />
 
           {/* Venue Cards */}
-          <div className="py-16 md:py-24">
+          <div id="packages" className="py-16 md:py-24">
             <div className="container mx-auto px-4 md:px-6">
               <motion.div
                 className="text-center max-w-3xl mx-auto mt-20 mb-10"
