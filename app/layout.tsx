@@ -54,7 +54,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className="light" style={{ colorScheme: "light" }}>
+    <html lang="id" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon/favicon.ico" sizes="any" />
         <link rel="icon" type="image/svg+xml" href="/favicon/icon0.svg" />
@@ -78,8 +78,9 @@ export default function RootLayout({
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
-          enableSystem
+          enableSystem={false}
           disableTransitionOnChange
+          forcedTheme="light"
         >
           <GoogleAnalytics />
           {children}

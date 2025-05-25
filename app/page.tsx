@@ -221,7 +221,7 @@ export default function Home() {
               animate={{ opacity: 1 }}
               transition={{ delay: 1, duration: 1 }}
             >
-              <span className="text-white text-sm mb-2">
+              <span className="text-white text-sm mb-2 text-center">
                 Gulir ke bawah untuk mengetahui lebih lanjut
               </span>
               <motion.div
