@@ -9,6 +9,8 @@ export function MusicPlayer() {
   const [isPlaying, setIsPlaying] = useState(true);
   const [isVisible, setIsVisible] = useState(true);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const songTitle = "A Million Dreams";
+  const songArtist = "Hugh Jackman, Michelle Williams & Ziv Zaifman";
   useEffect(() => {
     // Initialize audio
     if (typeof window !== "undefined") {
@@ -60,13 +62,18 @@ export function MusicPlayer() {
           transition={{ duration: 0.3 }}
         >
           <motion.div
-            className="relative bg-white/90 backdrop-blur-md rounded-full p-1 shadow-lg border border-gray-200 cursor-pointer overflow-hidden"
+            className="relative bg-white/90 backdrop-blur-md rounded-full shadow-lg border border-gray-200 cursor-pointer overflow-hidden group flex items-center h-16"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={togglePlay}
+            layout
+            animate={{
+              width: isPlaying ? 'auto' : '4rem',
+              transition: { duration: 0.5, ease: [0.19, 1.0, 0.22, 1.0] }
+            }}
           >
             {/* CD Player Design */}
-            <div className="relative w-16 h-16 flex items-center justify-center">
+            <div className="relative w-16 h-16 flex items-center justify-center p-1 flex-shrink-0">
               {/* Rotating CD */}
               <motion.div
                 className="absolute inset-2 rounded-full bg-gradient-to-br from-gray-900 to-gray-700 flex items-center justify-center"
@@ -75,7 +82,7 @@ export function MusicPlayer() {
                   duration: 8,
                   repeat: Infinity,
                   ease: "linear",
-                  repeatType: "loop"
+                  repeatType: "loop",
                 }}
                 style={{ transformOrigin: "center center" }}
               >
@@ -104,6 +111,24 @@ export function MusicPlayer() {
                 )}
               </div>
             </div>
+            <AnimatePresence>
+              {isPlaying && (
+                <motion.div 
+                  className="px-4 flex flex-col justify-center overflow-hidden min-w-0 max-w-[200px]"
+                  initial={{ opacity: 0, width: 0 }}
+                  animate={{ opacity: 1, width: "auto" }}
+                  exit={{ opacity: 0, width: 0 }}
+                  transition={{ 
+                    duration: 0.4, 
+                    opacity: { duration: 0.3 },
+                    width: { duration: 0.5, ease: [0.19, 1.0, 0.22, 1.0] }
+                  }}
+                >
+                  <p className="text-sm font-semibold text-gray-800 truncate m-0 leading-tight">{songTitle}</p>
+                  <p className="text-xs text-gray-500 truncate m-0 mt-0.5 leading-tight">{songArtist}</p>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
         </motion.div>
       )}

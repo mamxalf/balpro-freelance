@@ -34,25 +34,36 @@ import {
 } from "@/components/portfolio";
 import { testimonials, marketingPhrases, contactInfo } from "./lib/data";
 
-const SlidingLogos = ({ direction = "left" }) => {
+const SlidingLogos = ({
+  direction = "left",
+}: {
+  direction?: "left" | "right";
+}) => {
   const duration = 20;
   // Menggunakan data logo dari data.ts
   const { vendorLogos } = require("./lib/data");
 
   // Duplicate the logos array to ensure smooth infinite loop
-  const duplicatedLogos = [...vendorLogos, ...vendorLogos];
+  const duplicatedLogos = [
+    ...vendorLogos,
+    ...vendorLogos,
+    ...vendorLogos,
+    ...vendorLogos,
+    ...vendorLogos,
+  ];
 
   return (
-    <div className="flex py-8">
+    <div className="flex overflow-hidden py-8">
       <motion.div
         className="flex items-center"
-        initial={{ x: direction === "left" ? "0%" : "-100%" }}
+        initial={{ x: 0 }}
         animate={{
-          x: direction === "left" ? "-100%" : "0%",
+          x: direction === "left" ? "-50%" : "50%",
         }}
         transition={{
           duration,
           repeat: Infinity,
+          repeatType: "loop",
           ease: "linear",
         }}
       >
