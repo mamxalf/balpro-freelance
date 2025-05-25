@@ -16,22 +16,7 @@ export function WeddingPackages() {
         downPayment: "Uang Muka: Rp 500.000",
         fullPayment: "Pelunasan 7 hari sebelum acara",
       },
-      whatsappTemplate:
-        `Halo saya dari web, berencana ambil service ${weddingPackages[0].title} Balpro. Mohon info lebih lanjut.`,
-    },
-    {
-      title: weddingPackages[1].title,
-      subtitle: weddingPackages[1].subtitle,
-      price: weddingPackages[1].price,
-      description: weddingPackages[1].description,
-      features: weddingPackages[1].features,
-      paymentTerms: {
-        downPayment: "Uang Muka: Rp 1.500.000",
-        fullPayment: "Pelunasan 7 hari sebelum acara",
-      },
-      isPopular: weddingPackages[1].popular,
-      whatsappTemplate:
-        `Halo saya dari web, berencana ambil service ${weddingPackages[1].title} ${weddingPackages[1].subtitle} Balpro. Mohon info lebih lanjut.`,
+      whatsappTemplate: `Halo saya dari web, berencana ambil service ${weddingPackages[0].title} Balpro. Mohon info lebih lanjut.`,
     },
     {
       title: weddingPackages[2].title,
@@ -44,8 +29,21 @@ export function WeddingPackages() {
         fullPayment: "Pelunasan 100% 7 hari sebelum acara",
         additionalInfo: "Biaya transportasi tambahan mungkin berlaku",
       },
-      whatsappTemplate:
-        `Halo saya dari web, berencana ambil service ${weddingPackages[2].title} ${weddingPackages[2].subtitle} Balpro. Mohon info lebih lanjut.`,
+      isPopular: weddingPackages[2].popular,
+      hasPreWeddingBonus: true,
+      whatsappTemplate: `Halo saya dari web, berencana ambil service ${weddingPackages[2].title} ${weddingPackages[2].subtitle} Balpro. Mohon info lebih lanjut.`,
+    },
+    {
+      title: weddingPackages[1].title,
+      subtitle: weddingPackages[1].subtitle,
+      price: weddingPackages[1].price,
+      description: weddingPackages[1].description,
+      features: weddingPackages[1].features,
+      paymentTerms: {
+        downPayment: "Uang Muka: Rp 1.500.000",
+        fullPayment: "Pelunasan 7 hari sebelum acara",
+      },
+      whatsappTemplate: `Halo saya dari web, berencana ambil service ${weddingPackages[1].title} ${weddingPackages[1].subtitle} Balpro. Mohon info lebih lanjut.`,
     },
   ];
 

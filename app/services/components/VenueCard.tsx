@@ -42,7 +42,7 @@ export function VenueCard({
   hasPreWeddingBonus = false,
   additionalFees = [],
   imageSrc = "/venue-placeholder.jpg",
-  whatsappTemplate = 'Halo, saya tertarik dengan paket ini. Bisa minta info lebih lanjut?',
+  whatsappTemplate = "Halo, saya tertarik dengan paket ini. Bisa minta info lebih lanjut?",
 }: VenueCardProps) {
   return (
     <div className="bg-white rounded-2xl overflow-hidden shadow-xl">
@@ -92,7 +92,9 @@ export function VenueCard({
               {additionalFees.map((fee, index) => (
                 <li key={index} className="flex items-start">
                   <Check className="h-5 w-5 text-primary mr-2 mt-0.5" />
-                  <span>{fee.label}: {fee.value}</span>
+                  <span>
+                    {fee.label}: {fee.value}
+                  </span>
                 </li>
               ))}
               <li className="flex items-start">
@@ -128,14 +130,16 @@ export function VenueCard({
                 <Check className="h-5 w-5 text-primary mr-2 mt-0.5" />
                 <span>{photoVideoFee}</span>
               </li>
-              <li className="flex items-start">
+              {/* <li className="flex items-start">
                 <Check className="h-5 w-5 text-primary mr-2 mt-0.5" />
                 <span>{preWeddingFee}</span>
-              </li>
+              </li> */}
             </ul>
           </div>
           <div>
-            <h5 className="font-medium text-lg mb-3">Entertainment & Services</h5>
+            <h5 className="font-medium text-lg mb-3">
+              Entertainment & Services
+            </h5>
             <ul className="space-y-2">
               <li className="flex items-start">
                 <Check className="h-5 w-5 text-primary mr-2 mt-0.5" />
@@ -158,21 +162,37 @@ export function VenueCard({
         </div>
 
         {hasPreWeddingBonus && (
-          <div className="bg-primary/5 p-4 rounded-lg mb-8">
-            <div className="flex justify-between items-center">
-              <div>
-                <p className="font-bold text-lg">Free Pre-Wedding Video</p>
-                <p className="text-muted-foreground">Worth Rp 1,5 juta</p>
-              </div>
-              <div className="bg-white rounded-full px-4 py-2 shadow-sm">
-                <p className="text-primary font-bold">BONUS</p>
+          <>
+            <div className="bg-primary/5 p-4 rounded-lg mb-4">
+              <div className="flex justify-between items-center">
+                <div>
+                  <p className="font-bold text-lg">Free Pre-Wedding Video</p>
+                  <p className="text-muted-foreground">Worth Rp 1,5 juta</p>
+                </div>
+                <div className="bg-white rounded-full px-4 py-2 shadow-sm">
+                  <p className="text-primary font-bold">BONUS</p>
+                </div>
               </div>
             </div>
-          </div>
+            <div className="bg-primary/5 p-4 rounded-lg mb-8">
+              <div className="flex justify-between items-center">
+                <div>
+                  <p className="font-bold text-lg">Free Honeymoon</p>
+                  <p className="text-muted-foreground">Worth Rp 1 juta</p>
+                </div>
+                <div className="bg-white rounded-full px-4 py-2 shadow-sm">
+                  <p className="text-primary font-bold">BONUS</p>
+                </div>
+              </div>
+            </div>
+          </>
         )}
 
         <Link
-          href={`https://wa.me/62895323351511?text=${encodeURIComponent(whatsappTemplate || 'Halo, saya tertarik dengan paket ini. Bisa minta info lebih lanjut?')}`}
+          href={`https://wa.me/62895323351511?text=${encodeURIComponent(
+            whatsappTemplate ||
+              "Halo, saya tertarik dengan paket ini. Bisa minta info lebih lanjut?"
+          )}`}
           className="block w-full bg-primary text-white text-center py-4 rounded-lg hover:bg-primary/90 transition-colors font-medium"
           target="_blank"
           rel="noopener noreferrer"

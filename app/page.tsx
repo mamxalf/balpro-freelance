@@ -8,7 +8,6 @@ import {
   useScroll,
   useTransform,
   AnimatePresence,
-  useAnimation,
 } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -20,14 +19,9 @@ import {
   Clock,
   Instagram,
   Facebook,
-  Twitter,
-  Menu,
-  X,
-  ChevronRight,
   ArrowRight,
   MessageCircle,
 } from "lucide-react";
-import { portfolioItems } from "./portfolio/page";
 import HomeBlogPosts from "@/components/home-blog-posts";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/Footer";

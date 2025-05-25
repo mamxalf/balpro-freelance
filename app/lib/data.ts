@@ -89,7 +89,7 @@ export const weddingPackages = [
       "Timeline acara",
     ],
     color: "from-amber-500 to-pink-500",
-    popular: true,
+    popular: false,
   },
   {
     id: "wedding-organizer-complete",
@@ -105,10 +105,9 @@ export const weddingPackages = [
       "Pengaturan dekorasi",
       "Manajemen tamu",
       "Pendampingan penuh",
-      "Free Honeymoon worth 1jt.",
     ],
     color: "from-emerald-500 to-blue-500",
-    popular: false,
+    popular: true,
   },
 ];
 
